@@ -1,0 +1,2142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39906420-FA57-4EEA-837B-E692B72876B8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>asc_general</RootNamespace>
+    <AssemblyName>asc_general</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\adminController.cs" />
+    <Compile Include="Controllers\CartoonController.cs" />
+    <Compile Include="Controllers\cartoonsCrudController.cs" />
+    <Compile Include="Controllers\cartoon_blogController.cs" />
+    <Compile Include="Controllers\EducationController.cs" />
+    <Compile Include="Controllers\FoodController.cs" />
+    <Compile Include="Controllers\foodsCrudController.cs" />
+    <Compile Include="Controllers\food_categoriesCrudController.cs" />
+    <Compile Include="Controllers\gymController.cs" />
+    <Compile Include="Controllers\healthController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NameController.cs" />
+    <Compile Include="Controllers\SIngleBlogController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\asc.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>asc.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\asc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\asc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>asc.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\blog.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\blog_category.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cartoon.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\education.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\edu_categories.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\food.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\food_categories.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\gym_blog.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\health_staff.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\idman_kompp.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lettr.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\name.cs">
+      <DependentUpon>asc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="asc_temp\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="asc_temp\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="asc_temp\bootstrap\css\bootstrap.css" />
+    <Content Include="asc_temp\bootstrap\css\bootstrap.min.css" />
+    <Content Include="asc_temp\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="asc_temp\bootstrap\js\bootstrap.js" />
+    <Content Include="asc_temp\bootstrap\js\bootstrap.min.js" />
+    <Content Include="asc_temp\bootstrap\js\npm.js" />
+    <Content Include="asc_temp\css\animate.min.css" />
+    <Content Include="asc_temp\css\blank.html" />
+    <Content Include="asc_temp\css\bootstrap.css" />
+    <Content Include="asc_temp\css\bootstrap.min.css" />
+    <Content Include="asc_temp\css\cizgi.css" />
+    <Content Include="asc_temp\css\font-awesome.min.css" />
+    <Content Include="asc_temp\css\food.css" />
+    <Content Include="asc_temp\css\foodHut_responsive.css" />
+    <Content Include="asc_temp\css\foodHut_style.css" />
+    <Content Include="asc_temp\css\gym.css" />
+    <Content Include="asc_temp\css\layerslider.css" />
+    <Content Include="asc_temp\css\lightbox.min.css" />
+    <Content Include="asc_temp\css\login.css" />
+    <Content Include="asc_temp\css\magnific-popup.css" />
+    <Content Include="asc_temp\css\medicore.css" />
+    <Content Include="asc_temp\css\name.css" />
+    <Content Include="asc_temp\css\owl.carousel.min.css" />
+    <Content Include="asc_temp\css\pageloader.css" />
+    <Content Include="asc_temp\css\prettyPhoto.css" />
+    <Content Include="asc_temp\css\register.css" />
+    <Content Include="asc_temp\css\responsive.css" />
+    <Content Include="asc_temp\css\search.css" />
+    <Content Include="asc_temp\css\settings.css" />
+    <Content Include="asc_temp\css\shortcodes.css" />
+    <Content Include="asc_temp\css\slick.css" />
+    <Content Include="asc_temp\css\tehsil.css" />
+    <Content Include="asc_temp\css\themify-icons.css" />
+    <Content Include="asc_temp\css\VideoPopUp.css" />
+    <Content Include="asc_temp\favicon.ico" />
+    <Content Include="asc_temp\fonts\fontawesome-webfont862f.svg" />
+    <Content Include="asc_temp\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="asc_temp\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="asc_temp\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="asc_temp\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="asc_temp\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="asc_temp\fonts\themify9f24.svg" />
+    <Content Include="asc_temp\icon.png" />
+    <Content Include="asc_temp\images\about.jpg" />
+    <Content Include="asc_temp\images\activity1.jpg" />
+    <Content Include="asc_temp\images\activity2.jpg" />
+    <Content Include="asc_temp\images\activity3.jpg" />
+    <Content Include="asc_temp\images\activity4.jpg" />
+    <Content Include="asc_temp\images\add1.jpg" />
+    <Content Include="asc_temp\images\add2.jpg" />
+    <Content Include="asc_temp\images\add_bg.png" />
+    <Content Include="asc_temp\images\arrow.png" />
+    <Content Include="asc_temp\images\audio-bg.png" />
+    <Content Include="asc_temp\images\author-hexa-bg.png" />
+    <Content Include="asc_temp\images\author.jpg" />
+    <Content Include="asc_temp\images\babylogin.jpg" />
+    <Content Include="asc_temp\images\babyregistr.jpeg" />
+    <Content Include="asc_temp\images\bgbaby.jpg" />
+    <Content Include="asc_temp\images\blog_img1.jpg" />
+    <Content Include="asc_temp\images\blog_img2.jpg" />
+    <Content Include="asc_temp\images\blog_img3.jpg" />
+    <Content Include="asc_temp\images\blog_img4.jpg" />
+    <Content Include="asc_temp\images\blog_img5.jpg" />
+    <Content Include="asc_temp\images\blog_img6.jpg" />
+    <Content Include="asc_temp\images\blog_list1.jpg" />
+    <Content Include="asc_temp\images\blog_list2.jpg" />
+    <Content Include="asc_temp\images\blog_list3.jpg" />
+    <Content Include="asc_temp\images\blue.jpg" />
+    <Content Include="asc_temp\images\butterfly.png" />
+    <Content Include="asc_temp\images\cartoon1.jpg" />
+    <Content Include="asc_temp\images\cartoon10.jpg" />
+    <Content Include="asc_temp\images\cartoon11.jpg" />
+    <Content Include="asc_temp\images\cartoon12.jpg" />
+    <Content Include="asc_temp\images\cartoon2.jpg" />
+    <Content Include="asc_temp\images\cartoon3.jpg" />
+    <Content Include="asc_temp\images\cartoon4.jpg" />
+    <Content Include="asc_temp\images\cartoon5.jpg" />
+    <Content Include="asc_temp\images\cartoon6.jpg" />
+    <Content Include="asc_temp\images\cartoon7.jpg" />
+    <Content Include="asc_temp\images\cartoon8.jpg" />
+    <Content Include="asc_temp\images\cartoon9.jpg" />
+    <Content Include="asc_temp\images\class1.jpg" />
+    <Content Include="asc_temp\images\class2.jpg" />
+    <Content Include="asc_temp\images\class3.jpg" />
+    <Content Include="asc_temp\images\class4.jpg" />
+    <Content Include="asc_temp\images\class5.jpg" />
+    <Content Include="asc_temp\images\class6.jpg" />
+    <Content Include="asc_temp\images\clever.jpg" />
+    <Content Include="asc_temp\images\clever2.jpg" />
+    <Content Include="asc_temp\images\clever3.jpg" />
+    <Content Include="asc_temp\images\client-logo1.png" />
+    <Content Include="asc_temp\images\client-logo2.png" />
+    <Content Include="asc_temp\images\client-logo3.png" />
+    <Content Include="asc_temp\images\client-logo4.png" />
+    <Content Include="asc_temp\images\cloud-bg.png" />
+    <Content Include="asc_temp\images\comment.jpg" />
+    <Content Include="asc_temp\images\comment1.jpg" />
+    <Content Include="asc_temp\images\comment2.jpg" />
+    <Content Include="asc_temp\images\comment3.jpg" />
+    <Content Include="asc_temp\images\contact_form_bg.png" />
+    <Content Include="asc_temp\images\e.png" />
+    <Content Include="asc_temp\images\e_herfi.png" />
+    <Content Include="asc_temp\images\facebook.png" />
+    <Content Include="asc_temp\images\flower.png" />
+    <Content Include="asc_temp\images\flower_blue.png" />
+    <Content Include="asc_temp\images\flower_green.png" />
+    <Content Include="asc_temp\images\flower_lavender.png" />
+    <Content Include="asc_temp\images\flower_mustard.png" />
+    <Content Include="asc_temp\images\flower_pink.png" />
+    <Content Include="asc_temp\images\flower_purple.png" />
+    <Content Include="asc_temp\images\flower_red.png" />
+    <Content Include="asc_temp\images\flower_steelblue.png" />
+    <Content Include="asc_temp\images\flower_yellow.png" />
+    <Content Include="asc_temp\images\footer_arrow.png" />
+    <Content Include="asc_temp\images\footer_bg.png" />
+    <Content Include="asc_temp\images\footer_strip.jpg" />
+    <Content Include="asc_temp\images\footer_top_bg.png" />
+    <Content Include="asc_temp\images\founder.jpg" />
+    <Content Include="asc_temp\images\girl.png" />
+    <Content Include="asc_temp\images\go_to_top.png" />
+    <Content Include="asc_temp\images\gplus.png" />
+    <Content Include="asc_temp\images\gradient.jpg" />
+    <Content Include="asc_temp\images\gradientbg.jpg" />
+    <Content Include="asc_temp\images\grdnt.png" />
+    <Content Include="asc_temp\images\green-meta-arrow.png" />
+    <Content Include="asc_temp\images\green_sketch.png" />
+    <Content Include="asc_temp\images\green_title_bg.png" />
+    <Content Include="asc_temp\images\header_bg.png" />
+    <Content Include="asc_temp\images\hero1.jpg" />
+    <Content Include="asc_temp\images\hero2.jpg" />
+    <Content Include="asc_temp\images\hexagon.png" />
+    <Content Include="asc_temp\images\image1.jpg" />
+    <Content Include="asc_temp\images\image10.jpg" />
+    <Content Include="asc_temp\images\image2.jpg" />
+    <Content Include="asc_temp\images\image3.jpg" />
+    <Content Include="asc_temp\images\image4.jpg" />
+    <Content Include="asc_temp\images\image5.jpg" />
+    <Content Include="asc_temp\images\image6.jpg" />
+    <Content Include="asc_temp\images\image7.jpg" />
+    <Content Include="asc_temp\images\image8.jpg" />
+    <Content Include="asc_temp\images\image9.jpg" />
+    <Content Include="asc_temp\images\kids.mp4" />
+    <Content Include="asc_temp\images\layerslider-gallery\a-trendy-kids.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\aplus.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\apple.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\awesome-gallery.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\b-bulb.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\b-cloud.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\b-comment.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\b-game.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\b-glass.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\b-swirl.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\b-tick.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\bg1.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\bg2.jpg" />
+    <Content Include="asc_temp\images\layerslider-gallery\bg2.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\bg3.jpg" />
+    <Content Include="asc_temp\images\layerslider-gallery\bg4.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\bg5.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\black-board.jpg" />
+    <Content Include="asc_temp\images\layerslider-gallery\boom.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\boy1.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\boy2.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\boy3.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\bring.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\cap.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\chalk-effect.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\common-star.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\common-swirl.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\creative-design.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\cup-divider.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\fun.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\girl1.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\girl2.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\grass.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\life.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\mega-menu.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\parallax-bg.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\purchase-theme.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\school-kid.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\star-2.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\swirl-2.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\swirl-3.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\swirl-4.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\text-desc.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\two.png" />
+    <Content Include="asc_temp\images\layerslider-gallery\welcome-text.png" />
+    <Content Include="asc_temp\images\loginbaby.jpg" />
+    <Content Include="asc_temp\images\loginbg.svg" />
+    <Content Include="asc_temp\images\logo-dark.png" />
+    <Content Include="asc_temp\images\logo-light.png" />
+    <Content Include="asc_temp\images\logo.png" />
+    <Content Include="asc_temp\images\mask.png" />
+    <Content Include="asc_temp\images\megamenu-title_bg.png" />
+    <Content Include="asc_temp\images\mega_menu_bg.png" />
+    <Content Include="asc_temp\images\mega_menu_blog_img1.jpg" />
+    <Content Include="asc_temp\images\mega_menu_blog_img2.jpg" />
+    <Content Include="asc_temp\images\meta_arrow.png" />
+    <Content Include="asc_temp\images\mickey.png" />
+    <Content Include="asc_temp\images\mypics\alma.jpg" />
+    <Content Include="asc_temp\images\mypics\ari.png" />
+    <Content Include="asc_temp\images\mypics\atlar.jpg" />
+    <Content Include="asc_temp\images\mypics\baby-boy.png" />
+    <Content Include="asc_temp\images\mypics\baby-feet-pink.png" />
+    <Content Include="asc_temp\images\mypics\baby-footprint-heart.png" />
+    <Content Include="asc_temp\images\mypics\baby-fussabdruck-herz.png" />
+    <Content Include="asc_temp\images\mypics\baby-girl.png" />
+    <Content Include="asc_temp\images\mypics\baby.jpg" />
+    <Content Include="asc_temp\images\mypics\baby1.jpg" />
+    <Content Include="asc_temp\images\mypics\baby1.png" />
+    <Content Include="asc_temp\images\mypics\baby2.jpg" />
+    <Content Include="asc_temp\images\mypics\baby3.png" />
+    <Content Include="asc_temp\images\mypics\baloon1.jpg" />
+    <Content Include="asc_temp\images\mypics\baloon2.png" />
+    <Content Include="asc_temp\images\mypics\bg2.png" />
+    <Content Include="asc_temp\images\mypics\board.jpg" />
+    <Content Include="asc_temp\images\mypics\boy-footprint.png" />
+    <Content Include="asc_temp\images\mypics\boy.png" />
+    <Content Include="asc_temp\images\mypics\boyf.png" />
+    <Content Include="asc_temp\images\mypics\btrfly.png" />
+    <Content Include="asc_temp\images\mypics\bubble1.png" />
+    <Content Include="asc_temp\images\mypics\bubble2.png" />
+    <Content Include="asc_temp\images\mypics\bubble3.png" />
+    <Content Include="asc_temp\images\mypics\buble.png" />
+    <Content Include="asc_temp\images\mypics\butterfly.jpg" />
+    <Content Include="asc_temp\images\mypics\dc1.jpg" />
+    <Content Include="asc_temp\images\mypics\dc2.jpg" />
+    <Content Include="asc_temp\images\mypics\dc3.jpg" />
+    <Content Include="asc_temp\images\mypics\dc4.jpg" />
+    <Content Include="asc_temp\images\mypics\dc5.jpg" />
+    <Content Include="asc_temp\images\mypics\dc6.jpg" />
+    <Content Include="asc_temp\images\mypics\dots.jpg" />
+    <Content Include="asc_temp\images\mypics\ideas.jpg" />
+    <Content Include="asc_temp\images\mypics\logoKorpem.png" />
+    <Content Include="asc_temp\images\mypics\mother-baby.jpg" />
+    <Content Include="asc_temp\images\mypics\star.jpg" />
+    <Content Include="asc_temp\images\mypics\toys.jpg" />
+    <Content Include="asc_temp\images\parent.jpg" />
+    <Content Include="asc_temp\images\pinterest.png" />
+    <Content Include="asc_temp\images\portfolio-mask.png" />
+    <Content Include="asc_temp\images\portfolio-slider-arrow-left.png" />
+    <Content Include="asc_temp\images\portfolio-slider-arrow-right.png" />
+    <Content Include="asc_temp\images\portfolio_detail1.jpg" />
+    <Content Include="asc_temp\images\portfolio_detail2.jpg" />
+    <Content Include="asc_temp\images\portfolio_detail3.jpg" />
+    <Content Include="asc_temp\images\portfolio_detail4.jpg" />
+    <Content Include="asc_temp\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="asc_temp\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="asc_temp\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="asc_temp\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="asc_temp\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="asc_temp\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="asc_temp\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="asc_temp\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="asc_temp\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="asc_temp\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="asc_temp\images\prettyPhoto\default\loader.gif" />
+    <Content Include="asc_temp\images\prettyPhoto\default\sprite.png" />
+    <Content Include="asc_temp\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="asc_temp\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="asc_temp\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="asc_temp\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="asc_temp\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="asc_temp\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="asc_temp\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="asc_temp\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="asc_temp\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="asc_temp\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="asc_temp\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="asc_temp\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="asc_temp\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="asc_temp\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="asc_temp\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="asc_temp\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="asc_temp\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="asc_temp\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="asc_temp\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="asc_temp\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="asc_temp\images\pricing-image1.jpg" />
+    <Content Include="asc_temp\images\pricing-image2.jpg" />
+    <Content Include="asc_temp\images\pricing-image3.jpg" />
+    <Content Include="asc_temp\images\pricing-image4.jpg" />
+    <Content Include="asc_temp\images\product1.jpg" />
+    <Content Include="asc_temp\images\product2.jpg" />
+    <Content Include="asc_temp\images\product3.jpg" />
+    <Content Include="asc_temp\images\product4.jpg" />
+    <Content Include="asc_temp\images\product5.jpg" />
+    <Content Include="asc_temp\images\product6.jpg" />
+    <Content Include="asc_temp\images\product7.jpg" />
+    <Content Include="asc_temp\images\product8.jpg" />
+    <Content Include="asc_temp\images\product9.jpg" />
+    <Content Include="asc_temp\images\product_bg.png" />
+    <Content Include="asc_temp\images\product_thumb1.jpg" />
+    <Content Include="asc_temp\images\product_thumb2.jpg" />
+    <Content Include="asc_temp\images\product_thumb3.jpg" />
+    <Content Include="asc_temp\images\professor.jpg" />
+    <Content Include="asc_temp\images\professor1.jpg" />
+    <Content Include="asc_temp\images\professor1.png" />
+    <Content Include="asc_temp\images\rating.png" />
+    <Content Include="asc_temp\images\red_sketch.png" />
+    <Content Include="asc_temp\images\rounded-bg-img.jpg" />
+    <Content Include="asc_temp\images\service1.jpg" />
+    <Content Include="asc_temp\images\service2.jpg" />
+    <Content Include="asc_temp\images\service3.jpg" />
+    <Content Include="asc_temp\images\service4.jpg" />
+    <Content Include="asc_temp\images\services_banner.jpg" />
+    <Content Include="asc_temp\images\slide3.jpg" />
+    <Content Include="asc_temp\images\sponsor-carousel-arrows.png" />
+    <Content Include="asc_temp\images\stars.jpg" />
+    <Content Include="asc_temp\images\stat-img.jpg" />
+    <Content Include="asc_temp\images\steelblue_sketch.png" />
+    <Content Include="asc_temp\images\student1.jpg" />
+    <Content Include="asc_temp\images\sub_menu_bg.jpg" />
+    <Content Include="asc_temp\images\team1.jpg" />
+    <Content Include="asc_temp\images\team2.jpg" />
+    <Content Include="asc_temp\images\team3.jpg" />
+    <Content Include="asc_temp\images\team4.jpg" />
+    <Content Include="asc_temp\images\trainer1.jpg" />
+    <Content Include="asc_temp\images\trainer2.jpg" />
+    <Content Include="asc_temp\images\trainer3.jpg" />
+    <Content Include="asc_temp\images\trainer4.jpg" />
+    <Content Include="asc_temp\images\tweety.png" />
+    <Content Include="asc_temp\images\twitter.png" />
+    <Content Include="asc_temp\images\twitter_icon.png" />
+    <Content Include="asc_temp\images\video-bg.jpg" />
+    <Content Include="asc_temp\images\white_title_bg.png" />
+    <Content Include="asc_temp\images\yellow_sketch.png" />
+    <Content Include="asc_temp\img\arrow.png" />
+    <Content Include="asc_temp\img\bgbaby.jpg" />
+    <Content Include="asc_temp\img\br1.jpg" />
+    <Content Include="asc_temp\img\br2.jpg" />
+    <Content Include="asc_temp\img\br3.jpg" />
+    <Content Include="asc_temp\img\br4.jpg" />
+    <Content Include="asc_temp\img\br5.jpg" />
+    <Content Include="asc_temp\img\br6.jpg" />
+    <Content Include="asc_temp\img\butterfly.jpg" />
+    <Content Include="asc_temp\img\circle.jpg" />
+    <Content Include="asc_temp\img\cirkinordek.jpg" />
+    <Content Include="asc_temp\img\cirtdan.jpg" />
+    <Content Include="asc_temp\img\cirtdannn.jpg" />
+    <Content Include="asc_temp\img\close.png" />
+    <Content Include="asc_temp\img\cook.jpg" />
+    <Content Include="asc_temp\img\dn1.jpg" />
+    <Content Include="asc_temp\img\dr1.jpg" />
+    <Content Include="asc_temp\img\drbaby1.jpg" />
+    <Content Include="asc_temp\img\drbaby2.jpg" />
+    <Content Include="asc_temp\img\drbaby3.jpg" />
+    <Content Include="asc_temp\img\icon\arrow.png" />
+    <Content Include="asc_temp\img\icon\close.png" />
+    <Content Include="asc_temp\img\icon\cursor-plus.png" />
+    <Content Include="asc_temp\img\icon\loading.gif" />
+    <Content Include="asc_temp\img\icon\next.png" />
+    <Content Include="asc_temp\img\icon\prev.png" />
+    <Content Include="asc_temp\img\kasha.jpg" />
+    <Content Include="asc_temp\img\kidsbg.jpg" />
+    <Content Include="asc_temp\img\masha.jpeg" />
+    <Content Include="asc_temp\img\mashabear.jpg" />
+    <Content Include="asc_temp\img\menu2.jpg" />
+    <Content Include="asc_temp\img\menubg.jpg" />
+    <Content Include="asc_temp\img\msha.jpg" />
+    <Content Include="asc_temp\img\nh1.png" />
+    <Content Include="asc_temp\img\parallax.jpg" />
+    <Content Include="asc_temp\img\pepe.jpg" />
+    <Content Include="asc_temp\img\pepe1.jpg" />
+    <Content Include="asc_temp\img\pepe2.jpg" />
+    <Content Include="asc_temp\img\pepe3.jpg" />
+    <Content Include="asc_temp\img\pepeeee.jpg" />
+    <Content Include="asc_temp\img\pooh.jpg" />
+    <Content Include="asc_temp\img\prple.gif" />
+    <Content Include="asc_temp\img\purple.png" />
+    <Content Include="asc_temp\img\qogal.jpg" />
+    <Content Include="asc_temp\img\qogal1.jpg" />
+    <Content Include="asc_temp\img\qoqal.jpg" />
+    <Content Include="asc_temp\img\senem.jpg" />
+    <Content Include="asc_temp\img\sicanpisik.jpg" />
+    <Content Include="asc_temp\img\sirin1.jpg" />
+    <Content Include="asc_temp\img\sirinler.jpg" />
+    <Content Include="asc_temp\img\slide1.jpg" />
+    <Content Include="asc_temp\img\slide2.jpg" />
+    <Content Include="asc_temp\img\slide3.jpg" />
+    <Content Include="asc_temp\img\srn.jpg" />
+    <Content Include="asc_temp\img\srnler.jpg" />
+    <Content Include="asc_temp\img\stars.jpg" />
+    <Content Include="asc_temp\img\toys.jpg" />
+    <Content Include="asc_temp\img\turp.jpg" />
+    <Content Include="asc_temp\img\turpbasliq.jpg" />
+    <Content Include="asc_temp\img\turpnagili.jpg" />
+    <Content Include="asc_temp\img\yildizlar.jpg" />
+    <Content Include="asc_temp\js\admin.js" />
+    <Content Include="asc_temp\js\bootstrap-toggle.min66f2.js" />
+    <Content Include="asc_temp\js\bootstrap.min.js" />
+    <Content Include="asc_temp\js\bootstrap.min66f2.js" />
+    <Content Include="asc_temp\js\custom.js" />
+    <Content Include="asc_temp\js\custom_gym.js" />
+    <Content Include="asc_temp\js\food.js" />
+    <Content Include="asc_temp\js\greensock.js" />
+    <Content Include="asc_temp\js\imagesloaded66f2.js" />
+    <Content Include="asc_temp\js\isotope.pkgd.min66f2.js" />
+    <Content Include="asc_temp\js\jquery-2.2.2.min.js" />
+    <Content Include="asc_temp\js\jquery-2.2.2_gym.min.js" />
+    <Content Include="asc_temp\js\jquery-3.2.1.min.js" />
+    <Content Include="asc_temp\js\jquery-easing-1.3.js" />
+    <Content Include="asc_temp\js\jquery-migrate.min.js" />
+    <Content Include="asc_temp\js\jquery-transit-modified.js" />
+    <Content Include="asc_temp\js\jquery.bxslider.min.js" />
+    <Content Include="asc_temp\js\jquery.carouFredSel-6.2.0-packed.js" />
+    <Content Include="asc_temp\js\jquery.countdown.min66f2.js" />
+    <Content Include="asc_temp\js\jquery.counterup.min66f2.js" />
+    <Content Include="asc_temp\js\jquery.countTo.js" />
+    <Content Include="asc_temp\js\jquery.easing.min.js" />
+    <Content Include="asc_temp\js\jquery.gmap.min.js" />
+    <Content Include="asc_temp\js\jquery.inview.js" />
+    <Content Include="asc_temp\js\jquery.isotope.min.js" />
+    <Content Include="asc_temp\js\jquery.js" />
+    <Content Include="asc_temp\js\jquery.magnific-popup.min.js" />
+    <Content Include="asc_temp\js\jquery.magnific-popup_gym.min.js" />
+    <Content Include="asc_temp\js\jquery.meanmenu.min.js" />
+    <Content Include="asc_temp\js\jquery.mixitup66f2.js" />
+    <Content Include="asc_temp\js\jquery.nicescroll.min.js" />
+    <Content Include="asc_temp\js\jquery.parallax-1.1.3.js" />
+    <Content Include="asc_temp\js\jquery.prettyPhoto.js" />
+    <Content Include="asc_temp\js\jquery.scrollUp.min66f2.js" />
+    <Content Include="asc_temp\js\jquery.smartresize.js" />
+    <Content Include="asc_temp\js\jquery.sticky.js" />
+    <Content Include="asc_temp\js\jquery.tabs.min.js" />
+    <Content Include="asc_temp\js\jquery.tipTip.minified.js" />
+    <Content Include="asc_temp\js\jquery.validate.min.js" />
+    <Content Include="asc_temp\js\jquery.viewport.js" />
+    <Content Include="asc_temp\js\jQuerySimpleCounter.js" />
+    <Content Include="asc_temp\js\jquery_gym.countTo.js" />
+    <Content Include="asc_temp\js\jquery_gym.easing.min.js" />
+    <Content Include="asc_temp\js\layerslider.kreaturamedia.jquery.js" />
+    <Content Include="asc_temp\js\layerslider.transitions.js" />
+    <Content Include="asc_temp\js\materialize.min.js" />
+    <Content Include="asc_temp\js\modernizr-2.6.2.min.js" />
+    <Content Include="asc_temp\js\modernizr-custom.js" />
+    <Content Include="asc_temp\js\owl.carousel.min66f2.js" />
+    <Content Include="asc_temp\js\plugins66f2.js" />
+    <Content Include="asc_temp\js\senem.js" />
+    <Content Include="asc_temp\js\shortcodes.js" />
+    <Content Include="asc_temp\js\simple.parallax.js" />
+    <Content Include="asc_temp\js\simple_gym.parallax.js" />
+    <Content Include="asc_temp\js\slick.min.js" />
+    <Content Include="asc_temp\js\slick.min66f2.js" />
+    <Content Include="asc_temp\js\slick_gym.min.js" />
+    <Content Include="asc_temp\js\textilate\jquery.fittext66f2.js" />
+    <Content Include="asc_temp\js\textilate\jquery.lettering66f2.js" />
+    <Content Include="asc_temp\js\textilate\jquery.textillate66f2.js" />
+    <Content Include="asc_temp\js\theme66f2.js" />
+    <Content Include="asc_temp\js\twitter\jquery.tweet.min.js" />
+    <Content Include="asc_temp\js\validation.js" />
+    <Content Include="asc_temp\js\vendor\modernizr-2.8.3.min66f2.js" />
+    <Content Include="asc_temp\js\venobox.min66f2.js" />
+    <Content Include="asc_temp\js\VideoPopUp.jquery.js" />
+    <Content Include="asc_temp\js\waypoints.min66f2.js" />
+    <Content Include="asc_temp\js\wow.min66f2.js" />
+    <Content Include="asc_temp\menu.html" />
+    <Content Include="asc_temp\school\404.html" />
+    <Content Include="asc_temp\school\blog-detail-full-width.html" />
+    <Content Include="asc_temp\school\blog-detail.html" />
+    <Content Include="asc_temp\school\blog-full-width.html" />
+    <Content Include="asc_temp\school\blog-list.html" />
+    <Content Include="asc_temp\school\blog-with-sidebar.html" />
+    <Content Include="asc_temp\school\cart.html" />
+    <Content Include="asc_temp\school\contact.html" />
+    <Content Include="asc_temp\school\courses.html" />
+    <Content Include="asc_temp\school\css\animate.css" />
+    <Content Include="asc_temp\school\css\color-1.css" />
+    <Content Include="asc_temp\school\css\font-awesome.min.css" />
+    <Content Include="asc_temp\school\css\fonts\glyphicons-halflings-regular-2.html" />
+    <Content Include="asc_temp\school\css\fonts\glyphicons-halflings-regular-3.html" />
+    <Content Include="asc_temp\school\css\fonts\glyphicons-halflings-regular-4.html" />
+    <Content Include="asc_temp\school\css\fonts\glyphicons-halflings-regular-5.html" />
+    <Content Include="asc_temp\school\css\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="asc_temp\school\css\fonts\glyphicons-halflings-regulard41d.html" />
+    <Content Include="asc_temp\school\css\icomoon.css" />
+    <Content Include="asc_temp\school\css\main.css" />
+    <Content Include="asc_temp\school\css\owl.video.play.html" />
+    <Content Include="asc_temp\school\css\responsive.css" />
+    <Content Include="asc_temp\school\css\style.css" />
+    <Content Include="asc_temp\school\css\transition.css" />
+    <Content Include="asc_temp\school\css\vendor\bootstrap.css" />
+    <Content Include="asc_temp\school\event-list.html" />
+    <Content Include="asc_temp\school\event-thumb-view.html" />
+    <Content Include="asc_temp\school\fonts\fontawesome-webfont93e3.svg" />
+    <Content Include="asc_temp\school\fonts\icomoon4ca0.svg" />
+    <Content Include="asc_temp\school\gallery-v1.html" />
+    <Content Include="asc_temp\school\gallery-v2.html" />
+    <Content Include="asc_temp\school\gallery-v3.html" />
+    <Content Include="asc_temp\school\home-1.html" />
+    <Content Include="asc_temp\school\home-2.html" />
+    <Content Include="asc_temp\school\home-3.html" />
+    <Content Include="asc_temp\school\home.html" />
+    <Content Include="asc_temp\school\images\404-error.png" />
+    <Content Include="asc_temp\school\images\about-gallery\img-01.jpg" />
+    <Content Include="asc_temp\school\images\about-gallery\img-02.jpg" />
+    <Content Include="asc_temp\school\images\about-gallery\img-03.jpg" />
+    <Content Include="asc_temp\school\images\about-sec-img.png" />
+    <Content Include="asc_temp\school\images\about-sec-img2.png" />
+    <Content Include="asc_temp\school\images\admin-img\img-01.jpg" />
+    <Content Include="asc_temp\school\images\admin-img\img-1-1.jpg" />
+    <Content Include="asc_temp\school\images\admin-img\img-1-2.jpg" />
+    <Content Include="asc_temp\school\images\admin-img\img-1-3.jpg" />
+    <Content Include="asc_temp\school\images\admin-img\img-1-4.jpg" />
+    <Content Include="asc_temp\school\images\aside-recent-post\img-01.jpg" />
+    <Content Include="asc_temp\school\images\aside-recent-post\img-02.jpg" />
+    <Content Include="asc_temp\school\images\aside-recent-post\img-03.jpg" />
+    <Content Include="asc_temp\school\images\bages-collection\img-01.jpg" />
+    <Content Include="asc_temp\school\images\bages-collection\img-02.jpg" />
+    <Content Include="asc_temp\school\images\bages-collection\img-03.jpg" />
+    <Content Include="asc_temp\school\images\bages-collection\img-04.jpg" />
+    <Content Include="asc_temp\school\images\banner\img-01.jpg" />
+    <Content Include="asc_temp\school\images\banner\img-02.jpg" />
+    <Content Include="asc_temp\school\images\banner\img-03.jpg" />
+    <Content Include="asc_temp\school\images\banner\img-04.jpg" />
+    <Content Include="asc_temp\school\images\banner\img-05.jpg" />
+    <Content Include="asc_temp\school\images\blog-full-width\img-01.jpg" />
+    <Content Include="asc_temp\school\images\blog-full-width\img-02.jpg" />
+    <Content Include="asc_temp\school\images\blog-full-width\img-03.jpg" />
+    <Content Include="asc_temp\school\images\blog-full-width\img-04.jpg" />
+    <Content Include="asc_temp\school\images\blog-list\img-03.jpg" />
+    <Content Include="asc_temp\school\images\blog-with-sidebar\img-01.jpg" />
+    <Content Include="asc_temp\school\images\blog-with-sidebar\img-02.jpg" />
+    <Content Include="asc_temp\school\images\blog-with-sidebar\img-03.jpg" />
+    <Content Include="asc_temp\school\images\blog-with-sidebar\img-04.jpg" />
+    <Content Include="asc_temp\school\images\bolg-detail\img-01.jpg" />
+    <Content Include="asc_temp\school\images\brand-icons\img-01.png" />
+    <Content Include="asc_temp\school\images\brand-icons\img-02.png" />
+    <Content Include="asc_temp\school\images\brand-icons\img-03.png" />
+    <Content Include="asc_temp\school\images\brand-icons\img-04.png" />
+    <Content Include="asc_temp\school\images\brand-icons\img-1-1.png" />
+    <Content Include="asc_temp\school\images\brand-icons\img-1-2.png" />
+    <Content Include="asc_temp\school\images\brand-icons\img-1-3.png" />
+    <Content Include="asc_temp\school\images\brand-icons\img-1-4.png" />
+    <Content Include="asc_temp\school\images\brand-icons\img-1-5.png" />
+    <Content Include="asc_temp\school\images\brand-icons\img-1-6.png" />
+    <Content Include="asc_temp\school\images\cardit-carts\img-01.jpg" />
+    <Content Include="asc_temp\school\images\cardit-carts\img-02.jpg" />
+    <Content Include="asc_temp\school\images\cardit-carts\img-03.jpg" />
+    <Content Include="asc_temp\school\images\cardit-carts\img-04.jpg" />
+    <Content Include="asc_temp\school\images\client-img\img-01.jpg" />
+    <Content Include="asc_temp\school\images\close.png" />
+    <Content Include="asc_temp\school\images\commenter-img\img-01.jpg" />
+    <Content Include="asc_temp\school\images\comming-product-bg.jpg" />
+    <Content Include="asc_temp\school\images\counter-bg-2.jpg" />
+    <Content Include="asc_temp\school\images\counter-bg.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-01.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-02.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-03.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-04.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-05.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-06.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-1-1.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-1-2.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-1-3.jpg" />
+    <Content Include="asc_temp\school\images\courses\img-1-4.jpg" />
+    <Content Include="asc_temp\school\images\event-bg.jpg" />
+    <Content Include="asc_temp\school\images\event-list\img-01.jpg" />
+    <Content Include="asc_temp\school\images\event-list\img-02.jpg" />
+    <Content Include="asc_temp\school\images\event-list\img-03.jpg" />
+    <Content Include="asc_temp\school\images\event-list\img-04.jpg" />
+    <Content Include="asc_temp\school\images\event-thumb-view\img-01.jpg" />
+    <Content Include="asc_temp\school\images\event-thumb-view\img-02.jpg" />
+    <Content Include="asc_temp\school\images\event-thumb-view\img-03.jpg" />
+    <Content Include="asc_temp\school\images\event-thumb-view\img-04.jpg" />
+    <Content Include="asc_temp\school\images\event-thumb-view\img-05.jpg" />
+    <Content Include="asc_temp\school\images\event-thumb-view\img-06.jpg" />
+    <Content Include="asc_temp\school\images\flicker-img\img-01.jpg" />
+    <Content Include="asc_temp\school\images\flicker-img\img-02.jpg" />
+    <Content Include="asc_temp\school\images\flicker-img\img-03.jpg" />
+    <Content Include="asc_temp\school\images\flicker-img\img-04.jpg" />
+    <Content Include="asc_temp\school\images\flicker-img\img-05.jpg" />
+    <Content Include="asc_temp\school\images\flicker-img\img-06.jpg" />
+    <Content Include="asc_temp\school\images\footer-bg.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v2\img-01.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v2\img-02.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v2\img-03.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v2\img-04.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v2\img-05.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v2\img-06.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v2\img-07.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v2\img-08.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v3\img-01.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v3\img-02.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v3\img-03.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v3\img-04.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v3\img-05.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v3\img-06.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v3\img-07.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v3\img-08.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v3\img-09.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v4\img-01.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v4\img-02.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v4\img-03.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v4\img-04.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v4\img-05.jpg" />
+    <Content Include="asc_temp\school\images\gallery-v4\img-06.jpg" />
+    <Content Include="asc_temp\school\images\gallery\img-01.jpg" />
+    <Content Include="asc_temp\school\images\gallery\img-02.jpg" />
+    <Content Include="asc_temp\school\images\gallery\img-03.jpg" />
+    <Content Include="asc_temp\school\images\gallery\img-04.jpg" />
+    <Content Include="asc_temp\school\images\gallery\img-05.jpg" />
+    <Content Include="asc_temp\school\images\inner-banner.jpg" />
+    <Content Include="asc_temp\school\images\inner-logos\logo-1.png" />
+    <Content Include="asc_temp\school\images\instagram\img-01.jpg" />
+    <Content Include="asc_temp\school\images\instagram\img-02.jpg" />
+    <Content Include="asc_temp\school\images\instagram\img-03.jpg" />
+    <Content Include="asc_temp\school\images\instagram\img-04.jpg" />
+    <Content Include="asc_temp\school\images\instagram\img-05.jpg" />
+    <Content Include="asc_temp\school\images\instagram\img-06.jpg" />
+    <Content Include="asc_temp\school\images\instagram\img-07.jpg" />
+    <Content Include="asc_temp\school\images\instagram\img-08.jpg" />
+    <Content Include="asc_temp\school\images\left-girl.png" />
+    <Content Include="asc_temp\school\images\logo.png" />
+    <Content Include="asc_temp\school\images\mobile-img.png" />
+    <Content Include="asc_temp\school\images\open.png" />
+    <Content Include="asc_temp\school\images\other-products\img-01.jpg" />
+    <Content Include="asc_temp\school\images\other-products\img-02.jpg" />
+    <Content Include="asc_temp\school\images\other-products\img-03.jpg" />
+    <Content Include="asc_temp\school\images\other-products\img-04.jpg" />
+    <Content Include="asc_temp\school\images\our-blog\img-01.jpg" />
+    <Content Include="asc_temp\school\images\our-blog\img-02.jpg" />
+    <Content Include="asc_temp\school\images\our-blog\img-03.jpg" />
+    <Content Include="asc_temp\school\images\our-blog\img-1-1.jpg" />
+    <Content Include="asc_temp\school\images\our-blog\img-1-2.jpg" />
+    <Content Include="asc_temp\school\images\our-blog\img-1-3.jpg" />
+    <Content Include="asc_temp\school\images\our-blog\img-1-4.jpg" />
+    <Content Include="asc_temp\school\images\our-patners-bg-2.jpg" />
+    <Content Include="asc_temp\school\images\our-patners-bg.jpg" />
+    <Content Include="asc_temp\school\images\our-products\img-01.jpg" />
+    <Content Include="asc_temp\school\images\our-products\img-02.jpg" />
+    <Content Include="asc_temp\school\images\our-products\img-03.jpg" />
+    <Content Include="asc_temp\school\images\our-products\img-04.jpg" />
+    <Content Include="asc_temp\school\images\prettyPhoto\dark_rounded\btnNext.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\dark_rounded\btnPrevious.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\dark_rounded\contentPattern.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\dark_rounded\loader.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\dark_rounded\sprite.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\dark_square\btnNext.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\dark_square\btnPrevious.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\dark_square\loader.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\dark_square\sprite.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="asc_temp\school\images\prettyPhoto\default\loader.gif" />
+    <Content Include="asc_temp\school\images\prettyPhoto\default\sprite.png" />
+    <Content Include="asc_temp\school\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="asc_temp\school\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="asc_temp\school\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="asc_temp\school\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="asc_temp\school\images\prettyPhoto\facebook\btnNext.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\facebook\btnPrevious.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\facebook\contentPatternBottom.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\facebook\contentPatternLeft.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\facebook\contentPatternRight.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\facebook\contentPatternTop.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\facebook\default_thumbnail.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\facebook\loader.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\facebook\sprite.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\light_rounded\btnNext.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\light_rounded\btnPrevious.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\light_rounded\loader.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\light_rounded\sprite.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\light_square\btnNext.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\light_square\btnPrevious.html" />
+    <Content Include="asc_temp\school\images\prettyPhoto\light_square\sprite.html" />
+    <Content Include="asc_temp\school\images\product-small-img.jpg" />
+    <Content Include="asc_temp\school\images\service-bg\img-01.jpg" />
+    <Content Include="asc_temp\school\images\services-bg.jpg" />
+    <Content Include="asc_temp\school\images\services-layer.png" />
+    <Content Include="asc_temp\school\images\single-blog\img-01.jpg" />
+    <Content Include="asc_temp\school\images\spport-icons-1.png" />
+    <Content Include="asc_temp\school\images\spport-icons-2.png" />
+    <Content Include="asc_temp\school\images\spport-icons-3.png" />
+    <Content Include="asc_temp\school\images\tab-content-img1.jpg" />
+    <Content Include="asc_temp\school\images\tabs-bg.jpg" />
+    <Content Include="asc_temp\school\images\tabs-nav-bg.jpg" />
+    <Content Include="asc_temp\school\images\team-detail\profiler-bg.jpg" />
+    <Content Include="asc_temp\school\images\team-detail\profiler-img.jpg" />
+    <Content Include="asc_temp\school\images\team-img-v2\img-01.png" />
+    <Content Include="asc_temp\school\images\teams\img-01.png" />
+    <Content Include="asc_temp\school\images\teams\img-02.png" />
+    <Content Include="asc_temp\school\images\teams\img-03.png" />
+    <Content Include="asc_temp\school\images\teams\img-1-1.jpg" />
+    <Content Include="asc_temp\school\images\teams\img-1-2.jpg" />
+    <Content Include="asc_temp\school\images\teams\img-1-3.jpg" />
+    <Content Include="asc_temp\school\images\testimonial-bg-1.jpg" />
+    <Content Include="asc_temp\school\images\testimonial-bg-2.jpg" />
+    <Content Include="asc_temp\school\images\thumbnail\big\img-01.jpg" />
+    <Content Include="asc_temp\school\images\thumbnail\small\img-01.jpg" />
+    <Content Include="asc_temp\school\images\tree-icon.png" />
+    <Content Include="asc_temp\school\images\twitter-post-logos\img-01.jpg" />
+    <Content Include="asc_temp\school\images\twitter-post-logos\img-02.jpg" />
+    <Content Include="asc_temp\school\images\twitter-post-logos\img-03.jpg" />
+    <Content Include="asc_temp\school\images\uniform-collection\img-01.jpg" />
+    <Content Include="asc_temp\school\images\uniform-collection\img-02.jpg" />
+    <Content Include="asc_temp\school\images\uniform-collection\img-03.jpg" />
+    <Content Include="asc_temp\school\images\uniform-collection\img-04.jpg" />
+    <Content Include="asc_temp\school\images\upcomming-events\img-01.jpg" />
+    <Content Include="asc_temp\school\images\upcomming-events\img-02.jpg" />
+    <Content Include="asc_temp\school\images\upcomming-events\img-03.jpg" />
+    <Content Include="asc_temp\school\images\upcomming-events\img-04.jpg" />
+    <Content Include="asc_temp\school\images\upcomming-events\img-1-1.jpg" />
+    <Content Include="asc_temp\school\images\upcomming-events\img-1-2.jpg" />
+    <Content Include="asc_temp\school\images\upcomming-events\img-1-3.jpg" />
+    <Content Include="asc_temp\school\images\video-sec-bg-2.jpg" />
+    <Content Include="asc_temp\school\images\video-sec-bg.jpg" />
+    <Content Include="asc_temp\school\img\bootstrap-colorpicker\alpha-horizontal.html" />
+    <Content Include="asc_temp\school\img\bootstrap-colorpicker\alpha.html" />
+    <Content Include="asc_temp\school\img\bootstrap-colorpicker\hue-horizontal.html" />
+    <Content Include="asc_temp\school\img\bootstrap-colorpicker\hue.html" />
+    <Content Include="asc_temp\school\img\bootstrap-colorpicker\saturation.html" />
+    <Content Include="asc_temp\school\index-2.html" />
+    <Content Include="asc_temp\school\index.html" />
+    <Content Include="asc_temp\school\js\appear.js" />
+    <Content Include="asc_temp\school\js\bootstrap-select.js" />
+    <Content Include="asc_temp\school\js\classie.js" />
+    <Content Include="asc_temp\school\js\colorpicker.js" />
+    <Content Include="asc_temp\school\js\contact-form.js" />
+    <Content Include="asc_temp\school\js\countdown.js" />
+    <Content Include="asc_temp\school\js\gmap3.min.js" />
+    <Content Include="asc_temp\school\js\isotope.pkgd.js" />
+    <Content Include="asc_temp\school\js\main.js" />
+    <Content Include="asc_temp\school\js\nstslider.js" />
+    <Content Include="asc_temp\school\js\odometer.js" />
+    <Content Include="asc_temp\school\js\owl-carousel.js" />
+    <Content Include="asc_temp\school\js\parallax.js" />
+    <Content Include="asc_temp\school\js\prettyPhoto.js" />
+    <Content Include="asc_temp\school\js\sticky.js" />
+    <Content Include="asc_temp\school\js\tabulous.html" />
+    <Content Include="asc_temp\school\js\vendors\modernizr.html" />
+    <Content Include="asc_temp\school\js\vendor\bootstrap.js" />
+    <Content Include="asc_temp\school\js\vendor\jquery.js" />
+    <Content Include="asc_temp\school\js\wow-min.js" />
+    <Content Include="asc_temp\school\shop-categories.html" />
+    <Content Include="asc_temp\school\shop-detail.html" />
+    <Content Include="asc_temp\school\shop.html" />
+    <Content Include="asc_temp\school\team-detail.html" />
+    <Content Include="asc_temp\style.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\asc.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>asc.edmx</DependentUpon>
+      <LastGenOutput>asc.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\asc.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>asc.edmx</DependentUpon>
+      <LastGenOutput>asc.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="asc_temp\.git\COMMIT_EDITMSG" />
+    <Content Include="asc_temp\.git\config" />
+    <Content Include="asc_temp\.git\description" />
+    <Content Include="asc_temp\.git\FETCH_HEAD" />
+    <Content Include="asc_temp\.git\HEAD" />
+    <Content Include="asc_temp\.git\hooks\applypatch-msg.sample" />
+    <Content Include="asc_temp\.git\hooks\commit-msg.sample" />
+    <Content Include="asc_temp\.git\hooks\post-update.sample" />
+    <Content Include="asc_temp\.git\hooks\pre-applypatch.sample" />
+    <Content Include="asc_temp\.git\hooks\pre-commit.sample" />
+    <Content Include="asc_temp\.git\hooks\pre-push.sample" />
+    <Content Include="asc_temp\.git\hooks\pre-rebase.sample" />
+    <Content Include="asc_temp\.git\hooks\pre-receive.sample" />
+    <Content Include="asc_temp\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="asc_temp\.git\hooks\update.sample" />
+    <Content Include="asc_temp\.git\index" />
+    <Content Include="asc_temp\.git\info\exclude" />
+    <Content Include="asc_temp\.git\logs\HEAD" />
+    <Content Include="asc_temp\.git\logs\refs\heads\master" />
+    <Content Include="asc_temp\.git\logs\refs\remotes\origin\master" />
+    <Content Include="asc_temp\.git\objects\00\28f669d9430b740eac6cd3026649add0503ef6" />
+    <Content Include="asc_temp\.git\objects\00\35234a7dd6d73e839fc57d9b216b0078340488" />
+    <Content Include="asc_temp\.git\objects\00\9742650ccbd97e36336e09330d4083fbdeb07a" />
+    <Content Include="asc_temp\.git\objects\00\f788b2b921c4339193c7790270d27e657b87d7" />
+    <Content Include="asc_temp\.git\objects\00\f810460de0e9c0346ccb5e9e81802b6c5de6d0" />
+    <Content Include="asc_temp\.git\objects\01\0fb2eae9934478811fb09b9a299ec0d0e9b127" />
+    <Content Include="asc_temp\.git\objects\01\1d55a585bd3f7c801a30c3cf29f6808048e1b5" />
+    <Content Include="asc_temp\.git\objects\01\87563e2861b642ee2411d30c74f87eac4c3cb8" />
+    <Content Include="asc_temp\.git\objects\01\a43dd7e22f35c83e8a41cebfb21539782b876d" />
+    <Content Include="asc_temp\.git\objects\01\b4a116f2affc8ee8f725b52e727fca09ee4191" />
+    <Content Include="asc_temp\.git\objects\01\ca5f48cfa040a5cf73413e912f106dc80b49d2" />
+    <Content Include="asc_temp\.git\objects\01\e164978fa0acdaf7922158378f3d4bbe5291c6" />
+    <Content Include="asc_temp\.git\objects\01\eaca00cece1edb769b6aa46ff50e3cf79ed75c" />
+    <Content Include="asc_temp\.git\objects\01\f887581b6048b5a2e05011724459eae9ddf585" />
+    <Content Include="asc_temp\.git\objects\02\2aa9760582efb75ba59fd96d36fe67dedb3599" />
+    <Content Include="asc_temp\.git\objects\02\3a00b343024b3812808953108de3e4c68aa5c8" />
+    <Content Include="asc_temp\.git\objects\03\480d062a12fe01a6d7b8dc9aa8776eed340f61" />
+    <Content Include="asc_temp\.git\objects\03\52ecccef7295c0d9bedee51b8b0df82c15dab5" />
+    <Content Include="asc_temp\.git\objects\03\99b70efc3f10270348c59478aa753160f172c9" />
+    <Content Include="asc_temp\.git\objects\03\d6d43e25dffbdfe47acb2f2929aeabfae5d70f" />
+    <Content Include="asc_temp\.git\objects\03\e02b8f86b6843c3646bcdde511542c4d6b735a" />
+    <Content Include="asc_temp\.git\objects\04\67ded2bf5c6a414d11620832cd06e5c8cd3d50" />
+    <Content Include="asc_temp\.git\objects\05\4a3ce1e459422aa67a5bc0ac733920b7dc1227" />
+    <Content Include="asc_temp\.git\objects\05\87c9ba7adca694f158930a1cba9e2ce2ecd453" />
+    <Content Include="asc_temp\.git\objects\06\4a5a522c979e207693896cac6bca45051540d6" />
+    <Content Include="asc_temp\.git\objects\06\80125b907432fb6511d4ad5a607620b85b7808" />
+    <Content Include="asc_temp\.git\objects\06\ce0132b8e61ea58d92b1826633769e8280616c" />
+    <Content Include="asc_temp\.git\objects\08\12542cccfdfd9d1644ed721516c00fc6a03c24" />
+    <Content Include="asc_temp\.git\objects\08\365ac84d29be71b6b8f4481cdbbcae54a36033" />
+    <Content Include="asc_temp\.git\objects\08\ad62de9ed0bb95d2b9487d2e77ff8571eb8ba2" />
+    <Content Include="asc_temp\.git\objects\09\42b6ee596c284593ed81ca4a49c608c244b313" />
+    <Content Include="asc_temp\.git\objects\09\4af9e899850b7f874d8a305d57dbe6d9f50999" />
+    <Content Include="asc_temp\.git\objects\09\555974d4b876ffde0e8de7626859f2e73c472a" />
+    <Content Include="asc_temp\.git\objects\09\cfb1f8c818705b11bd1356b8648e4de6d26892" />
+    <Content Include="asc_temp\.git\objects\0a\4dd5b4017139bbdb24fc28433c594ebfe2d435" />
+    <Content Include="asc_temp\.git\objects\0a\5863ca683befdbae141a1efe1bb912355bff23" />
+    <Content Include="asc_temp\.git\objects\0a\a6f6ea34273a99890a23073c40c0f1ce15bd9c" />
+    <Content Include="asc_temp\.git\objects\0a\cfd74b627e49c10c1e914b8958faefff747faf" />
+    <Content Include="asc_temp\.git\objects\0a\e1723c76f50a084839d2b7d04ff02cb8428bc7" />
+    <Content Include="asc_temp\.git\objects\0b\4cdc522b107cf97a2b804e446d5260a9801dd0" />
+    <Content Include="asc_temp\.git\objects\0b\54f5efbe3bd427e0d9dfacdfb36f42518de853" />
+    <Content Include="asc_temp\.git\objects\0b\ff1bab1348aaf8f4f14a92c000162ada16f424" />
+    <Content Include="asc_temp\.git\objects\0c\316b9b6b0e81b8c121f89ecbf55d7b1f3f876b" />
+    <Content Include="asc_temp\.git\objects\0c\99653d3bc6408c244928a3b066d0e67c3bbbf9" />
+    <Content Include="asc_temp\.git\objects\0c\b7ba7b5991db0db59a01416c402b05847f5e98" />
+    <Content Include="asc_temp\.git\objects\0c\faabea6153cfa43ee93942066f0486c18477b4" />
+    <Content Include="asc_temp\.git\objects\0d\387b9da057a0fc86ee6036a0da44f20e6b7fa6" />
+    <Content Include="asc_temp\.git\objects\0d\4007bf0a9c8ec83864f79628aeccd88ab56d81" />
+    <Content Include="asc_temp\.git\objects\0d\54b9f22daf18282b06514f8a9b9c963e8ec0c9" />
+    <Content Include="asc_temp\.git\objects\0d\785c73edd4061ad7c6c1321ca3169b125ef2a3" />
+    <Content Include="asc_temp\.git\objects\0d\da1dff1d7655f019cb68e2f34f08825a77696a" />
+    <Content Include="asc_temp\.git\objects\0e\2b3f0365409e12b3c31a78c3049825b1c1adac" />
+    <Content Include="asc_temp\.git\objects\0e\92efc69a0db763694aa6acf1060fb0c47b6be4" />
+    <Content Include="asc_temp\.git\objects\0e\d185ab2c6877b47bea8cb5a2d618e5730f5299" />
+    <Content Include="asc_temp\.git\objects\0e\fd3bbf56e2db19fe9af50090238dbf0f258942" />
+    <Content Include="asc_temp\.git\objects\0f\60b7bd0d9c395e1748cc962810d2dee9bb9fc2" />
+    <Content Include="asc_temp\.git\objects\0f\be8427dbbb8a7327c0ed71f65646bdb5166052" />
+    <Content Include="asc_temp\.git\objects\0f\e6e13112c08d92b1a69fea3505ff552ebc43df" />
+    <Content Include="asc_temp\.git\objects\10\1b70a1c1460720dbeebbebee4d0976a63ac8e2" />
+    <Content Include="asc_temp\.git\objects\10\2ae075c7a29ca51a9b5327bf45dc55e2f021c8" />
+    <Content Include="asc_temp\.git\objects\10\32ebebf192332b5e4a8a085418a040b9e842df" />
+    <Content Include="asc_temp\.git\objects\10\3dd72ab859fabdaded3c1579f60c74645be220" />
+    <Content Include="asc_temp\.git\objects\10\6dc767fbc9de95676bd200cad06db81c1e6243" />
+    <Content Include="asc_temp\.git\objects\10\7b4ee02aaf85df0ab92f5816cb07e6bcf4000e" />
+    <Content Include="asc_temp\.git\objects\11\54fc6d93aafcadba04699aae148ad57b7d522a" />
+    <Content Include="asc_temp\.git\objects\11\cf3aed626afb3807b872a4877764fd1157d594" />
+    <Content Include="asc_temp\.git\objects\11\d1ad587fa74b2f1a7a5bec996191c42eaead17" />
+    <Content Include="asc_temp\.git\objects\12\1f714df10f8e2a351406463a87d1209f1304fa" />
+    <Content Include="asc_temp\.git\objects\12\30d216624061a558eacd8103e0c437088f2b1b" />
+    <Content Include="asc_temp\.git\objects\12\566c774458d86ee92085176740fbc4a81616d7" />
+    <Content Include="asc_temp\.git\objects\13\899a2bdf8d6c88f205200fd53ba2e747671f9b" />
+    <Content Include="asc_temp\.git\objects\13\bf1eeb96e6c506d9403a02c45abe926ce8d19b" />
+    <Content Include="asc_temp\.git\objects\13\cd88c6bef0b26fd40db1416d883720e92346a8" />
+    <Content Include="asc_temp\.git\objects\13\ec81988d3a870045f6ffeda1cfae3c665d7559" />
+    <Content Include="asc_temp\.git\objects\14\032aabd85b43a058cfc7025dd4fa9dd325ea97" />
+    <Content Include="asc_temp\.git\objects\14\13fc609ab6f21774de0cb7e01360095584f65b" />
+    <Content Include="asc_temp\.git\objects\14\aac4b7cfa081927c24694feb6b034d88ee4dfa" />
+    <Content Include="asc_temp\.git\objects\14\c28d479b1899ffb5dffb9a038377278e55fdfc" />
+    <Content Include="asc_temp\.git\objects\14\ca821cf03a0ad875a31851aafbcdf4d8c79b85" />
+    <Content Include="asc_temp\.git\objects\14\fd0ec0cbda4006f844b63be77df87b31afcb1d" />
+    <Content Include="asc_temp\.git\objects\15\1adaccb72d7d85d7ea413bb8ccf29dc23e0fdb" />
+    <Content Include="asc_temp\.git\objects\15\36db32edf64fbad59cceeb199bd022331c456a" />
+    <Content Include="asc_temp\.git\objects\15\77d39b2a68d6cb6cf6ec8b6d57e0f651abf46b" />
+    <Content Include="asc_temp\.git\objects\15\7dbcc495a13697a29d3e03d5b7bea7371f0910" />
+    <Content Include="asc_temp\.git\objects\15\7fe430bb2c179bd51dcde3a6ab9d436320009f" />
+    <Content Include="asc_temp\.git\objects\15\91f7dfd84eae2427dc4f0305ba8c1d8aaa3f34" />
+    <Content Include="asc_temp\.git\objects\15\c4d57c49787693155314d458593d6d51fa7564" />
+    <Content Include="asc_temp\.git\objects\16\1b90d8990d5f41216baad54e46ce7d481f91d3" />
+    <Content Include="asc_temp\.git\objects\16\1b999560773771bf425327cb6afaa7b13dc114" />
+    <Content Include="asc_temp\.git\objects\16\55143f1be664fed164cf6123f80e8e37edb58a" />
+    <Content Include="asc_temp\.git\objects\16\c03a96df36c64243f7be889d2e41138acaba64" />
+    <Content Include="asc_temp\.git\objects\17\9fd1a626fd1ee038262a170611b3c1ef0f4f55" />
+    <Content Include="asc_temp\.git\objects\17\a17a54c316b6a848e11e45dd6c00f0d16d743c" />
+    <Content Include="asc_temp\.git\objects\17\a332ef031005ae2dfb5d61d92628118c7a7430" />
+    <Content Include="asc_temp\.git\objects\17\bf35119bef094084e8d4e9d3eb481d0836e1c0" />
+    <Content Include="asc_temp\.git\objects\18\14a0330d0cb8564aaa6b16f896431acc252411" />
+    <Content Include="asc_temp\.git\objects\18\64f080c5225283c46d9871867e106ab5bdc10c" />
+    <Content Include="asc_temp\.git\objects\18\ba428497a5e519682df56b0ec7bf908be43548" />
+    <Content Include="asc_temp\.git\objects\18\d185d75e8498a650274fbdceb3afb697153bdc" />
+    <Content Include="asc_temp\.git\objects\19\2f7f848a70498b8b28c83118e712efbe69684e" />
+    <Content Include="asc_temp\.git\objects\19\35b4e0b7e9dd08dc068b2c0d0557472791871b" />
+    <Content Include="asc_temp\.git\objects\19\79f89442746be11fe7dfe7ea438bfa88199997" />
+    <Content Include="asc_temp\.git\objects\19\8dc2f58c5bf606fa7d75c1c807967154cde6e7" />
+    <Content Include="asc_temp\.git\objects\19\9e808dc456aed81ee8c228e7c554dc2c76a91a" />
+    <Content Include="asc_temp\.git\objects\19\b2c06e6801bcc28912219fe61fc7ace7260c54" />
+    <Content Include="asc_temp\.git\objects\19\fd848d43d3a0d4ad00c91455fc93eac0ec6376" />
+    <Content Include="asc_temp\.git\objects\1a\26e4b16e18db9e0979a6ba5ecb9e1e1c8753e5" />
+    <Content Include="asc_temp\.git\objects\1a\4eec9823cbf6002fb941de3ed8b9b1f20ee9dc" />
+    <Content Include="asc_temp\.git\objects\1a\8be0dddced3923322611a82ffa9b9aa288b38b" />
+    <Content Include="asc_temp\.git\objects\1b\04b3391a44f8458c890270bfb9959ead152fc7" />
+    <Content Include="asc_temp\.git\objects\1b\61b522bbb36c762d729f7dd09e437179ba2e9e" />
+    <Content Include="asc_temp\.git\objects\1b\e25f3823f0fb0b3bbbf93cbf6cf1b9caa97515" />
+    <Content Include="asc_temp\.git\objects\1c\01cd572b6d344925d09bc835b26c0e4391bb6a" />
+    <Content Include="asc_temp\.git\objects\1c\34703d553d713a465a00f6be3ca50c0dfd69f1" />
+    <Content Include="asc_temp\.git\objects\1d\23f4a87cda3c1abccf594b77841b2fa8e7c2bb" />
+    <Content Include="asc_temp\.git\objects\1d\87695120b7fbd6349d98730b38493a91710155" />
+    <Content Include="asc_temp\.git\objects\1d\ac1c4c117afc8dbcec7af0c5aaa2c0a390d874" />
+    <Content Include="asc_temp\.git\objects\1d\e9cc5cdb10d9d8062268495ce83a81dc858233" />
+    <Content Include="asc_temp\.git\objects\1e\03276819771c9f56c383bce8b5e84f7ac4fc22" />
+    <Content Include="asc_temp\.git\objects\1e\36f6a6ecb8a1f6777227fdc90683742d2d9648" />
+    <Content Include="asc_temp\.git\objects\1e\e486514b9c4b3b36381fb0a3ecc3fe3a9f93ca" />
+    <Content Include="asc_temp\.git\objects\1e\fe3c3ab0d64b7a9f1ee557f310fbb3234f1215" />
+    <Content Include="asc_temp\.git\objects\20\502353c06a77fc0a052a809a7ce139d104533b" />
+    <Content Include="asc_temp\.git\objects\20\5a7d95fd6b14c99033b36df93de1322a556287" />
+    <Content Include="asc_temp\.git\objects\20\baa1db5fdf9e22655a0f851c4401d36b9e7ef9" />
+    <Content Include="asc_temp\.git\objects\20\c813b6a5977339f14542e6239e29d5eaa0aea2" />
+    <Content Include="asc_temp\.git\objects\21\53f4d1488bef25eb2ee7a08ffb9c708e75695f" />
+    <Content Include="asc_temp\.git\objects\21\db0710d6ba69f55f68c6a60e5d81f8e4ac3bd3" />
+    <Content Include="asc_temp\.git\objects\22\34acc47e4334be34ce1f7b431a90e1c317b787" />
+    <Content Include="asc_temp\.git\objects\22\5ea1861367463c25441c50006e7e1e7f81c344" />
+    <Content Include="asc_temp\.git\objects\22\8eb3d8ff851ac7b7402786d52dd3c6efdf39a1" />
+    <Content Include="asc_temp\.git\objects\22\9a8db57a2fa0f23788977a4d30fbd408baa394" />
+    <Content Include="asc_temp\.git\objects\22\ac5a28ec8e91066d6388513c74a1d976db684e" />
+    <Content Include="asc_temp\.git\objects\23\1d1ca37dd5c82c766b31bba3ca5e90f69c4389" />
+    <Content Include="asc_temp\.git\objects\23\c09e3a6e8e77ea855e174f222e97eb8767c8dc" />
+    <Content Include="asc_temp\.git\objects\23\df5b14e62fcb1e83d091beea06abd944613c16" />
+    <Content Include="asc_temp\.git\objects\24\5508a3570817429f29fc531772013a30a835d5" />
+    <Content Include="asc_temp\.git\objects\24\70db40a55a0855813cfc9044912346a50c39a2" />
+    <Content Include="asc_temp\.git\objects\24\89790c574d75cdc2fbb99727302c83743777c2" />
+    <Content Include="asc_temp\.git\objects\25\609b8a632812031a123327be0a10a422685a12" />
+    <Content Include="asc_temp\.git\objects\26\12a6793f5f805f9793f7c2246b2206bd2e73d8" />
+    <Content Include="asc_temp\.git\objects\26\3c4f23cdf219c19a72736b55c25c7bc0a8f748" />
+    <Content Include="asc_temp\.git\objects\26\7d455ebb4c82356bc1bd79000eef4e27591027" />
+    <Content Include="asc_temp\.git\objects\27\7c87a5ba5a6413ec862d5ee8a235cb5f316b55" />
+    <Content Include="asc_temp\.git\objects\27\80e0903fc4744b332aaaa3270dd30e4a787d46" />
+    <Content Include="asc_temp\.git\objects\27\9c6f91296f9283d52b8a4c69b42e225cd170c9" />
+    <Content Include="asc_temp\.git\objects\27\a94128d8949b61321ed6fc421fca99a91758c1" />
+    <Content Include="asc_temp\.git\objects\27\cc81e4cfddb79b017e82717091b67a4f742d8e" />
+    <Content Include="asc_temp\.git\objects\28\8d65bbdd9ca88671d1c16e27cb3f738aaba54e" />
+    <Content Include="asc_temp\.git\objects\28\c46041ac3c2c673066744a2f420e8e31fefad3" />
+    <Content Include="asc_temp\.git\objects\28\c460c816909380cac8aee7d97be310617c0be2" />
+    <Content Include="asc_temp\.git\objects\29\228d31e186ea3fe5092e5a035772a81cea3024" />
+    <Content Include="asc_temp\.git\objects\29\251b8f9f5b3c47d5108cb70ace17b509bb9e54" />
+    <Content Include="asc_temp\.git\objects\29\2c720a4e26b8e7d7b7c7ebccc2a94cd0e9d824" />
+    <Content Include="asc_temp\.git\objects\29\aba88dfb810b40bd56a266a9eaadbd92a24313" />
+    <Content Include="asc_temp\.git\objects\2a\152ffd669c91692b029ae116c615ea355ed616" />
+    <Content Include="asc_temp\.git\objects\2a\455a5d1fbe6d91b5a7fd92e5bf00f564c2c9c5" />
+    <Content Include="asc_temp\.git\objects\2a\8dadb003d7773558f0a49e7aa620ce52be1dba" />
+    <Content Include="asc_temp\.git\objects\2b\076a8cb1ac2366641f71e094432a40a73ffb76" />
+    <Content Include="asc_temp\.git\objects\2b\1280f32756805aaa557cea32c70b05a2aa46b4" />
+    <Content Include="asc_temp\.git\objects\2b\4a69458afdc2b5229e9b42c40472447c4c9cbf" />
+    <Content Include="asc_temp\.git\objects\2b\7c3528619a54707e1a1f6da4af7d6d36b4f981" />
+    <Content Include="asc_temp\.git\objects\2b\cf55196fbb90767f29c6663d8e459b9ca0589c" />
+    <Content Include="asc_temp\.git\objects\2c\10fc3ed14c81e02652f2b6757d1e5d0cc11a23" />
+    <Content Include="asc_temp\.git\objects\2c\8ba6dae217dd5a4bb2e2529b3bf761c3061228" />
+    <Content Include="asc_temp\.git\objects\2d\2ff2c07054fc6087555ba787a64a8e046b54ad" />
+    <Content Include="asc_temp\.git\objects\2d\39b0d82156cd3cdd6a8ef44b7969ef8207de06" />
+    <Content Include="asc_temp\.git\objects\2d\94f3ae75810ac6855eac685608e498b7915b03" />
+    <Content Include="asc_temp\.git\objects\2d\b543aac102f6b376bac70e1f2765f402af9c1d" />
+    <Content Include="asc_temp\.git\objects\2d\eb8846d74c06f304fe8529acb94f430bd80e55" />
+    <Content Include="asc_temp\.git\objects\2e\4081b17c22f50f6a96050d2d22968fe5066853" />
+    <Content Include="asc_temp\.git\objects\2e\84fcb91a957301b1d0850c80e6dad9e7dbe648" />
+    <Content Include="asc_temp\.git\objects\2e\a04ab87b94c6e12cff15d78db0fb83e2b5019a" />
+    <Content Include="asc_temp\.git\objects\2f\67d4b140597c2eb4dadcb655cc6c56f98dc779" />
+    <Content Include="asc_temp\.git\objects\2f\9d3651ab466c30c5387600ec8df59bd4564573" />
+    <Content Include="asc_temp\.git\objects\2f\a6160c2a6cc75b6578d1a03d7b4751f0a481d4" />
+    <Content Include="asc_temp\.git\objects\2f\f5fd18b4687de82e536aa4d6f2aec014798d00" />
+    <Content Include="asc_temp\.git\objects\30\4ea2a397570e4c708672b6d65a9fada2735e75" />
+    <Content Include="asc_temp\.git\objects\30\6d256e33a9d2aa77b8f7584332fc2c892372c7" />
+    <Content Include="asc_temp\.git\objects\30\970805fdad07b4640692e5efdb30c2834dd952" />
+    <Content Include="asc_temp\.git\objects\30\f6fb9f4654c20635001ad8e29fcf7652107d82" />
+    <Content Include="asc_temp\.git\objects\31\39a912d7bcddccee738e90650ee3da9d8b5474" />
+    <Content Include="asc_temp\.git\objects\31\89f65bf856e4caf94d62d3bc5ef6398139de96" />
+    <Content Include="asc_temp\.git\objects\31\d8882661324aedb8693f8bb7322c4af8374ae0" />
+    <Content Include="asc_temp\.git\objects\32\89adb760077bd337eab1b0bfa1c131f22f632f" />
+    <Content Include="asc_temp\.git\objects\32\9fa98602d277fa342e88dd2e00f963e33cf54d" />
+    <Content Include="asc_temp\.git\objects\32\b361fc41b92b7fd25adaa79d765a96d9407279" />
+    <Content Include="asc_temp\.git\objects\32\cb71bb204ffe16daeb77559decb0d7498001cb" />
+    <Content Include="asc_temp\.git\objects\33\14c503347b99f7d61e0da13a2d462e0ca00267" />
+    <Content Include="asc_temp\.git\objects\33\3083677dd1fb4be035619b747b66c61634b2cc" />
+    <Content Include="asc_temp\.git\objects\33\33998a851bd1005b5ee3502e9617ecef96eab3" />
+    <Content Include="asc_temp\.git\objects\33\3d1b58653d114cb20e167975f23dc77fc84429" />
+    <Content Include="asc_temp\.git\objects\33\91ee7c46f9c61fc42f959904884d35b38bc2f4" />
+    <Content Include="asc_temp\.git\objects\33\b317e533d426d6cbd1884884298313b0851a72" />
+    <Content Include="asc_temp\.git\objects\34\36d0ad6bbcf1859effc4926e76a30e34a24fc4" />
+    <Content Include="asc_temp\.git\objects\34\7bf6723d513b30b5885b61805337f407e0afc0" />
+    <Content Include="asc_temp\.git\objects\34\cd4c7085007ed4c22500afb83f7fd97b81737c" />
+    <Content Include="asc_temp\.git\objects\35\09fd8771bcfeceb44b54bd051af9eaae765db9" />
+    <Content Include="asc_temp\.git\objects\35\275b4361b3c93bbbedcc24a4342aef132cf300" />
+    <Content Include="asc_temp\.git\objects\35\2e949210d71d4e5df865255d909bce7c772d14" />
+    <Content Include="asc_temp\.git\objects\35\a10551565e3605d1f2b925161914529756600e" />
+    <Content Include="asc_temp\.git\objects\35\c907eb908c2b7de0935200e0c131769ac621da" />
+    <Content Include="asc_temp\.git\objects\35\d397c9e430c2ee8f1d95d8fe47da79a399e746" />
+    <Content Include="asc_temp\.git\objects\35\fc7cb17fa7c3dcb75ed3a8c8aef2ca076272b8" />
+    <Content Include="asc_temp\.git\objects\36\b98c6b5ebc265024158f068fca4545cc1c9517" />
+    <Content Include="asc_temp\.git\objects\36\fc14b57ae3465dee900f77f61edf4072c0bb54" />
+    <Content Include="asc_temp\.git\objects\37\113200bff5c01b5b34048aa5b491f78fe30f81" />
+    <Content Include="asc_temp\.git\objects\37\18420ecb58bebae4e3fe430b4d407bb02b0713" />
+    <Content Include="asc_temp\.git\objects\37\33958779a5f22dc9c6e46d10b5bf65abfcc3ad" />
+    <Content Include="asc_temp\.git\objects\37\3af1b1382250f4dab7dc2d48ac79c00259b44f" />
+    <Content Include="asc_temp\.git\objects\37\9dc0d0d50b1d0f79b3266edf076753e2c35953" />
+    <Content Include="asc_temp\.git\objects\38\6b9cab938d3de2089100a51019cccf555f8064" />
+    <Content Include="asc_temp\.git\objects\38\714a4eb759a943835c2dc21465c205ce5ad307" />
+    <Content Include="asc_temp\.git\objects\38\9c02fbf61bef6d1e3d12e91ad07b6d523032d6" />
+    <Content Include="asc_temp\.git\objects\38\9e71adf11fe2be29f70fd62161576f462e4c1c" />
+    <Content Include="asc_temp\.git\objects\39\4505e0f430f75487ac95b6ca71a4f156bc1627" />
+    <Content Include="asc_temp\.git\objects\39\58764b53da0cefd69618a3986ce77a682b032c" />
+    <Content Include="asc_temp\.git\objects\39\616f41176f59e74877f5082b887d036c77d325" />
+    <Content Include="asc_temp\.git\objects\39\9e3db5e228da92243248e6caa8d8d5ce59811e" />
+    <Content Include="asc_temp\.git\objects\3a\4929790ebd3867a2ec7c934e6524773f0d8cc8" />
+    <Content Include="asc_temp\.git\objects\3a\494ea48993120e82191655ecf8dec3376f6163" />
+    <Content Include="asc_temp\.git\objects\3a\71b14e599b43bc0c0e4b209bf1f3eae4962995" />
+    <Content Include="asc_temp\.git\objects\3a\9ab2963a6a5c22e6977c5c2a5e372cf088fe08" />
+    <Content Include="asc_temp\.git\objects\3a\d7a354c1c869c4d4373006d268cb924bcad4f6" />
+    <Content Include="asc_temp\.git\objects\3a\f1721f71f58bc30ca49eb29e627035c3c8fc77" />
+    <Content Include="asc_temp\.git\objects\3a\f64d4ef5b1b1510a39c015f79867ce66d8d1b4" />
+    <Content Include="asc_temp\.git\objects\3b\3b318d2bf8235a28cc58c511ade1b9ee03227e" />
+    <Content Include="asc_temp\.git\objects\3b\40caafbd5e463b8ce28715b9f4a81f3e973e58" />
+    <Content Include="asc_temp\.git\objects\3b\5eced9b5a6ab947525e7c4fa013d83fc624b5a" />
+    <Content Include="asc_temp\.git\objects\3b\7a7f238b077bff08b102867e4ea005a62aee75" />
+    <Content Include="asc_temp\.git\objects\3b\8511ac65bc7b661ce56276c81f80d02a190452" />
+    <Content Include="asc_temp\.git\objects\3b\ba6ebd31d720b7c05e7df82430d6534f09e74f" />
+    <Content Include="asc_temp\.git\objects\3b\cfa2d396a67c0a2d918d6403074bf85ef8e639" />
+    <Content Include="asc_temp\.git\objects\3b\dfdc4b20872127d468c0180a394a45f7abb475" />
+    <Content Include="asc_temp\.git\objects\3c\bbb37193732c0181d84ae09113afc1c99093c4" />
+    <Content Include="asc_temp\.git\objects\3d\11137f0ee85fa7357b0cc8f54dcfb0b9f87c5b" />
+    <Content Include="asc_temp\.git\objects\3d\2c4bf459b4e87ad6d33c344748d53f370b9d60" />
+    <Content Include="asc_temp\.git\objects\3d\538544143866ff4ef230c389c48acba0ac1d7f" />
+    <Content Include="asc_temp\.git\objects\3d\d8af3c9c1a5c619944dd87cb5614c389a99373" />
+    <Content Include="asc_temp\.git\objects\3e\65f6f099f5224f246ed20dbd28965c91f7cc39" />
+    <Content Include="asc_temp\.git\objects\3e\c3d71742231224e6660fd5440bd90ae9f7775e" />
+    <Content Include="asc_temp\.git\objects\3f\0eb4cb07e38515f691469ba3fd859c5316007f" />
+    <Content Include="asc_temp\.git\objects\3f\1ad509f4acd5aab57bf424a1296f7a93d6c8b3" />
+    <Content Include="asc_temp\.git\objects\3f\8b892545b96b9e5c2e390f011d7af3f34674ca" />
+    <Content Include="asc_temp\.git\objects\3f\9785dacb5b76c206391f718a0c5d414983bce9" />
+    <Content Include="asc_temp\.git\objects\3f\d68eea40c600a15f5afb2dec850864f27247f6" />
+    <Content Include="asc_temp\.git\objects\40\0aa73286b0039ee343551291893ee8816fb0e6" />
+    <Content Include="asc_temp\.git\objects\40\13534902686c383328b10d4b5b1e73ec6924b2" />
+    <Content Include="asc_temp\.git\objects\40\421437007c3baa7eabd4c73c5663e4a9bb693f" />
+    <Content Include="asc_temp\.git\objects\41\34f749583e98e83c23eef99ca0ef0fa719e945" />
+    <Content Include="asc_temp\.git\objects\41\50c0d52c02b369a3c980a9278c1896ace62187" />
+    <Content Include="asc_temp\.git\objects\41\8866f7d98bbe978d3bbafee932e1cbd7f9f795" />
+    <Content Include="asc_temp\.git\objects\41\bdc5034cf255c7c273cc3be2ec13c93bd15325" />
+    <Content Include="asc_temp\.git\objects\41\e423993b12dac7dd961efa1da381312f6b8d17" />
+    <Content Include="asc_temp\.git\objects\41\f61710f169cf21c5ce427679a92cacd4a90f34" />
+    <Content Include="asc_temp\.git\objects\42\5f8337a7d21d87a5bb3a7c2b07da53db40ca93" />
+    <Content Include="asc_temp\.git\objects\42\6455de0c8d08d95be683467e00527abe757437" />
+    <Content Include="asc_temp\.git\objects\42\a4be75670e6588063de9b7547d6fad68a4b475" />
+    <Content Include="asc_temp\.git\objects\43\551f35678c8c70c9289df21ad652516495398b" />
+    <Content Include="asc_temp\.git\objects\43\76032019cf692a628d5ceda855d08cb8b1acee" />
+    <Content Include="asc_temp\.git\objects\44\1ef2eba8bc98ec0bb96abd99405f6333c99a44" />
+    <Content Include="asc_temp\.git\objects\44\31760bd9e8e3f20b3772160772598ebd6ffa25" />
+    <Content Include="asc_temp\.git\objects\44\556bbd44157328098ca10d317218320cbdff65" />
+    <Content Include="asc_temp\.git\objects\44\c7cad47e87f155394befeae44cf7857a1b4517" />
+    <Content Include="asc_temp\.git\objects\45\15590cfb6371a0abb0d3e0dfa111b9a1bfab7e" />
+    <Content Include="asc_temp\.git\objects\45\19146cf7615ea78f10e97b89a2dbd861231a07" />
+    <Content Include="asc_temp\.git\objects\45\7973cc057cfbfc2796a0c7c4f6e282646760e5" />
+    <Content Include="asc_temp\.git\objects\45\c26da1d39444800888e24bd0c6637015c640d7" />
+    <Content Include="asc_temp\.git\objects\46\17d58ae9fadabdc845dbe63229995eb3e6a694" />
+    <Content Include="asc_temp\.git\objects\46\19c39c94e908c71236a41f818bd51152a20a52" />
+    <Content Include="asc_temp\.git\objects\46\2725d35c8d46f8d6a04776c78198757d6bd2c5" />
+    <Content Include="asc_temp\.git\objects\46\76de0783674519173df03ccad4626ef6dc426f" />
+    <Content Include="asc_temp\.git\objects\46\8ccfc8aabc7d3dcff3b49ebe8883de360dc599" />
+    <Content Include="asc_temp\.git\objects\46\a0503809faf1679fe3eb0afa320f7621477288" />
+    <Content Include="asc_temp\.git\objects\46\cd80938359171c238b5a48619156aec7b5e7d5" />
+    <Content Include="asc_temp\.git\objects\46\daad3558a182b16a5940c364f7869fc64779a1" />
+    <Content Include="asc_temp\.git\objects\46\ed5a18c7de567a5cf7ddb075ce8c0222bfcc8a" />
+    <Content Include="asc_temp\.git\objects\47\2b1f26f4eb9b1a460f269d3e80c3fe8b2563e0" />
+    <Content Include="asc_temp\.git\objects\47\3b01d0f7c24ba693a463925a1d99e973ae2d2e" />
+    <Content Include="asc_temp\.git\objects\47\f2c7116a8048ceeb52483bf5cb0db80f1c9a84" />
+    <Content Include="asc_temp\.git\objects\48\3299486b4e43388f9f828cc3d7a1265ef781e4" />
+    <Content Include="asc_temp\.git\objects\48\e43794c95b8a1e92731ef43203250a862f539a" />
+    <Content Include="asc_temp\.git\objects\49\d9bd54d5527764f79495387fc53eaf5acb627f" />
+    <Content Include="asc_temp\.git\objects\49\dcd3e05a5c306e127bab514ddf2f3c20f319da" />
+    <Content Include="asc_temp\.git\objects\4a\11b8fc50e88043de3f9716b9af829016ba5a82" />
+    <Content Include="asc_temp\.git\objects\4b\15a9014d0161aaed02fdec424599897fbbb2d0" />
+    <Content Include="asc_temp\.git\objects\4b\1766326d9370c9ff13b551542de42224616cad" />
+    <Content Include="asc_temp\.git\objects\4b\25b57053398e2e1f40f5e28b293ec7543020b1" />
+    <Content Include="asc_temp\.git\objects\4b\70c9e126d94fd222466c65e11853fd917e9574" />
+    <Content Include="asc_temp\.git\objects\4b\7bc07d7c5bcd2722a82bac9ce3cb3bdf2133b1" />
+    <Content Include="asc_temp\.git\objects\4b\8697c397f4b55ba05eb27ce85b6ff3ffe68ec6" />
+    <Content Include="asc_temp\.git\objects\4b\8714b0e1f1fda2fcfc06a0816c0bf4aadbf262" />
+    <Content Include="asc_temp\.git\objects\4c\a8ad3f28a200efc89c0d8ed6efca59280d00a2" />
+    <Content Include="asc_temp\.git\objects\4c\b79a06b7041d6910ce6a060d1986639dd31575" />
+    <Content Include="asc_temp\.git\objects\4d\39eafe52f03309dc808f5158bf65a16ea22b86" />
+    <Content Include="asc_temp\.git\objects\4e\0a8d93a8b1c6300ebd4731639ee9f4bffd515e" />
+    <Content Include="asc_temp\.git\objects\4e\3376b489f07fc9b26ab95c30680c3154d705f9" />
+    <Content Include="asc_temp\.git\objects\4f\031b23087023dc27f57ca297e21320b967f386" />
+    <Content Include="asc_temp\.git\objects\4f\1128782f99979b4ba28517cc091c17d806d6d1" />
+    <Content Include="asc_temp\.git\objects\4f\13c70f7bff7da0bcf4ada421fb15c5c8f32947" />
+    <Content Include="asc_temp\.git\objects\4f\62ed96a846d53b7b2e691b0432ec8b90bf7e83" />
+    <Content Include="asc_temp\.git\objects\4f\89efa706f3fe0ee582ddf2a093bfd6abf33290" />
+    <Content Include="asc_temp\.git\objects\4f\8e119ce76cd7677ff0a2146dbffb44b61ea7b6" />
+    <Content Include="asc_temp\.git\objects\4f\983d8325f2bdbc4d1417383f0b787d41cab367" />
+    <Content Include="asc_temp\.git\objects\4f\e354752455e070ebb56f42a60fc2233de45bd7" />
+    <Content Include="asc_temp\.git\objects\4f\ea743f80e94c2409882e51006eb9a6aa968cd5" />
+    <Content Include="asc_temp\.git\objects\50\251261476a9e86fbafeb247394c8213a863b50" />
+    <Content Include="asc_temp\.git\objects\50\782cec9a4fd7f8a1812b7af4c3930eb7ea9156" />
+    <Content Include="asc_temp\.git\objects\50\820eedd904647a76c4c2c1d830d4339588c08d" />
+    <Content Include="asc_temp\.git\objects\50\87c2a644223a95984baefdb74f39a287fdfd9a" />
+    <Content Include="asc_temp\.git\objects\50\e8aaaea38b67c112c694a31b6253a6aa7f9b8d" />
+    <Content Include="asc_temp\.git\objects\51\287f916660e3751d7f30337458e9322927c4ba" />
+    <Content Include="asc_temp\.git\objects\51\d69cdc07f24b133590fd9da7d5068af3c8c312" />
+    <Content Include="asc_temp\.git\objects\52\4b8067012138421f4d31ae5c77a54d6292e08a" />
+    <Content Include="asc_temp\.git\objects\52\db177b304c3481cbd0c8bff417abd86756d590" />
+    <Content Include="asc_temp\.git\objects\52\ece36c1c14dea0797a222f7e854892418d45d9" />
+    <Content Include="asc_temp\.git\objects\53\0cfa4080ce8fd06ecc9d82d59ea2ef1d1b9e48" />
+    <Content Include="asc_temp\.git\objects\53\85418d9c2c6abf13a0b902e356680b3342eda5" />
+    <Content Include="asc_temp\.git\objects\54\82190c1db61ee2465617eb40bee99602d87c4e" />
+    <Content Include="asc_temp\.git\objects\54\ad143866246a71b656d3021ee1347867b515b7" />
+    <Content Include="asc_temp\.git\objects\55\0719b636af042602930cb7ddc31976c831a8b7" />
+    <Content Include="asc_temp\.git\objects\55\1a5817e32eb80cc0ae3109215167ce0de5fef4" />
+    <Content Include="asc_temp\.git\objects\55\378d04ef05ac3dca95a1388071f1260be11ee0" />
+    <Content Include="asc_temp\.git\objects\55\466bcb97ba8a01c0c91610cbbe0ec8ca08f9ac" />
+    <Content Include="asc_temp\.git\objects\55\60193ccc5d768df40766ba54491f1822ed683c" />
+    <Content Include="asc_temp\.git\objects\56\181d9381129cb815010588a6de6acc04af863c" />
+    <Content Include="asc_temp\.git\objects\56\6861d6e21101db1cfe0c7d091e02e8061d9cd5" />
+    <Content Include="asc_temp\.git\objects\56\b69a3ccdf3393f83773a9c249721089930597b" />
+    <Content Include="asc_temp\.git\objects\57\09d4c57d619ffb4c060611117d1d7044ae80e2" />
+    <Content Include="asc_temp\.git\objects\57\5dc0ae92b1ea2044e158c2b1ee263a94e7d8be" />
+    <Content Include="asc_temp\.git\objects\57\6a8c124e876560d349408ee1d2fde0da83978c" />
+    <Content Include="asc_temp\.git\objects\57\6b39959e2d6872e85a5220ea8ea5841f3e0d22" />
+    <Content Include="asc_temp\.git\objects\57\7315b66692868d5de72805eca4cf4975dc0de9" />
+    <Content Include="asc_temp\.git\objects\57\9bed3bbdb05317e5b407fc451aa2cc7acedb8c" />
+    <Content Include="asc_temp\.git\objects\57\a6d083fe323dd913fc56e6cf61334044f2003e" />
+    <Content Include="asc_temp\.git\objects\58\402ade340d885922f28275719705df81dec3c4" />
+    <Content Include="asc_temp\.git\objects\58\c2132e4f8deb526d22c28675a540e309ed325c" />
+    <Content Include="asc_temp\.git\objects\59\0dd16ffc115bb4705cfdd454abe0f2445dfee3" />
+    <Content Include="asc_temp\.git\objects\59\3c78702bab9e7064ebd1105adc2d67ef7e97a7" />
+    <Content Include="asc_temp\.git\objects\59\40912594b05f3093a50aa0556a2641e7e8b47f" />
+    <Content Include="asc_temp\.git\objects\59\6e5dd122ea48bc22be161eabab1fb1b48809df" />
+    <Content Include="asc_temp\.git\objects\5a\4fd276429e28ecdbfe4aa91c2bd9b61ad46a26" />
+    <Content Include="asc_temp\.git\objects\5a\9f94228093f9c467e0105b32f0fafa8a4a5312" />
+    <Content Include="asc_temp\.git\objects\5a\c5197cf5c1409d88736996f18a3adfeb05bf66" />
+    <Content Include="asc_temp\.git\objects\5b\164d63859626b6e7dbc8d3cf3dc7bb2c491842" />
+    <Content Include="asc_temp\.git\objects\5b\2acb7fb15bdd4a9a8f125ad423344caf1c7b57" />
+    <Content Include="asc_temp\.git\objects\5b\e202b3c2e1698a58af26126a60e97b75e66406" />
+    <Content Include="asc_temp\.git\objects\5c\3f634b62fd96c93735f8438e186b5e34eca4f8" />
+    <Content Include="asc_temp\.git\objects\5c\baa278f3eecc1242b6ac05491fd22c83060856" />
+    <Content Include="asc_temp\.git\objects\5c\d6cff6d6f6cf438a882e366420dbcc5dddd3f1" />
+    <Content Include="asc_temp\.git\objects\5c\ddd370d34235fad1c09209e28c27c6f9d63eab" />
+    <Content Include="asc_temp\.git\objects\5c\f12fc2251710d11985a4a43de078930231e6e6" />
+    <Content Include="asc_temp\.git\objects\5d\2645cecfed0120fedc32d4841df6487a3ec5bd" />
+    <Content Include="asc_temp\.git\objects\5d\627e701e86da4dde4cbb072995979de86a3db9" />
+    <Content Include="asc_temp\.git\objects\5d\8f7f68937612eb0d7b4261258c4537fc07cab5" />
+    <Content Include="asc_temp\.git\objects\5d\b09269a5176a0342d03976225892ae38809dd3" />
+    <Content Include="asc_temp\.git\objects\5d\dce0e02212868f434e7ff57a3c9b875585b11c" />
+    <Content Include="asc_temp\.git\objects\5d\ebfd7de97d5bada8dbd090331fb62103b2493e" />
+    <Content Include="asc_temp\.git\objects\5d\edfa21e329b1118d286256fd5d5def892eae9e" />
+    <Content Include="asc_temp\.git\objects\5e\39401957d87d5d810f3d05ab05aca5febd7b5d" />
+    <Content Include="asc_temp\.git\objects\5e\7f6dd57bb3dbb970c2da7d45d6d094be3ee04b" />
+    <Content Include="asc_temp\.git\objects\5f\07ddc5634198b21473e73a5f9e71b47c0e96fe" />
+    <Content Include="asc_temp\.git\objects\5f\157bb996e114136bba2a3489aad1793ba7bd9b" />
+    <Content Include="asc_temp\.git\objects\5f\e6fb552f4375c3a96f58b9384d4849e574a4da" />
+    <Content Include="asc_temp\.git\objects\60\09c10885b0d19e39791cbbc4b5a17fb95249b6" />
+    <Content Include="asc_temp\.git\objects\60\116c0b80369abde82bef045933c37780ca4830" />
+    <Content Include="asc_temp\.git\objects\60\233bb899ffd043bca5fe589cd45fb03145b5c2" />
+    <Content Include="asc_temp\.git\objects\60\397087ca124bb845f133d910e5912b5b9201c7" />
+    <Content Include="asc_temp\.git\objects\60\5fbd4f81b047774b105825cd0c875f148e0087" />
+    <Content Include="asc_temp\.git\objects\60\8dd07e7291a601a0ff928412c345e7aee3a342" />
+    <Content Include="asc_temp\.git\objects\60\c4bfa2315b8904cc5749d402973430a7b8e2a2" />
+    <Content Include="asc_temp\.git\objects\61\0ba8ed3380115d7ddabb4ae31f069b1ddd8284" />
+    <Content Include="asc_temp\.git\objects\61\224bb6ab72cf6a3935fe642d5e7c3f4df7021e" />
+    <Content Include="asc_temp\.git\objects\61\31075ad215e0f8aa963d5a4b2887389a53c072" />
+    <Content Include="asc_temp\.git\objects\61\5744b02373da950993f2d3032cb363248ade1e" />
+    <Content Include="asc_temp\.git\objects\61\67622cecfb5c0f04156363565e3d4109fc55c5" />
+    <Content Include="asc_temp\.git\objects\61\c3839fdcbebd8409f89b8363f95bb7832ab1fe" />
+    <Content Include="asc_temp\.git\objects\61\d9dec9c18584f3af5cf7a77cb652287fe64bfe" />
+    <Content Include="asc_temp\.git\objects\62\149c28b9d88d8e270878af97927a2897aa845b" />
+    <Content Include="asc_temp\.git\objects\62\20bb2f6c33ecdb466cceec58d33eb712607ce0" />
+    <Content Include="asc_temp\.git\objects\62\4b530dee9f862b4ce644bcc2121a2b40e8a957" />
+    <Content Include="asc_temp\.git\objects\62\60d4861d4a7acc6514b615dd329689f7b8abd3" />
+    <Content Include="asc_temp\.git\objects\63\186462f7e9e5156b0bcdf854e2801785d27956" />
+    <Content Include="asc_temp\.git\objects\63\489f94027d56bde497c3ee40d7f33a064d56ad" />
+    <Content Include="asc_temp\.git\objects\63\639edccd96d5dd4ed7eeab18b4a1fc55da34c4" />
+    <Content Include="asc_temp\.git\objects\63\78e359f6d9eee867ba186208a2a47ba5e68b32" />
+    <Content Include="asc_temp\.git\objects\63\b64abf2445676eac609592285138051840d24c" />
+    <Content Include="asc_temp\.git\objects\64\539b54c3751a6d9adb44c8e3a45ba5a73b77f0" />
+    <Content Include="asc_temp\.git\objects\64\54b3ce78a383dbe48e79065edb0239e457086f" />
+    <Content Include="asc_temp\.git\objects\64\581f89cba5cae387d7a98804f5e8bbea852948" />
+    <Content Include="asc_temp\.git\objects\64\76cceb9a9fc49210c808d679b17858de4afb71" />
+    <Content Include="asc_temp\.git\objects\64\8871b04f397deddb9f80e5260143d90307aa30" />
+    <Content Include="asc_temp\.git\objects\65\4585c6f15e52b3ac7886fa165247a12b07bb6e" />
+    <Content Include="asc_temp\.git\objects\65\a06db347c915dd89eb8b09fa79129cf09e5631" />
+    <Content Include="asc_temp\.git\objects\65\b8f6ee915fc8ef18329a6b339bebf90a368c3b" />
+    <Content Include="asc_temp\.git\objects\65\c0afd103a9c28b721bf38e25c8e997081940f2" />
+    <Content Include="asc_temp\.git\objects\65\c6a6850c77ca443ffd6e142ee30157db48521d" />
+    <Content Include="asc_temp\.git\objects\65\f15e47e5c966c5df05ae4cbed3050e2fc83f99" />
+    <Content Include="asc_temp\.git\objects\66\0a254f1930b0b376d5831b130ce436b4456f42" />
+    <Content Include="asc_temp\.git\objects\66\201eefe2c1ecb60e458c75d8ec8ce2ae5e3081" />
+    <Content Include="asc_temp\.git\objects\66\6caed7ca98f9936b33f185ba49287ddf79fad8" />
+    <Content Include="asc_temp\.git\objects\66\891fc72027d465b56daf2a9f5a38c198007d5d" />
+    <Content Include="asc_temp\.git\objects\66\a3153bd0ad260262b66a181d033f646dd63459" />
+    <Content Include="asc_temp\.git\objects\66\cde8fe0c29f811fdde2d1e49132fbe823e1b7d" />
+    <Content Include="asc_temp\.git\objects\66\e3662301d26d315419e97436862026a0fcdb19" />
+    <Content Include="asc_temp\.git\objects\67\2e2c50d8c4d52b3f944430b839fb320a9efb2e" />
+    <Content Include="asc_temp\.git\objects\67\61648ab80b97e14c1afe257847b29cff2d2db4" />
+    <Content Include="asc_temp\.git\objects\68\1a89431cf13be20c91d99f6eb6ae401a76e0f7" />
+    <Content Include="asc_temp\.git\objects\69\2ac4e86c44460bcffc78fc5f5263ecd2b2f360" />
+    <Content Include="asc_temp\.git\objects\69\c1f01c58f2e506f528c503f5d56cbd27b2a4c1" />
+    <Content Include="asc_temp\.git\objects\69\caca1069b9711d08a5af053d95c6de40d3f0ea" />
+    <Content Include="asc_temp\.git\objects\69\e4713b644ff4a35c607fe7798bd1f7c311c793" />
+    <Content Include="asc_temp\.git\objects\69\f3a9ffe163f98d1054ea7c9b04f75024956423" />
+    <Content Include="asc_temp\.git\objects\6a\5970c383418c751f29dc254fc47ff8158dee2f" />
+    <Content Include="asc_temp\.git\objects\6a\f9fb3ac8b06ff17f7a9ff5f0a66099734e41a8" />
+    <Content Include="asc_temp\.git\objects\6b\1fa4036ef7317af1c5ff086b1751c8f82849a7" />
+    <Content Include="asc_temp\.git\objects\6c\7fa40b98db056a6d36faf96c77ef85d4a68bba" />
+    <Content Include="asc_temp\.git\objects\6c\b22e2fad1b80014927759af0330c5ab988bbae" />
+    <Content Include="asc_temp\.git\objects\6c\d7ee880755de2284ddf5be60e7429b4a462a21" />
+    <Content Include="asc_temp\.git\objects\6c\f5f20c456dbde0f77537280d35c4bedb8babb0" />
+    <Content Include="asc_temp\.git\objects\6c\fd56609567bc9db55186415c694d1d32808fc2" />
+    <Content Include="asc_temp\.git\objects\6d\d09913508af0c81ff6fb27f8e5695cbcfa679c" />
+    <Content Include="asc_temp\.git\objects\6d\df8c0a5d7c5641771cfe9fcea5d959b615c129" />
+    <Content Include="asc_temp\.git\objects\6e\17b151dd372a2ac0cea2093d3c3d26edf4d7f2" />
+    <Content Include="asc_temp\.git\objects\6e\7483cf61b490c08ed644d6ef802c69472eb247" />
+    <Content Include="asc_temp\.git\objects\6e\9e0b28761b7c960933adefbcfffcf6992fa093" />
+    <Content Include="asc_temp\.git\objects\6e\a3585f42a025d3153b23715ee9bd6aa9c3fdb1" />
+    <Content Include="asc_temp\.git\objects\6e\d201c85bc43691c821fd04c9bb021b26748594" />
+    <Content Include="asc_temp\.git\objects\6e\e3a3bd5b52860ea3e99fdf8633ad683943245e" />
+    <Content Include="asc_temp\.git\objects\6f\367106397d148c37e0811fa9eeebdb13c11b27" />
+    <Content Include="asc_temp\.git\objects\6f\6b73561fbd59650cbd89b3023aa51c3b09a5a5" />
+    <Content Include="asc_temp\.git\objects\6f\7e8c35a07bf170ec183a16d50829f3e2c83311" />
+    <Content Include="asc_temp\.git\objects\6f\b8a37505ee39208a02f6f984cfe5bcc11d8c18" />
+    <Content Include="asc_temp\.git\objects\6f\d19abcb9ec83a925f17e9db1d44ad3fe2699b3" />
+    <Content Include="asc_temp\.git\objects\6f\d4ede0f30f170eecb4156beb7235bf01fff00b" />
+    <Content Include="asc_temp\.git\objects\70\352c733b24a7b78d3da65176980628bade67ec" />
+    <Content Include="asc_temp\.git\objects\70\81234ff03f3d2bc764a2c18603d54c75e514ba" />
+    <Content Include="asc_temp\.git\objects\70\b9e338022e4d82712ef7a18b9609b46dbd4be6" />
+    <Content Include="asc_temp\.git\objects\70\cc576a96d39ecc98bcc2de973c8e6fda368bb7" />
+    <Content Include="asc_temp\.git\objects\70\ea3af50991cd049351cf1bb1de4752737b1071" />
+    <Content Include="asc_temp\.git\objects\71\59347dff46d80d0f3e32d73988572167aea2f7" />
+    <Content Include="asc_temp\.git\objects\72\a1b10d92930b3905bd23cc722d3861362946a0" />
+    <Content Include="asc_temp\.git\objects\72\a6a5c2e0f79a12bf109a02f7f6a3c840e9f935" />
+    <Content Include="asc_temp\.git\objects\73\218e8797b2cf509aeca7f81aaded8487601534" />
+    <Content Include="asc_temp\.git\objects\73\21a3b06c5f8c516e0f3a433a1229b952d6ca5e" />
+    <Content Include="asc_temp\.git\objects\73\610898a7094bbe858f2a699bfed82e7bdebd15" />
+    <Content Include="asc_temp\.git\objects\73\b574e7d46ea8a90a0a4190c98a9854c55204bc" />
+    <Content Include="asc_temp\.git\objects\74\9ef4502b933f021aa5e28521d5a464291c50b3" />
+    <Content Include="asc_temp\.git\objects\74\af9e12ecf801dca601188986583328bf455fd8" />
+    <Content Include="asc_temp\.git\objects\75\096ddc8d0ee53dae3c163628773689ad5397e2" />
+    <Content Include="asc_temp\.git\objects\75\257f958ff3ef7803148710abf0abe81c479e1d" />
+    <Content Include="asc_temp\.git\objects\75\a8d8510ad9da58f61aab5ecd07c06a720f849f" />
+    <Content Include="asc_temp\.git\objects\75\d32f5fb4fad3a2ba6d4e78cd66e80ebb3bd457" />
+    <Content Include="asc_temp\.git\objects\76\e50d0f5c6a8d0ee5f69b82493d94805f93d47b" />
+    <Content Include="asc_temp\.git\objects\76\f38e9da56e57c6ebac1f3df392650324f3ef51" />
+    <Content Include="asc_temp\.git\objects\77\0b9b59ebaebb4efcfce8ce4239da310cc6a4b3" />
+    <Content Include="asc_temp\.git\objects\77\4b7fc5f7ad0bf6c644cb868bb72586155145cb" />
+    <Content Include="asc_temp\.git\objects\77\86ab5128c53a952830a3494898ee3ff5d00cf2" />
+    <Content Include="asc_temp\.git\objects\77\c058e03acdac6b1b0a28f1e59ae1ce3df867a3" />
+    <Content Include="asc_temp\.git\objects\77\f429afeedfd67474058f5b1554e3554c96cb2a" />
+    <Content Include="asc_temp\.git\objects\78\26000f401ec0b880a166151dec4343cf3008eb" />
+    <Content Include="asc_temp\.git\objects\78\35b099db23654c12e8139d48762d56267303d1" />
+    <Content Include="asc_temp\.git\objects\79\11cc5100afc8cb8d9cbfc111a0bb803069ca21" />
+    <Content Include="asc_temp\.git\objects\79\1976e2df52f1d3b73334b40b3e1887f4ee946e" />
+    <Content Include="asc_temp\.git\objects\79\34c2672946759bba2ec4829947e3f992b51c9e" />
+    <Content Include="asc_temp\.git\objects\79\5c6b0534c489e9e5d809b55ee1fc40e0b7f711" />
+    <Content Include="asc_temp\.git\objects\79\dbdd363ab8c54fec10800972c271ff2a7e8237" />
+    <Content Include="asc_temp\.git\objects\79\f26d283f794af8558d9dd9e95a66521107fb36" />
+    <Content Include="asc_temp\.git\objects\7a\423ee1be0061501964bbc86556da08786ae676" />
+    <Content Include="asc_temp\.git\objects\7a\53435973833aab73898893bf9d1088d51e3028" />
+    <Content Include="asc_temp\.git\objects\7a\a16b7ec4f0dc3a0c40d06b9426f7c835165cf2" />
+    <Content Include="asc_temp\.git\objects\7a\afeb00bb87dcf037d5662c26c1abd4b0055eb7" />
+    <Content Include="asc_temp\.git\objects\7a\c990cf04f2323f9723518bfd72ce102222cefa" />
+    <Content Include="asc_temp\.git\objects\7a\cc0cecad80d6bae9e98627734a351967823dda" />
+    <Content Include="asc_temp\.git\objects\7b\7bcfc7e3783deb8661e2c29ad1ca9965f0371a" />
+    <Content Include="asc_temp\.git\objects\7c\0e6b195f4b83e31d876a1a360bb9e7922fd353" />
+    <Content Include="asc_temp\.git\objects\7c\14b06551a9a1cbe2685aaf9840b4d481aa5e16" />
+    <Content Include="asc_temp\.git\objects\7c\5f2a73b727ca82b968758b8d5f8372b722fd2b" />
+    <Content Include="asc_temp\.git\objects\7c\ccea8e75826fc88b291d7a8a0fef12cb7aba82" />
+    <Content Include="asc_temp\.git\objects\7d\986b8419d7477f58e4c1305f569d88571e869f" />
+    <Content Include="asc_temp\.git\objects\7d\a213ae5d6e0d7f3af0080f78eab81bdf05aa0d" />
+    <Content Include="asc_temp\.git\objects\7d\b0dca26ba0441e096bcabb044bba9436cf77ae" />
+    <Content Include="asc_temp\.git\objects\7e\5a251caa390d0dc0a4bdc7fcb8f7071aaa591e" />
+    <Content Include="asc_temp\.git\objects\7e\660ee538776df5b1fda7fbb4c541cf0ae926e9" />
+    <Content Include="asc_temp\.git\objects\7e\7515451e3fdf95e7a70637293cd259fb65d6f0" />
+    <Content Include="asc_temp\.git\objects\7e\b74fd127ee5eddf3b95fee6a20dc1684b0963b" />
+    <Content Include="asc_temp\.git\objects\7e\ebd59e6f661b2d25fa8f86f8d01829650b2db3" />
+    <Content Include="asc_temp\.git\objects\7f\283798127650c25c9085fb40d6ffda2dc2b49b" />
+    <Content Include="asc_temp\.git\objects\7f\4469975f4775b2f7063248e66977484e8e836a" />
+    <Content Include="asc_temp\.git\objects\7f\a84b58565dadc7f698d1e571da25c8770495c4" />
+    <Content Include="asc_temp\.git\objects\80\5d8f41201fb88721da0e3db91b9335a51660d5" />
+    <Content Include="asc_temp\.git\objects\80\a9beb670abcb3cc8a1ce4784730902aa223433" />
+    <Content Include="asc_temp\.git\objects\80\ce03abd3d961dc7728a84a0629ae8a917d25ea" />
+    <Content Include="asc_temp\.git\objects\81\530e00de19a62be26109c4c98827dc48d997cc" />
+    <Content Include="asc_temp\.git\objects\81\aafb7f0a0bb608b0b6965efc528a069f6daf57" />
+    <Content Include="asc_temp\.git\objects\81\ac95ba4479c82e2304dd9c6ef96569995d9251" />
+    <Content Include="asc_temp\.git\objects\82\1b9108df8d57833fa570ee3ad032242d03b8a1" />
+    <Content Include="asc_temp\.git\objects\82\8971af117ab9703d186a3ff6fbe782f442367c" />
+    <Content Include="asc_temp\.git\objects\84\57bc9738fc923a7f502030d46d9478615ac8cf" />
+    <Content Include="asc_temp\.git\objects\84\58ae8ed2529a2f7b67211bc9f8e7445dff01b0" />
+    <Content Include="asc_temp\.git\objects\84\7ebd183be736a7f4e7084546502954f58f9a91" />
+    <Content Include="asc_temp\.git\objects\84\ee66341ed486e10eb928f6c0dacaafe50a7c51" />
+    <Content Include="asc_temp\.git\objects\85\01a0441e34d73ab04daace9c7201e4eb80ce43" />
+    <Content Include="asc_temp\.git\objects\85\05456cc61141463583d691e02c2b2691499f95" />
+    <Content Include="asc_temp\.git\objects\85\5e9ed6b7a0af1ea635c28d170e7cbb4fed8a48" />
+    <Content Include="asc_temp\.git\objects\85\82efaa3e96aeb834b0c22f61a221ae4027907d" />
+    <Content Include="asc_temp\.git\objects\85\ae247268df1d4f079087ea50413e5d7fe11dcc" />
+    <Content Include="asc_temp\.git\objects\85\d0af4e19d4161679bb2436cc2cf301f0bf2b26" />
+    <Content Include="asc_temp\.git\objects\85\d310c4e0bb3b5eead9f14568c12c1864764ef7" />
+    <Content Include="asc_temp\.git\objects\85\eb8d6b95bdfeb0e7a367c706d35e2b47e3dadc" />
+    <Content Include="asc_temp\.git\objects\86\d1b533337d21e113853ee0f357ea7db35d2775" />
+    <Content Include="asc_temp\.git\objects\86\f146d39fbc3e0456937cfe97d1f373be8f9b44" />
+    <Content Include="asc_temp\.git\objects\86\f63fbee4dabd9ecf8b93abebf2b903f6d74c4b" />
+    <Content Include="asc_temp\.git\objects\87\421213e9f5bbee6b9da7fa4f71726232fd9195" />
+    <Content Include="asc_temp\.git\objects\87\4342fe2841545635cc6782ca42e42c99c9cba4" />
+    <Content Include="asc_temp\.git\objects\87\93f197d112dd9e1d9a37796a5854bbad26b746" />
+    <Content Include="asc_temp\.git\objects\87\ce9d82d58b36d389881559c60b4ebe89439897" />
+    <Content Include="asc_temp\.git\objects\87\ef2617c88c26c8260010468934cd327904a513" />
+    <Content Include="asc_temp\.git\objects\88\cd6569bd06cf54f379456840c5dca636aa308d" />
+    <Content Include="asc_temp\.git\objects\89\40dfd29d7d32ba50d80067572d870312abf039" />
+    <Content Include="asc_temp\.git\objects\89\87ade3a57f31da0fafc99f4bfb31b9e049799d" />
+    <Content Include="asc_temp\.git\objects\89\d585cc6c511906063cb631d095f4020892d7c2" />
+    <Content Include="asc_temp\.git\objects\8a\2e99a535d47e5798b167d1074ae2c77cab21e7" />
+    <Content Include="asc_temp\.git\objects\8a\60294786ff934f55a558152bf2d20cd0685ae0" />
+    <Content Include="asc_temp\.git\objects\8b\110bac6e18e6d4c51a18713ca7ee29f1d99629" />
+    <Content Include="asc_temp\.git\objects\8b\524cf08d394f966400cf028a80b1bdd7448c80" />
+    <Content Include="asc_temp\.git\objects\8b\66187fe067c3aa389ce8c98108f349ceae159c" />
+    <Content Include="asc_temp\.git\objects\8b\dca49feb4ea6c3b680d0254690c33ab657ac1f" />
+    <Content Include="asc_temp\.git\objects\8b\e07afd841c46d798509999a71aff3b5312c211" />
+    <Content Include="asc_temp\.git\objects\8c\7f74d3b26e176920508035280e97382dc9dbcc" />
+    <Content Include="asc_temp\.git\objects\8d\2360adcbe5d1c5f46c1e5962ad35efec9f9c37" />
+    <Content Include="asc_temp\.git\objects\8d\49c346590df5584d7c997914733e6834eac66e" />
+    <Content Include="asc_temp\.git\objects\8d\a2c425ac79b07d61b22c791a40d35df1ab7e8a" />
+    <Content Include="asc_temp\.git\objects\8d\abec5c0434dfc1d040ec90678d9644c1011aa7" />
+    <Content Include="asc_temp\.git\objects\8e\9b021ddbece28500290e3eee71d1bc40902896" />
+    <Content Include="asc_temp\.git\objects\8e\abf28ed9338c0b6258dacb5afb5283441b25be" />
+    <Content Include="asc_temp\.git\objects\8e\acdb68f5424d6f3886f090931e7e637829a2ce" />
+    <Content Include="asc_temp\.git\objects\8e\b6df94d07cdf1f9fb11be9b11b8e48e033bbff" />
+    <Content Include="asc_temp\.git\objects\8e\c0e073a1b26d2618226c0fe62bd572544bf44b" />
+    <Content Include="asc_temp\.git\objects\8e\cdb6f1d988298a72b60b06133a1d7d741ebe8e" />
+    <Content Include="asc_temp\.git\objects\8e\e05bb4675547ddcd8556c265e78186d95f4ca9" />
+    <Content Include="asc_temp\.git\objects\8f\057aa4e0abcb9113f97d6af409ebdedf756a5d" />
+    <Content Include="asc_temp\.git\objects\8f\7244166ea129a146b703eb192d71bd9258f983" />
+    <Content Include="asc_temp\.git\objects\8f\7441a9ee587d8fd23bf32ac364e26ed69cde08" />
+    <Content Include="asc_temp\.git\objects\8f\8f18ffd43f4fccd52578978a8cd1827a3014ce" />
+    <Content Include="asc_temp\.git\objects\90\4d2013192c143351b5111601c0e7500e402227" />
+    <Content Include="asc_temp\.git\objects\90\70657c8ec7a8a7092b9d4b820c31d0b627d39f" />
+    <Content Include="asc_temp\.git\objects\90\a1d8115fd5393abd83593d1e7b02cc4122330c" />
+    <Content Include="asc_temp\.git\objects\90\f5768d099838f4625b9f943d6e3e27e21f05a9" />
+    <Content Include="asc_temp\.git\objects\91\3da0c79c3d34e6ed9199b2059c0cf7dd6e6a1d" />
+    <Content Include="asc_temp\.git\objects\91\c68e50f829e9389f00b9cc2bc5b40239a6455a" />
+    <Content Include="asc_temp\.git\objects\91\cc73f5d309d54326cf1a1a58c09dec58dc738a" />
+    <Content Include="asc_temp\.git\objects\92\1258d756ec2e6063a57571219f754b817ceb90" />
+    <Content Include="asc_temp\.git\objects\92\42035cb358fe87a959792021132953b0f9e255" />
+    <Content Include="asc_temp\.git\objects\92\c4fe73bcc1bb23fd90157a6ecee12db8b59c8e" />
+    <Content Include="asc_temp\.git\objects\92\de40ea8054c34a7a89150a39e5b0ff4730caa8" />
+    <Content Include="asc_temp\.git\objects\93\80b6e39f72c7d53853421cf966cd9a8510e300" />
+    <Content Include="asc_temp\.git\objects\94\6f1bf9918de93b0599e29c6154a0626f76cd0e" />
+    <Content Include="asc_temp\.git\objects\94\813e9006074c2ce411b02c4014be94b5bb6039" />
+    <Content Include="asc_temp\.git\objects\94\84522f544200b7afe97ba3a3e08d520e5a16a8" />
+    <Content Include="asc_temp\.git\objects\94\dd7d36628769aa6f2391cccd85e20a44c10834" />
+    <Content Include="asc_temp\.git\objects\94\e70bbb9961f0d3ec4989c8220b1d0e930c80aa" />
+    <Content Include="asc_temp\.git\objects\94\fb5490a2ed10b2c69a4a567a4fd2e4f706d841" />
+    <Content Include="asc_temp\.git\objects\95\5ba329f42c69793e5a95a3180bf1b2b2a8c2be" />
+    <Content Include="asc_temp\.git\objects\95\89da9e120b97e92f1eaf3c1f4a6c51b65275d4" />
+    <Content Include="asc_temp\.git\objects\95\a46be173f7e28b45ba40da4ba5fa4573063e8d" />
+    <Content Include="asc_temp\.git\objects\95\ce6a4e6d9916f79df5dcafcaa32542748ca530" />
+    <Content Include="asc_temp\.git\objects\97\39280a9b94d1cd7769798358e9dc5e444fb122" />
+    <Content Include="asc_temp\.git\objects\97\e83eee08e590501efd4618d2cb6bb9f7c20d8b" />
+    <Content Include="asc_temp\.git\objects\97\f9f5a31cab57f5c0bc387cdb06cce9e114495c" />
+    <Content Include="asc_temp\.git\objects\98\15bc9e29f8870f75ddb8e2fbee19c4c7a82d48" />
+    <Content Include="asc_temp\.git\objects\98\368a7058cc3483dd370da7315a18215e509254" />
+    <Content Include="asc_temp\.git\objects\98\92e27a5acfeaed8b45112f2f258b038abf4ae3" />
+    <Content Include="asc_temp\.git\objects\99\12d9d247c268364769c9dc29b2b3d1a5216d20" />
+    <Content Include="asc_temp\.git\objects\99\c782da2e8fc00c581267de902e3826cd1c6c77" />
+    <Content Include="asc_temp\.git\objects\99\c83b82e55e6b3d013be2cb24a9463b107c3f4f" />
+    <Content Include="asc_temp\.git\objects\9a\9c7397b30bc5ef1c1bd0988ffd37f0569ccca9" />
+    <Content Include="asc_temp\.git\objects\9b\22c3c0bb54922bd632dcefbf7d03ed1143f098" />
+    <Content Include="asc_temp\.git\objects\9b\cd2fccaed9442f1460191d6670ca5e8e08520c" />
+    <Content Include="asc_temp\.git\objects\9b\eb3dd396e25c343f722abdd941875900a536b0" />
+    <Content Include="asc_temp\.git\objects\9c\06fe48fc8ad865b5e4fe4f0a4adfa75ec7642c" />
+    <Content Include="asc_temp\.git\objects\9c\29287b6c09eb89f6ea11ab40319bc05866f54b" />
+    <Content Include="asc_temp\.git\objects\9d\0606fdc46534a5a32b4712565338c71c2189d4" />
+    <Content Include="asc_temp\.git\objects\9d\0b85c1d6ddf163d03c078962c4845221b42e71" />
+    <Content Include="asc_temp\.git\objects\9d\71fd6b8b971b7afcccbaf8ba74a298053ea7e7" />
+    <Content Include="asc_temp\.git\objects\9d\adb6f7b784af65581b561be19586923b35a556" />
+    <Content Include="asc_temp\.git\objects\9d\c6077e2f235afb91accf2cf0a72c49dc78aaff" />
+    <Content Include="asc_temp\.git\objects\9e\1c5b84f237f2f47391b21b864443a0f8e0243b" />
+    <Content Include="asc_temp\.git\objects\9e\612858f802245ddcbf59788a0db942224bab35" />
+    <Content Include="asc_temp\.git\objects\9e\64d7829d8f6e5606c02319bf659fdf7af0ecc3" />
+    <Content Include="asc_temp\.git\objects\9e\aecb37996e205f1027fce2df59fbaa500657a8" />
+    <Content Include="asc_temp\.git\objects\9e\c298b9d932b7e9b031debb8e2bba10a59400c5" />
+    <Content Include="asc_temp\.git\objects\9f\339ae6b3cf8f62674a8eb53df90e9f7e3064de" />
+    <Content Include="asc_temp\.git\objects\9f\577666bce78b95e7b933ae98b96a0f53ee41b1" />
+    <Content Include="asc_temp\.git\objects\9f\64a4200987015872d4c0a77258155ac0cd2ae1" />
+    <Content Include="asc_temp\.git\objects\9f\87ca1b44198d6457707246de663465073159b1" />
+    <Content Include="asc_temp\.git\objects\9f\f1c8a66a9500ac9fe0233a397afffb15015760" />
+    <Content Include="asc_temp\.git\objects\a0\15b1673d799a0d5361fd4c16d37d8e4a61169f" />
+    <Content Include="asc_temp\.git\objects\a0\806ed4aa3029e4ae532aba6ad0dbc558f01c4d" />
+    <Content Include="asc_temp\.git\objects\a0\ff1fba43db6a1cca8315a7821cc2ffce38e2c0" />
+    <Content Include="asc_temp\.git\objects\a1\21ae7c378631100231ea0c0f8c8ad265527934" />
+    <Content Include="asc_temp\.git\objects\a1\29f31ab72a3073863c72a5d7089e02a810be5d" />
+    <Content Include="asc_temp\.git\objects\a1\828cda9cb71043fa3dc25ecae051bfb01b32c1" />
+    <Content Include="asc_temp\.git\objects\a1\9f143970310e978d80c3196df10d36a989e1ac" />
+    <Content Include="asc_temp\.git\objects\a1\b4730a55c464342e40e5f5c9205b72683d5030" />
+    <Content Include="asc_temp\.git\objects\a2\1d4cb2406706fb77b04754e0b6f7089fe8e536" />
+    <Content Include="asc_temp\.git\objects\a2\392639529a6db51b7900073c6f5660b5adec83" />
+    <Content Include="asc_temp\.git\objects\a2\7bd6f01f65817375ece8ea099c30ccceb8ba8b" />
+    <Content Include="asc_temp\.git\objects\a2\9757f5f73f0dfdcac575a54fa5c2ddeaa698aa" />
+    <Content Include="asc_temp\.git\objects\a2\b5df969cd624b3b3ed3674db86fbfae9b9420b" />
+    <Content Include="asc_temp\.git\objects\a2\dd6955798dd10db910631843ec0f3fad97e597" />
+    <Content Include="asc_temp\.git\objects\a3\0335d748c65c0bab5880b4e6dba53f5c79206c" />
+    <Content Include="asc_temp\.git\objects\a3\180693f5c7faf8510394cc09b5357559a7873e" />
+    <Content Include="asc_temp\.git\objects\a3\d35aa375d5a96ada05afd3a2f705e96589aa63" />
+    <Content Include="asc_temp\.git\objects\a3\d3660415040a5a70e14dcfb8f1994fc97648e7" />
+    <Content Include="asc_temp\.git\objects\a4\159422bd0c44b1b0370793a6c0ab7e76a7ea0a" />
+    <Content Include="asc_temp\.git\objects\a4\64a3c078735cb061d342e9788555d9c70522e4" />
+    <Content Include="asc_temp\.git\objects\a4\a9b391997cff1b55c180a1f8c30f8dcd2cc6e5" />
+    <Content Include="asc_temp\.git\objects\a4\d10a0a7259638fe6cfadf5008f377b7542d79c" />
+    <Content Include="asc_temp\.git\objects\a5\8e041f976b392056032656c62ff727b69a7803" />
+    <Content Include="asc_temp\.git\objects\a5\fb077065978af284ae16d2e97124cb60c2789a" />
+    <Content Include="asc_temp\.git\objects\a6\205f4a44782904d8ced558c07c32d35a3eabb7" />
+    <Content Include="asc_temp\.git\objects\a6\64847fc2c360fbacd72e1c18e073e261f3af58" />
+    <Content Include="asc_temp\.git\objects\a6\6f66fad2caa0a66f9b4c04629af9d4be8d9c44" />
+    <Content Include="asc_temp\.git\objects\a6\822a225eeb920133f1de2ae802de6b37c09b2d" />
+    <Content Include="asc_temp\.git\objects\a6\ca8d0fcb39ea11cd62df228af4da90e7ca55aa" />
+    <Content Include="asc_temp\.git\objects\a6\dbda7343c395b234b5a1aa6c1ad0531113efbb" />
+    <Content Include="asc_temp\.git\objects\a6\f30d291dc56ec99aa9e99a992d4aac1b41eee1" />
+    <Content Include="asc_temp\.git\objects\a6\fd34a52d07989a669b7bc07e0fa0a7d4078b20" />
+    <Content Include="asc_temp\.git\objects\a7\3b6859584a8177b7e113a820d74d91db723c5b" />
+    <Content Include="asc_temp\.git\objects\a8\f5d122955486a7bcdbea409bfb5e628b5f73ef" />
+    <Content Include="asc_temp\.git\objects\a9\0aace23833c9b1602af358e69d0909b4814ab9" />
+    <Content Include="asc_temp\.git\objects\a9\6755488bf5f60a59a689fd931e494a67ee21fb" />
+    <Content Include="asc_temp\.git\objects\a9\ac7b4fd121b48951a98e189bedc9b48d54140f" />
+    <Content Include="asc_temp\.git\objects\a9\be3b2ca8c584eb5f717a04d9603b137ce9c337" />
+    <Content Include="asc_temp\.git\objects\a9\f84695031139c2542f582e9312310f2186ff58" />
+    <Content Include="asc_temp\.git\objects\aa\2c3621b19cc8282c2fe65ed237c73821a20e5d" />
+    <Content Include="asc_temp\.git\objects\aa\5a31ed0fac82b9f030eba609a79d4974a0b36a" />
+    <Content Include="asc_temp\.git\objects\aa\6527c896ed63327f9465a43987ec705b12a12b" />
+    <Content Include="asc_temp\.git\objects\aa\746cbc981d7bf1bde90c4f6c4a096ab2177268" />
+    <Content Include="asc_temp\.git\objects\aa\79e473dca4efda30f91f712461777f26f84bb7" />
+    <Content Include="asc_temp\.git\objects\aa\9e0d5f8bbf6ebf7fa23fb0402dbb7d83a94816" />
+    <Content Include="asc_temp\.git\objects\aa\a44f88b588d13e6d12a84fa904f25e5d2a6a11" />
+    <Content Include="asc_temp\.git\objects\ac\3696d19925e6b7e9f49c79c20a329c2251a1a8" />
+    <Content Include="asc_temp\.git\objects\ac\82bbb8f9a0137e2481f8c35fac38a67190079b" />
+    <Content Include="asc_temp\.git\objects\ac\8bf25918443d77b9983fb6887edf0d8012ba38" />
+    <Content Include="asc_temp\.git\objects\ac\df2f693d2f8d0f586fe51bfb78faa16436d145" />
+    <Content Include="asc_temp\.git\objects\ad\32e2d572cf40705cee823fee9f69ac273d829c" />
+    <Content Include="asc_temp\.git\objects\ad\56a7b162f476a467077b8ba3f27a1f6aa53e36" />
+    <Content Include="asc_temp\.git\objects\ad\5fb9a950f59b540332ebd76e8a34f9017ab17f" />
+    <Content Include="asc_temp\.git\objects\ad\7864bcbde37bc50075a26148c7a69664434a4a" />
+    <Content Include="asc_temp\.git\objects\ae\8d1097b5a76251ddf2665c84e4143e112980ce" />
+    <Content Include="asc_temp\.git\objects\ae\a40a81981e1db52b0a3a4c241e9c0d09f62f47" />
+    <Content Include="asc_temp\.git\objects\af\3dc64b8777e09ba0259ef491999b60d4e95c54" />
+    <Content Include="asc_temp\.git\objects\af\46497f43a8c1f1f6c84c053cb61b1b81273961" />
+    <Content Include="asc_temp\.git\objects\af\5b3357ed7224abd717aa984da6a5ad6fe4b67f" />
+    <Content Include="asc_temp\.git\objects\af\64b12839092d2980c0a50db9415b1b342379b7" />
+    <Content Include="asc_temp\.git\objects\af\667cc491af63d9204374c042074bc43b37cb60" />
+    <Content Include="asc_temp\.git\objects\af\9144d86c8f8fee18e7280883727fb7f02dd2a2" />
+    <Content Include="asc_temp\.git\objects\af\eb0b6f15be2c59034669abb4c1b0a8c9154729" />
+    <Content Include="asc_temp\.git\objects\af\f33247f6ea0e81ae279089e4c320510a2e7ec7" />
+    <Content Include="asc_temp\.git\objects\b0\8ef541fe22a4182557a25d0e1edcb45ddde328" />
+    <Content Include="asc_temp\.git\objects\b1\ff60510b4e1a53bec5ba7afe52f2ebf2bb2473" />
+    <Content Include="asc_temp\.git\objects\b2\3a60279c04b48ff6ee68df734326be2900b865" />
+    <Content Include="asc_temp\.git\objects\b2\8c1ef3d595d5af9db1f2a4378cfd64407ed5c0" />
+    <Content Include="asc_temp\.git\objects\b2\eafb0c35e7c99e97c51c7de4f1bcd00998654f" />
+    <Content Include="asc_temp\.git\objects\b3\0be4bb905f1220a4a14231290d8cdca7dd9f92" />
+    <Content Include="asc_temp\.git\objects\b3\206a9444c4418c656de43428f98bce0697208a" />
+    <Content Include="asc_temp\.git\objects\b3\a0791833e9888030da6936662c6b96818c5dd7" />
+    <Content Include="asc_temp\.git\objects\b3\a78e4ec0885587f15542ccb2865b9cf389e4fb" />
+    <Content Include="asc_temp\.git\objects\b3\c2c60a7df016e1985976a20fd96e94c616f7d5" />
+    <Content Include="asc_temp\.git\objects\b4\037a07db010aa733044de9132ae488dd4d19c3" />
+    <Content Include="asc_temp\.git\objects\b4\20d7e6cafee6bdbbbc433cb9704e149140e9d9" />
+    <Content Include="asc_temp\.git\objects\b4\56262bd7541b0d45ce969325b9d52f2c821c24" />
+    <Content Include="asc_temp\.git\objects\b4\6b3994a01bd7085756fb6e222fe7934464a082" />
+    <Content Include="asc_temp\.git\objects\b4\77ad227d509baa9c1774b2a2b406513f237d44" />
+    <Content Include="asc_temp\.git\objects\b4\799de1279b2c291bb1811598741aeb68979b87" />
+    <Content Include="asc_temp\.git\objects\b5\b96811942a2140bfa632a40b9211af46fdfa72" />
+    <Content Include="asc_temp\.git\objects\b5\f44140a602913c97717a3ceb831f866076463d" />
+    <Content Include="asc_temp\.git\objects\b5\ffa7094a11d1c86ffea475e0b6ffdcb00a75b0" />
+    <Content Include="asc_temp\.git\objects\b6\2802ca252f030c89d83e9a16a6145500563698" />
+    <Content Include="asc_temp\.git\objects\b6\477e553fe6bcfef2fc9a75294dd44790b44662" />
+    <Content Include="asc_temp\.git\objects\b6\598deaff3bfc2bd54a4d5ba8b31bf08c6c96d3" />
+    <Content Include="asc_temp\.git\objects\b6\e79ee0af20405b025362eaacd58a4e5cbf220c" />
+    <Content Include="asc_temp\.git\objects\b7\7ceea0c6d1cb0d42e96480d62f59aa7ef11cbb" />
+    <Content Include="asc_temp\.git\objects\b7\bf3076ae1c665301bd1efda2e30afa55b42fb8" />
+    <Content Include="asc_temp\.git\objects\b7\ffd444ad6b446f8a3d418d1bdac99de25501ab" />
+    <Content Include="asc_temp\.git\objects\b8\305343a481bef85f0bbf0def511eb7637a5890" />
+    <Content Include="asc_temp\.git\objects\b8\4a6d18164eb9659f7d76f19a6ad7143b9ab331" />
+    <Content Include="asc_temp\.git\objects\b8\5fad40c5d19255ee1527ba881aeb52c8b34822" />
+    <Content Include="asc_temp\.git\objects\b8\6b537f0efa0958b1928c60f8f3810929a8c58f" />
+    <Content Include="asc_temp\.git\objects\b8\d4e5d5931ad6fa2349970ecf095bdbeb32cb38" />
+    <Content Include="asc_temp\.git\objects\b8\f4ab785404ac8ea101162bd47b28dbe1f52364" />
+    <Content Include="asc_temp\.git\objects\b9\03cd17ed7f21ab6a98ca9c2916e8c9f9493751" />
+    <Content Include="asc_temp\.git\objects\b9\1727f37141294a5fbaf47bafa9adfef421effc" />
+    <Content Include="asc_temp\.git\objects\b9\3a4953fff68df523aa7656497ee339d6026d64" />
+    <Content Include="asc_temp\.git\objects\b9\4ac97c91760b67b23aaf11ffee2a7803c43385" />
+    <Content Include="asc_temp\.git\objects\b9\9f5ce187ccaca0fb1ddde52224370d9d261739" />
+    <Content Include="asc_temp\.git\objects\ba\91e4b06c44104d2c307e7d87d6007c522f1868" />
+    <Content Include="asc_temp\.git\objects\bb\0a3c47fb0744763eb629da4c0e748f697aebd5" />
+    <Content Include="asc_temp\.git\objects\bb\b1cd9e902fc854f43174502f31225eb83ddd76" />
+    <Content Include="asc_temp\.git\objects\bb\bb3191bd3b578f04b2632283442ba6d51facc9" />
+    <Content Include="asc_temp\.git\objects\bc\16f160e170b6324602794a4ff5957ff4cefbbe" />
+    <Content Include="asc_temp\.git\objects\bc\39a78c8782a16d685d8e9f45fb2ca84ac526ac" />
+    <Content Include="asc_temp\.git\objects\bc\640622c24c493573152c3a0339825bdf96f424" />
+    <Content Include="asc_temp\.git\objects\bc\d3956c82cccfc48c6832840de72a104ad6cf8c" />
+    <Content Include="asc_temp\.git\objects\bd\4001e22b10460578347be0ca8df0adc2caf090" />
+    <Content Include="asc_temp\.git\objects\bd\ac392f1496f5b76787d59217590919e9d950a3" />
+    <Content Include="asc_temp\.git\objects\bd\c4446fdbca8b349afdcef47d3bbdff91f81089" />
+    <Content Include="asc_temp\.git\objects\bd\de29ab0a6bc7303f616b6a9b08ad8ec7c0f968" />
+    <Content Include="asc_temp\.git\objects\be\1d5cb035d197b682a15cdbdfe4904ae97970b9" />
+    <Content Include="asc_temp\.git\objects\be\666c4fe9b3899a448120d2fc93a230a108ab78" />
+    <Content Include="asc_temp\.git\objects\be\8536e3e6219077b39d2b6160d710cf1ed4ff32" />
+    <Content Include="asc_temp\.git\objects\be\93c9870f3b72f52a944231cb77ec3f084be202" />
+    <Content Include="asc_temp\.git\objects\be\c744425c9169fbafb2f1c65e2d689540583ef1" />
+    <Content Include="asc_temp\.git\objects\be\d27a8c9eb6d054ce548f514a91847a4e96e374" />
+    <Content Include="asc_temp\.git\objects\bf\00386070072f391745a138daa09f9a4734414f" />
+    <Content Include="asc_temp\.git\objects\bf\0bd10d3bbfb96951140fc67f7160ab0a3732d6" />
+    <Content Include="asc_temp\.git\objects\bf\6aa80602d9303b61e8d5e63c10568e55b6a4d8" />
+    <Content Include="asc_temp\.git\objects\bf\8e48bce3d0adb5dd6368d52ca15ee61c8ab2f4" />
+    <Content Include="asc_temp\.git\objects\bf\9df26cfe0494a350fa28fe1e02dc714544410e" />
+    <Content Include="asc_temp\.git\objects\bf\a1b3252183075c60b66f7621ad8e5398367b79" />
+    <Content Include="asc_temp\.git\objects\bf\becffc72d1cef00645a810335dd619a924795d" />
+    <Content Include="asc_temp\.git\objects\bf\d94f77a4a3617b1ee7328e6e3306a687d87958" />
+    <Content Include="asc_temp\.git\objects\bf\e56b72c99e5256bc9fe749b811a1b65795df94" />
+    <Content Include="asc_temp\.git\objects\bf\ef15e0fcfbf209437030109ddc633cfb73c52c" />
+    <Content Include="asc_temp\.git\objects\c0\1ce50dd79c395efb587d7d13a95952e49bc81c" />
+    <Content Include="asc_temp\.git\objects\c0\1dc0795dd6954e0ee877970e73aec9ee474726" />
+    <Content Include="asc_temp\.git\objects\c0\3933a8b442717ce271fe1b982157fcbb7881cf" />
+    <Content Include="asc_temp\.git\objects\c0\46ab720e6629bde227a3d397e497eb91aef73c" />
+    <Content Include="asc_temp\.git\objects\c0\6a353731da2c8ce2860143abb4f35f4b17e331" />
+    <Content Include="asc_temp\.git\objects\c0\79b9dc65a2766f7c46b58514aa8f63a8289541" />
+    <Content Include="asc_temp\.git\objects\c0\b318f58102b49ac4d73fdffe456a5c7528b623" />
+    <Content Include="asc_temp\.git\objects\c1\1c201822ab8f5e9b66755a50e1fd2c214ce694" />
+    <Content Include="asc_temp\.git\objects\c1\331fcf8a0a059e196f05c8dbe3a2ef1d7a9692" />
+    <Content Include="asc_temp\.git\objects\c1\4eb4b283295215ca3ddb0a9b5db26fc81198c3" />
+    <Content Include="asc_temp\.git\objects\c1\6bb3da462ffc459770d97522fbf1d929d71f99" />
+    <Content Include="asc_temp\.git\objects\c1\6e70e3c6e4431c0f453f2e7cecd1701ac26591" />
+    <Content Include="asc_temp\.git\objects\c2\218ad557a119901c26d645429e440f95e6e706" />
+    <Content Include="asc_temp\.git\objects\c2\a46d73cdbc5087268d832fe75f312d279419b9" />
+    <Content Include="asc_temp\.git\objects\c2\b158252704aeea58c579b6210e0057d559ed8f" />
+    <Content Include="asc_temp\.git\objects\c2\cfd8794589dfa951660045e4042cbb3d7c8475" />
+    <Content Include="asc_temp\.git\objects\c3\e059d97038bea1c13d2dec9ae141a466878d72" />
+    <Content Include="asc_temp\.git\objects\c3\ea96b2fc5177895ec2e5e2c8df066e3d07a52d" />
+    <Content Include="asc_temp\.git\objects\c4\478dcdaf1062151a1698f0288567dedecabc4a" />
+    <Content Include="asc_temp\.git\objects\c5\0ccf6b8dbee77a8a3da1d4fcbc3e61acb0a356" />
+    <Content Include="asc_temp\.git\objects\c5\6db2d2670234d32e6a4d2b6e7f9e9da1af1f5c" />
+    <Content Include="asc_temp\.git\objects\c5\72cfd773b3c083fbaa3b52371e162d902e8efb" />
+    <Content Include="asc_temp\.git\objects\c5\8d2d182fc569d8e134b4fc9b80a447258af752" />
+    <Content Include="asc_temp\.git\objects\c5\9536a8c6b7b536c9387c4fcec8709c77ce736b" />
+    <Content Include="asc_temp\.git\objects\c5\ccff6bec15f619a7479aa8c43bf157054e894f" />
+    <Content Include="asc_temp\.git\objects\c6\38f028f3ab7139811d4385938f818a97a88120" />
+    <Content Include="asc_temp\.git\objects\c6\ba794aa2fd75bd81dffa0a2211be0a2b2138c2" />
+    <Content Include="asc_temp\.git\objects\c6\f137b2aeb374b8730c83762614893f9d3448e5" />
+    <Content Include="asc_temp\.git\objects\c7\b00d2ba8896fd29de846b19f89fcf0d56ad152" />
+    <Content Include="asc_temp\.git\objects\c7\b6e75408f4d060e8e0bb951754060dbdca0864" />
+    <Content Include="asc_temp\.git\objects\c8\559439b0409ccb7f95f73e9df5c73e28374de4" />
+    <Content Include="asc_temp\.git\objects\c9\6d281b2d40b660c272ba233703e5f3edfdb260" />
+    <Content Include="asc_temp\.git\objects\ca\044e079858367b69774851a3b711739107c184" />
+    <Content Include="asc_temp\.git\objects\ca\1e0e56cb00767b54376b14a7d213332a2f20f5" />
+    <Content Include="asc_temp\.git\objects\ca\4eab145d1fb54335b79fbcbd74a937b710fee7" />
+    <Content Include="asc_temp\.git\objects\ca\ab0bdd03645c73df8f851eda7c2853542dfba6" />
+    <Content Include="asc_temp\.git\objects\ca\ba165d0999a006d021196d7706e5b51a587a0a" />
+    <Content Include="asc_temp\.git\objects\ca\d28c070443a5787b667dd8399432f27bd17352" />
+    <Content Include="asc_temp\.git\objects\ca\e2cfae32e582c936fc84abf1682e069e4c0d79" />
+    <Content Include="asc_temp\.git\objects\ca\f3584e6fe08b6c05542943cc4af3d5b4694ca5" />
+    <Content Include="asc_temp\.git\objects\cb\4291c0c84f2fe7aeb298fa79f439a2b47b0587" />
+    <Content Include="asc_temp\.git\objects\cb\5a4bf02ef8e2d0295a9f3590c5229a76e6521a" />
+    <Content Include="asc_temp\.git\objects\cb\aa68742a56e766034cb6fd928a192281a4b5e7" />
+    <Content Include="asc_temp\.git\objects\cb\af5109a433c04a6cda11282c62c4fb93633a67" />
+    <Content Include="asc_temp\.git\objects\cb\b3745a584aa13b94da939643c4a1c28fb0c1e2" />
+    <Content Include="asc_temp\.git\objects\cb\dc2eff1fb32d283477018778011d08f9f29615" />
+    <Content Include="asc_temp\.git\objects\cc\1f1178890c9f1764ed974cd4a1a9a9e6808580" />
+    <Content Include="asc_temp\.git\objects\cc\446005863ccad965502ee9ee2fdd197352ac14" />
+    <Content Include="asc_temp\.git\objects\cc\9613211348be59a8bb7f20aacb07c81c5b9909" />
+    <Content Include="asc_temp\.git\objects\cc\d35572b1f8c73bcac1fb6bb56ff793a842f9aa" />
+    <Content Include="asc_temp\.git\objects\cc\df43a31989d487d2258e49e68ba1d6a841df7e" />
+    <Content Include="asc_temp\.git\objects\cd\0915021982e76524e171436c6bae29c396eaf6" />
+    <Content Include="asc_temp\.git\objects\cd\4b510004e103f38bd8d139262c98dc622431d8" />
+    <Content Include="asc_temp\.git\objects\cd\a068b82abb52d54135386f5e678b5e62bfd006" />
+    <Content Include="asc_temp\.git\objects\cd\df5a1036059949fb116f7e6a82b6a3c864c5f0" />
+    <Content Include="asc_temp\.git\objects\cd\f3a892b7c18434a8507a148d3a4f7723337c3f" />
+    <Content Include="asc_temp\.git\objects\ce\706ee6fc146078d145880049d77ba133ef8828" />
+    <Content Include="asc_temp\.git\objects\ce\d779ad7490811fb1f5ae5f2ca0cdd7881ebf14" />
+    <Content Include="asc_temp\.git\objects\cf\0ba15dc5b85a31cf2d3d3839517775fb225797" />
+    <Content Include="asc_temp\.git\objects\cf\1435fbb8e991796612f5da30420f0d412d804a" />
+    <Content Include="asc_temp\.git\objects\cf\41e4f0d0a7cece1f804136e7b9f5c879d24c5a" />
+    <Content Include="asc_temp\.git\objects\cf\459b5b3b0b8fd6c4640fe3ee3413aaa1f940e2" />
+    <Content Include="asc_temp\.git\objects\cf\7e263b5ca3493f43cb12c8dd6f3cc78ec593eb" />
+    <Content Include="asc_temp\.git\objects\cf\c9ee8bf51f9a9728a8f291d50bd59ccdc6fb34" />
+    <Content Include="asc_temp\.git\objects\cf\da54408f8752a5cb308eb32894a7ab0d146d8b" />
+    <Content Include="asc_temp\.git\objects\d0\1c2ff5f8a6c89aed318feb6db4e60cd86905b9" />
+    <Content Include="asc_temp\.git\objects\d0\6111711341858aff4fdd7375ba2c38ab435e3e" />
+    <Content Include="asc_temp\.git\objects\d0\64d801dc711a98a8a0043742d59d9d320ce251" />
+    <Content Include="asc_temp\.git\objects\d0\da5d359e8c747aaa40f2dcc8d5a995c8ce4036" />
+    <Content Include="asc_temp\.git\objects\d1\3de41d9add9906f9453df719ef4fa532a4c682" />
+    <Content Include="asc_temp\.git\objects\d1\6e471c013fbe905ab4ebcec9ab47cddd98959c" />
+    <Content Include="asc_temp\.git\objects\d2\000afff6020ed790565bbc6a66941685c28196" />
+    <Content Include="asc_temp\.git\objects\d2\03ab424e175220c5ddc4c7d37d91709e5ab521" />
+    <Content Include="asc_temp\.git\objects\d2\90255e9d3ed9b1faf219caf15631a447f60ec0" />
+    <Content Include="asc_temp\.git\objects\d2\e7be8b0f560a4abbb42d204a0b7e08946858ed" />
+    <Content Include="asc_temp\.git\objects\d2\fdcd57724bd9cc57bf6629fc3b4ddb88859cb5" />
+    <Content Include="asc_temp\.git\objects\d3\2187d7333ae10dcacdfee3b679ca9355b5bd35" />
+    <Content Include="asc_temp\.git\objects\d3\5137ab36932fe4f63b31c4efb2b27521a665bc" />
+    <Content Include="asc_temp\.git\objects\d3\77e2735f4a0ec09d2975d040798f250d4587be" />
+    <Content Include="asc_temp\.git\objects\d3\f2a1543e862ab817cadd0ec0d3409ecec7563b" />
+    <Content Include="asc_temp\.git\objects\d4\433ab0d6933357b0e91f6fc72662f1bda39f51" />
+    <Content Include="asc_temp\.git\objects\d4\8e1e11abf3dcc17685d2d1858c8049e0a593e0" />
+    <Content Include="asc_temp\.git\objects\d5\5713f14739d6cca65c8376ada79288715752e7" />
+    <Content Include="asc_temp\.git\objects\d5\c47818a7310a73d38652783972763c81e6f845" />
+    <Content Include="asc_temp\.git\objects\d5\d1413d9fd30568cac8b310741599ff243e2165" />
+    <Content Include="asc_temp\.git\objects\d6\10c16a745f1c6fa954d17ad2058a478c7ef1c0" />
+    <Content Include="asc_temp\.git\objects\d7\6622bfb64cc37325751ea38768eff49f5ac29e" />
+    <Content Include="asc_temp\.git\objects\d7\994e13086b1ac1a216bd754c93e1bccd65f237" />
+    <Content Include="asc_temp\.git\objects\d7\d076ad278f7295a80c150a066ba372e9dd65e2" />
+    <Content Include="asc_temp\.git\objects\d7\efbf3f6c4a6612550158302336fc86c7b3a60f" />
+    <Content Include="asc_temp\.git\objects\d8\76f60fb4fd2a1c421a4813ef080ac97b670465" />
+    <Content Include="asc_temp\.git\objects\d8\91c50af976f55914cbb276c8c8452548d2fc8d" />
+    <Content Include="asc_temp\.git\objects\d8\afa76ada9aeaa88ab6c4e5bff289fd2fc30db6" />
+    <Content Include="asc_temp\.git\objects\da\7bc49bda220d9f7149c7f99d9950abbffaac8b" />
+    <Content Include="asc_temp\.git\objects\da\7be51ca5c84969b984965edaeb2a0d18db1389" />
+    <Content Include="asc_temp\.git\objects\da\c357859b04b743b2c40f42fdd72abfeb91b50d" />
+    <Content Include="asc_temp\.git\objects\da\ca7ebc36a06d6747421986b388f166a9795a9c" />
+    <Content Include="asc_temp\.git\objects\db\252c3ea4ab3943f92199086e2be15faae1dc38" />
+    <Content Include="asc_temp\.git\objects\db\84fcb715e148011634c5d416949b28bc374d48" />
+    <Content Include="asc_temp\.git\objects\db\8cd5321cb288dd6a2b07fef9fc27867cf4d5c8" />
+    <Content Include="asc_temp\.git\objects\db\938eadc38148891355753c597c13788c4a8f1d" />
+    <Content Include="asc_temp\.git\objects\dc\72fedd69a6bdc81497e59393b4e1e45e07cf9b" />
+    <Content Include="asc_temp\.git\objects\dc\7d43b0dd417274f380a145cb32931a22959d61" />
+    <Content Include="asc_temp\.git\objects\dc\b6c2adcf1aab28379c672f47733380ce4c5ed7" />
+    <Content Include="asc_temp\.git\objects\dc\b8702a99eb7f1bcac19dadb503f70fe8c92054" />
+    <Content Include="asc_temp\.git\objects\dc\f4b0777b7755b013602a06f17b5ce5dc229fc1" />
+    <Content Include="asc_temp\.git\objects\dc\f8bde545581137abd9f8f1b776db5ca848ff92" />
+    <Content Include="asc_temp\.git\objects\dd\6f2bc9e1e5ae095ca92069ff1106668a591276" />
+    <Content Include="asc_temp\.git\objects\dd\ec3d82cab829a25f3283bd4e8cffa6dc077f36" />
+    <Content Include="asc_temp\.git\objects\de\8ff0133b5ec89bcbf9580d96750ef18faf2354" />
+    <Content Include="asc_temp\.git\objects\de\95d70043af0077fce3b0cca6bc3242cca92b30" />
+    <Content Include="asc_temp\.git\objects\df\4eb8001ded6f1aa72ce18ef841552137fb87d0" />
+    <Content Include="asc_temp\.git\objects\e0\43a34684ad19948455c84700610707aff1c471" />
+    <Content Include="asc_temp\.git\objects\e0\9199e65e50917709d7ec87dece473fdc265ce7" />
+    <Content Include="asc_temp\.git\objects\e0\a90385f03278f016b4dbfc017ecfd6c8e76e7d" />
+    <Content Include="asc_temp\.git\objects\e0\b5c35ac7de35527a68c1a2958adc6654cd710a" />
+    <Content Include="asc_temp\.git\objects\e0\cd9c49af7fe2f6ab694843bdd3b90ce9217cb3" />
+    <Content Include="asc_temp\.git\objects\e1\469651f91b2198b6e699f2386b1de7eaf79960" />
+    <Content Include="asc_temp\.git\objects\e1\70ec2c76e78db7063ec1fbe8f72a8605b7c6b3" />
+    <Content Include="asc_temp\.git\objects\e1\9eab6e48c442ce1c7f1f8b828bbad573f783e4" />
+    <Content Include="asc_temp\.git\objects\e1\cbc6255586cecaf3cb80d1462efb91c13f8e39" />
+    <Content Include="asc_temp\.git\objects\e2\05e92f15ab204cd19885404609be787fc576e8" />
+    <Content Include="asc_temp\.git\objects\e2\34cecfd29c9780b4b5faf510dc12e22f77a70a" />
+    <Content Include="asc_temp\.git\objects\e2\5c8be6ea0c7ed0e8468fbed235262ce6cf2761" />
+    <Content Include="asc_temp\.git\objects\e2\9eb9b91d3f8d1de65476c04800ae546c96fc0c" />
+    <Content Include="asc_temp\.git\objects\e2\b0d2d0087a1ec407882cee7c5bef76a92edb0d" />
+    <Content Include="asc_temp\.git\objects\e2\c0b612e8b0a2bd65401c482b182942edef1eb1" />
+    <Content Include="asc_temp\.git\objects\e3\771203403e94a83ef3bd3e5a1e560c3070b3e6" />
+    <Content Include="asc_temp\.git\objects\e3\eaf69e769a01d6c73be2608968e33b2d798042" />
+    <Content Include="asc_temp\.git\objects\e3\eebdd9961f29f97d2596e4db1993e7e09dc8fc" />
+    <Content Include="asc_temp\.git\objects\e4\c776ee728776a462061745873186c56f29b07e" />
+    <Content Include="asc_temp\.git\objects\e4\cab8f1bc342dd83d9630827a80a5650ebb82b6" />
+    <Content Include="asc_temp\.git\objects\e4\dfce62e8a11dd359981852db41fc1a8739d4dc" />
+    <Content Include="asc_temp\.git\objects\e4\eab33c404a88859b620ddd953bf522c13f6c09" />
+    <Content Include="asc_temp\.git\objects\e5\0fec367f1dabd5ccf98d4e49600004fb8cbf16" />
+    <Content Include="asc_temp\.git\objects\e5\2f08d7feb6f12e461199784e7c1f3f46d7f3c8" />
+    <Content Include="asc_temp\.git\objects\e5\3f9e6c32318b58cf75de636229b975b5478c4f" />
+    <Content Include="asc_temp\.git\objects\e5\55d9fd10819da219dd63f83997421dc873c641" />
+    <Content Include="asc_temp\.git\objects\e5\a047c3a7efb0f8085e0b70523299af00a5dbd6" />
+    <Content Include="asc_temp\.git\objects\e5\a84aefff4b9e3ab3a6443f8d92ab83a4cee335" />
+    <Content Include="asc_temp\.git\objects\e6\0a735d7aef54eacca4c7dd691df7c7b6c2eeae" />
+    <Content Include="asc_temp\.git\objects\e6\765a524290c4e1e5d5ebbb0fce15b163eae520" />
+    <Content Include="asc_temp\.git\objects\e6\92662bca0c8c81d3b8904324d7802a903f7a54" />
+    <Content Include="asc_temp\.git\objects\e6\a0957018998f25604c6338c1ba20dd66f122bf" />
+    <Content Include="asc_temp\.git\objects\e7\0bc2fdc121708878dc698786886ca57ea1de63" />
+    <Content Include="asc_temp\.git\objects\e7\9c065134f2cfcf3e44a59cffcb5f090232f98f" />
+    <Content Include="asc_temp\.git\objects\e7\c97db86849580d359490a6db4101a0dbee2769" />
+    <Content Include="asc_temp\.git\objects\e8\09c3b64219468c4c744a4d4f086460ee6c8d6f" />
+    <Content Include="asc_temp\.git\objects\e8\1fe8ef0b63749a36188a99db52294377e3ec27" />
+    <Content Include="asc_temp\.git\objects\e8\390fb4218d9a03874cb0055bc5c7d6fd286b66" />
+    <Content Include="asc_temp\.git\objects\e8\ee8e857e40e99910d9305cc6b8e76b6ff88515" />
+    <Content Include="asc_temp\.git\objects\e9\08e469c3f692e070881493bf84c7119478de3c" />
+    <Content Include="asc_temp\.git\objects\e9\2866d9e152059bb9d7fd8db0c38c46a08144d3" />
+    <Content Include="asc_temp\.git\objects\e9\54dc598dbf573d4da8f6cef1cc6a4c4d4d573c" />
+    <Content Include="asc_temp\.git\objects\e9\75cd899efa1c2dc4386034c4601754dfc2a5a2" />
+    <Content Include="asc_temp\.git\objects\e9\89c0c89312caad52709aaa79f1551259fa45b6" />
+    <Content Include="asc_temp\.git\objects\ea\50b5b9b7c59cf84cd3463924a7d9664db3351b" />
+    <Content Include="asc_temp\.git\objects\ea\987308b2217529947a6abe0164da15f64dd09c" />
+    <Content Include="asc_temp\.git\objects\eb\1ed6788e9f38a9b6678883106c61517334c4e6" />
+    <Content Include="asc_temp\.git\objects\eb\2798de62f6277b97095e4475cdd899c629f175" />
+    <Content Include="asc_temp\.git\objects\eb\2b788387754ee3a5fe316e99095f59b49bb979" />
+    <Content Include="asc_temp\.git\objects\eb\3fce66f5351dad4c813383a88a4d5e422f292f" />
+    <Content Include="asc_temp\.git\objects\eb\beb5d410ec68baa6dc565078e2872f9ad9124b" />
+    <Content Include="asc_temp\.git\objects\ec\24980d9ee54f25fbb816cd5ef2764a61c22795" />
+    <Content Include="asc_temp\.git\objects\ec\586a208a8e4ae43186f9b994404a46f25c83c9" />
+    <Content Include="asc_temp\.git\objects\ec\981ff766f432be90eb3143d9ae3904c1927bfb" />
+    <Content Include="asc_temp\.git\objects\ed\3905e0e0c91d4ed7d8aa14412dffeb038745ff" />
+    <Content Include="asc_temp\.git\objects\ed\94ca47a1ad33955b5ddde0c535940f197b8425" />
+    <Content Include="asc_temp\.git\objects\ed\e8b0299778866a0775223c380006efd1fd4a8d" />
+    <Content Include="asc_temp\.git\objects\ee\1da3da3b5be9426a296980bd3f7821463ca6ac" />
+    <Content Include="asc_temp\.git\objects\ee\986e9933a4f223b79712a239421e8172901c25" />
+    <Content Include="asc_temp\.git\objects\ee\a539ecab2816a24cd15504fdca5682afc137c0" />
+    <Content Include="asc_temp\.git\objects\ee\b6463f0daef2c3f213c6a08167a869d4f93228" />
+    <Content Include="asc_temp\.git\objects\ef\024ea0208e373f79e54e979e09f397aa4c9e7a" />
+    <Content Include="asc_temp\.git\objects\ef\12cc727f8ba9f0eb10ee7a52c6e413e37f0d30" />
+    <Content Include="asc_temp\.git\objects\ef\7fc1a48a1a0e1c745cce1354ea10a05f28192d" />
+    <Content Include="asc_temp\.git\objects\ef\854f72a18d7312b4357d9bbeaaec75d7345cbd" />
+    <Content Include="asc_temp\.git\objects\ef\8f6e03404d3bf1aa925f934f01a0ac55ec276e" />
+    <Content Include="asc_temp\.git\objects\ef\c78f551c478e5a42674d6fc99ca44f50d22805" />
+    <Content Include="asc_temp\.git\objects\f0\10c82d113c25336f5ae7df32ce5de0caaddbd2" />
+    <Content Include="asc_temp\.git\objects\f0\2bd43de564bbb37f442547a36da3a850fb9015" />
+    <Content Include="asc_temp\.git\objects\f0\65fe696482fb72ba4003559be669ebb2ac45fb" />
+    <Content Include="asc_temp\.git\objects\f0\6758e50bd89dd1eecafc49db15a5dc41b2fc46" />
+    <Content Include="asc_temp\.git\objects\f0\95a7121d34b332f99b6b6042d1069f4c93aed9" />
+    <Content Include="asc_temp\.git\objects\f0\dfcd71dad20e9baa6b4a3df86eb10b350c5b2f" />
+    <Content Include="asc_temp\.git\objects\f1\0617652f9e432d7af5d280765df48c912549b7" />
+    <Content Include="asc_temp\.git\objects\f1\acf1203a1cd509dac8c079e538dae2a62f4fbf" />
+    <Content Include="asc_temp\.git\objects\f2\21e50a2ef60738ba30932d834530cdfe55cb3e" />
+    <Content Include="asc_temp\.git\objects\f2\25142ae5d8d9e96cf6975c67d7a59fd6b37487" />
+    <Content Include="asc_temp\.git\objects\f2\6a90bdb4d6c0f6a65c3d456e61814c337d123d" />
+    <Content Include="asc_temp\.git\objects\f2\cb893d5bff5a3f8fb0020b1e4b4829cdad1809" />
+    <Content Include="asc_temp\.git\objects\f2\cfafd67f4e200b13a75d7bd093bdee54c2f116" />
+    <Content Include="asc_temp\.git\objects\f2\d9a85ef7ecacefeecae401bcb9de755d789495" />
+    <Content Include="asc_temp\.git\objects\f3\0fb50569fec9891517b889fac2b04a62f4dcee" />
+    <Content Include="asc_temp\.git\objects\f3\3a765bdbd15bfb85ef6c6a64074f966674d9bd" />
+    <Content Include="asc_temp\.git\objects\f3\569dcdd17a4c9c7b35c1388da0eb175d4c5cd4" />
+    <Content Include="asc_temp\.git\objects\f3\9686e2ea7260365777bfe2a4844a00aee4689a" />
+    <Content Include="asc_temp\.git\objects\f3\96daac70d7c484fd9cc9bb4c8d914ac096eb0c" />
+    <Content Include="asc_temp\.git\objects\f3\af6853c498e83a15a22cbcac06b68a16ab97f9" />
+    <Content Include="asc_temp\.git\objects\f4\117261ae41044e3d5a4c08b6baece22f332876" />
+    <Content Include="asc_temp\.git\objects\f4\9924356f85550814113ed419f093553b71a2e1" />
+    <Content Include="asc_temp\.git\objects\f4\d869e0663d8b024752306677cf259a648b4997" />
+    <Content Include="asc_temp\.git\objects\f4\d8bce5851146235a1c49d29a2ea7cf857a8239" />
+    <Content Include="asc_temp\.git\objects\f4\e7aaef1ba1a3ff82f42b4474d5712e68e14b3c" />
+    <Content Include="asc_temp\.git\objects\f5\544769e545c56bd60ebf4adbcaa47dd9cbb4ee" />
+    <Content Include="asc_temp\.git\objects\f5\79a5434732e9c14d0785cdb0d8df1dc0ee24fa" />
+    <Content Include="asc_temp\.git\objects\f5\7f6cd0e65b7bb8137733b4ebe0a8c15227d0d1" />
+    <Content Include="asc_temp\.git\objects\f5\ca78fcdea782a44ae1f32c5a951dfb374789a0" />
+    <Content Include="asc_temp\.git\objects\f6\02323d58e4ec27b9f30442b647fdf3ee5ee1f7" />
+    <Content Include="asc_temp\.git\objects\f6\02d86d1e6407c7faea0b33ec0dbcea7d90e403" />
+    <Content Include="asc_temp\.git\objects\f6\5d47974786ee51c258f680bd9be621629244f5" />
+    <Content Include="asc_temp\.git\objects\f6\6c8a6f7ad21c6b2b6cd28e63bd29abee2231e0" />
+    <Content Include="asc_temp\.git\objects\f6\81a679e93bfb0a9f2a6b913ee5a5546abcc77c" />
+    <Content Include="asc_temp\.git\objects\f6\bc4a233beef4008cc9157950f349a680b5e961" />
+    <Content Include="asc_temp\.git\objects\f6\c07f24674381a7cf1993faecea0af17dc8a360" />
+    <Content Include="asc_temp\.git\objects\f7\21dd27eefb4616b635adbec8ce291728b488b7" />
+    <Content Include="asc_temp\.git\objects\f7\3e84f8fb3d04982137c85b108a0dbbdd4c1c86" />
+    <Content Include="asc_temp\.git\objects\f7\d38a6ee333a0cb17bc9f5cc569d2c00d35e395" />
+    <Content Include="asc_temp\.git\objects\f7\fc44f177893c0b30728c9b1fe4cbf3328b1d9b" />
+    <Content Include="asc_temp\.git\objects\f8\27147775b0b4579345cd94542b6ec65743f101" />
+    <Content Include="asc_temp\.git\objects\f8\68132f48390345f13c07281b677a0e4ed27461" />
+    <Content Include="asc_temp\.git\objects\f8\87480226e2cfde4b636bca381582a63b1fe8fe" />
+    <Content Include="asc_temp\.git\objects\f8\ef91b22e05471e0dd34b2682deeb517bdbb131" />
+    <Content Include="asc_temp\.git\objects\f8\f405089e392609f170ed9582d9208cb2dfb229" />
+    <Content Include="asc_temp\.git\objects\f9\0fe4f4e1a9f74a5b22d2d0a9b6c9bb4ea9e317" />
+    <Content Include="asc_temp\.git\objects\f9\4644912d6121824f5bb6c5d4951b197f5ee90a" />
+    <Content Include="asc_temp\.git\objects\f9\8ab3f85b8205e9ab7cfe21586a487b603e3989" />
+    <Content Include="asc_temp\.git\objects\fa\1073ba314c9f1613f42096baac037690e978d9" />
+    <Content Include="asc_temp\.git\objects\fa\47739b7ac3f7cc5e2859106ad32c92eb7c598d" />
+    <Content Include="asc_temp\.git\objects\fa\61fa5664f0a0a2436b63ea109f6d593fba311d" />
+    <Content Include="asc_temp\.git\objects\fa\d42700700d8899406e007ee806a550bb57786a" />
+    <Content Include="asc_temp\.git\objects\fa\f6d558aea5e12ba1294baf9545f7fdd9bb83dd" />
+    <Content Include="asc_temp\.git\objects\fb\0b4274a978bdab435067d0fcb5ff12592eefec" />
+    <Content Include="asc_temp\.git\objects\fb\60a6b61432b0aa68d03bc4498d28d298eaae4f" />
+    <Content Include="asc_temp\.git\objects\fb\68c88602189de72fbec7551fcc992054a87944" />
+    <Content Include="asc_temp\.git\objects\fb\8c0f83d715aec1014b77f0b44002a07a635052" />
+    <Content Include="asc_temp\.git\objects\fb\907aa3034c26a58e556635956c4aa2a27b059f" />
+    <Content Include="asc_temp\.git\objects\fb\9d11c47e0384fd8453b388256dd0cfe7b8b5a6" />
+    <Content Include="asc_temp\.git\objects\fc\33720d9a24ea6dbc46d4c5582af98db6141c21" />
+    <Content Include="asc_temp\.git\objects\fd\0063bbdea7048cef8d1e39502e857761596ffd" />
+    <Content Include="asc_temp\.git\objects\fd\239b960b42aad5a2e8354d6cf30e79085611f2" />
+    <Content Include="asc_temp\.git\objects\fd\5ac5f639d7aab94186233703767ef5241d48f5" />
+    <Content Include="asc_temp\.git\objects\fd\ad4b28852c25a36a9b3d3a2c6e7958a7bc77c3" />
+    <Content Include="asc_temp\.git\objects\fd\b04d7bf03e455cdfcc4834643673b554a2367f" />
+    <Content Include="asc_temp\.git\objects\fd\ea1f44a4cc7606d95593524dd0264b9970472a" />
+    <Content Include="asc_temp\.git\objects\fe\867a33ebdce6bc69a2e7b75347196bc5598101" />
+    <Content Include="asc_temp\.git\objects\fe\9e876d573ea144f1e32da314429174190ffcb9" />
+    <Content Include="asc_temp\.git\objects\fe\fda2ef8694a898f7ffaddc81ecc9f7e0263ad5" />
+    <Content Include="asc_temp\.git\refs\heads\master" />
+    <Content Include="asc_temp\.git\refs\remotes\origin\master" />
+    <Content Include="asc_temp\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="asc_temp\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="asc_temp\bootstrap\css\bootstrap.css.map" />
+    <Content Include="asc_temp\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="asc_temp\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="asc_temp\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="asc_temp\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="asc_temp\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="asc_temp\css\name.css.map" />
+    <Content Include="asc_temp\css\search.css.map" />
+    <Content Include="asc_temp\css\tehsil.css.map" />
+    <Content Include="asc_temp\fonts\fontawesome-webfont862f.eot" />
+    <Content Include="asc_temp\fonts\fontawesome-webfont862f.ttf" />
+    <Content Include="asc_temp\fonts\fontawesome-webfont862f.woff" />
+    <Content Include="asc_temp\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="asc_temp\fonts\themify9f24.eot" />
+    <Content Include="asc_temp\fonts\themify9f24.ttf" />
+    <Content Include="asc_temp\fonts\themify9f24.woff" />
+    <Content Include="asc_temp\fonts\themifyd41d.eot" />
+    <Content Include="asc_temp\images\mypics\boyf" />
+    <Content Include="asc_temp\images\Thumbs.db" />
+    <Content Include="asc_temp\README.md" />
+    <Content Include="asc_temp\sass\name.scss" />
+    <Content Include="asc_temp\sass\search.scss" />
+    <Content Include="asc_temp\sass\tehsil.scss" />
+    <Content Include="asc_temp\school\fonts\fontawesome-webfont93e3.eot" />
+    <Content Include="asc_temp\school\fonts\fontawesome-webfont93e3.ttf" />
+    <Content Include="asc_temp\school\fonts\fontawesome-webfont93e3.woff" />
+    <Content Include="asc_temp\school\fonts\fontawesome-webfont93e3.woff2" />
+    <Content Include="asc_temp\school\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="asc_temp\school\fonts\icomoon4ca0.eot" />
+    <Content Include="asc_temp\school\fonts\icomoon4ca0.ttf" />
+    <Content Include="asc_temp\school\fonts\icomoon4ca0.woff" />
+    <EntityDeploy Include="Models\asc.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>asc.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\asc.edmx.diagram">
+      <DependentUpon>asc.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Food.cshtml" />
+    <Content Include="Views\Home\Cartoon.cshtml" />
+    <Content Include="Views\Cartoon\Index.cshtml" />
+    <Content Include="Views\Food\Index.cshtml" />
+    <Content Include="Views\SIngleBlog\Index.cshtml" />
+    <Content Include="Views\cartoon_blog\Index.cshtml" />
+    <Content Include="Views\gym\index.cshtml" />
+    <Content Include="Views\Education\Index.cshtml" />
+    <Content Include="Views\Name\Index.cshtml" />
+    <Content Include="Views\health\Index.cshtml" />
+    <Content Include="Views\Shared\_adminlayout.cshtml" />
+    <Content Include="Views\admin\Index.cshtml" />
+    <Content Include="Views\cartoonsCrud\Create.cshtml" />
+    <Content Include="Views\cartoonsCrud\Delete.cshtml" />
+    <Content Include="Views\cartoonsCrud\Details.cshtml" />
+    <Content Include="Views\cartoonsCrud\Edit.cshtml" />
+    <Content Include="Views\cartoonsCrud\Index.cshtml" />
+    <Content Include="Views\foods\Create.cshtml" />
+    <Content Include="Views\foods\Delete.cshtml" />
+    <Content Include="Views\foods\Details.cshtml" />
+    <Content Include="Views\foods\Edit.cshtml" />
+    <Content Include="Views\foods\Index.cshtml" />
+    <Content Include="Views\food_categoriesCrud\Create.cshtml" />
+    <Content Include="Views\food_categoriesCrud\Delete.cshtml" />
+    <Content Include="Views\food_categoriesCrud\Details.cshtml" />
+    <Content Include="Views\food_categoriesCrud\Edit.cshtml" />
+    <Content Include="Views\food_categoriesCrud\Index.cshtml" />
+    <Content Include="Views\foodsCrud\Create.cshtml" />
+    <Content Include="Views\foodsCrud\Delete.cshtml" />
+    <Content Include="Views\foodsCrud\Details.cshtml" />
+    <Content Include="Views\foodsCrud\Edit.cshtml" />
+    <Content Include="Views\foodsCrud\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="asc_temp\.git\objects\info\" />
+    <Folder Include="asc_temp\.git\objects\pack\" />
+    <Folder Include="asc_temp\.git\refs\tags\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59178</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59178/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
