@@ -1,13 +1,14 @@
-﻿
+﻿@using  asc_general.Models
+@model dynamic
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tehsil";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @section tehsilCss{
     <link type="text/css" href="~/asc_temp/css/foodHut_style.css" rel="stylesheet">
     <link type="text/css" href="~/asc_temp/css/foodHut_responsive.css" rel="stylesheet">
-
     <!-- StyleSheets school-->
     <link rel="stylesheet" href="~/asc_temp/school/css/vendor/bootstrap.css">
     <link rel="stylesheet" href="~/asc_temp/school/css/style.css">
@@ -18,7 +19,6 @@
     <link rel="stylesheet" href="~/asc_temp/school/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/asc_temp/school/css/responsive.css">
     <link rel="stylesheet" href="~/asc_temp/school/css/transition.css">
-
     <link rel="stylesheet" href="~/asc_temp/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="~/asc_temp/css/tehsil.css">    
 }
@@ -70,11 +70,13 @@
         <!-- Filter Tags List -->
         <div class="filter-tags-holder">
             <ul id="tg-filterbale-nav" class="option-set">
-                <li><a class="selected" data-filter="*" href="#">All</a></li>
-                <li><a data-filter=".books" href="#">School Books</a></li>
-                <li><a data-filter=".bags" href="#">School Bags</a></li>
-                <li><a data-filter=".uniform" href="#">School Uniform</a></li>
-                <li><a data-filter="*" href="#">others</a></li>
+                <li><a class="selected" data-filter="*" href="#">Hamısı</a></li>
+                @foreach (edu_categories cat in Model.EduCategory)
+                {
+                    <li>
+                        <a data-filter=".@cat.id" href="#">@cat.name</a>
+                    </li>
+                }
             </ul>
         </div>
         <!-- Filter Tags List -->
@@ -84,66 +86,21 @@
     <div class="container">
         <div class="row">
             <div id="filter-masonry" class="gallery-masonry section-padding-top">
-                <div class="masonry-grid col-sm-6 col-xs-6 uniform r-full-width">
-                    <figure class="gallery-figure">
-                        <img src="~/asc_temp/school/images/gallery/img-01.jpg" alt="img-01">
-                        <figcaption class="gallery-hover">
-                            <div class="tc-display-table">
-                                <div class="tc-display-table-cell">
-                                    <a class="fa fa-search" href="~/asc_temp/school/images/gallery/img-01.jpg" data-rel="prettyPhoto[gallery]"></a>
+                @foreach (education edu in Model.Education)
+                {                    
+                    <div class="masonry-grid col-sm-4 col-xs-6 @edu.edu_cat_id r-full-width">
+                        <figure class="gallery-figure">
+                            <img src="~/Uploads/@edu.photo" alt="@edu.name">
+                            <figcaption class="gallery-hover">
+                                <div class="tc-display-table">
+                                    <div class="tc-display-table-cell">
+                                        <a class="fa fa-search" href="~/Uploads/@edu.photo" data-rel="prettyPhoto[gallery]"></a>
+                                    </div>
                                 </div>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="masonry-grid col-sm-6 col-xs-6 books r-full-width">
-                    <figure class="gallery-figure">
-                        <img src="~/asc_temp/school/images/gallery/img-02.jpg" alt="img-02">
-                        <figcaption class="gallery-hover">
-                            <div class="tc-display-table">
-                                <div class="tc-display-table-cell">
-                                    <a class="fa fa-search" href="~/asc_temp/school/images/gallery/img-02.jpg" data-rel="prettyPhoto[gallery]"></a>
-                                </div>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="masonry-grid col-sm-4 col-xs-6 bags r-full-width">
-                    <figure class="gallery-figure">
-                        <img src="~/asc_temp/school/images/gallery/img-03.jpg" alt="img-03">
-                        <figcaption class="gallery-hover">
-                            <div class="tc-display-table">
-                                <div class="tc-display-table-cell">
-                                    <a class="fa fa-search" href="~/asc_temp/school/images/gallery/img-03.jpg" data-rel="prettyPhoto[gallery]"></a>
-                                </div>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="masonry-grid col-sm-4 col-xs-6 books r-full-width">
-                    <figure class="gallery-figure">
-                        <img src="~/asc_temp/school/images/gallery/img-04.jpg" alt="img-04">
-                        <figcaption class="gallery-hover">
-                            <div class="tc-display-table">
-                                <div class="tc-display-table-cell">
-                                    <a class="fa fa-search" href="~/asc_temp/school/images/gallery/img-04.jpg" data-rel="prettyPhoto[gallery]"></a>
-                                </div>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="masonry-grid col-sm-4 col-xs-6 uniform r-full-width">
-                    <figure class="gallery-figure">
-                        <img src="~/asc_temp/school/images/gallery/img-05.jpg" alt="img-05">
-                        <figcaption class="gallery-hover">
-                            <div class="tc-display-table">
-                                <div class="tc-display-table-cell">
-                                    <a class="fa fa-search" href="~/asc_temp/school/images/gallery/img-05.jpg" data-rel="prettyPhoto[gallery]"></a>
-                                </div>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                }
             </div>
         </div>
     </div>
@@ -266,7 +223,7 @@
     <script src="~/asc_temp/school/js/gmap3.min.js"></script>
     <script src="~/asc_temp/school/js/parallax.js"></script>
     <script src="~/asc_temp/school/js/contact-form.js"></script>
-    @*<script src="~/asc_temp/school/js/owl-carousel.js"></script>*@
+    <script src="~/asc_temp/school/js/owl-carousel.js"></script>
     <script src="~/asc_temp/school/js/countdown.js"></script>
     <script src="~/asc_temp/school/js/nstslider.js"></script>
     <script src="~/asc_temp/school/js/odometer.js"></script>
