@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Dynamic;
+using asc_general.Models;
 
 namespace asc_general.Controllers
 {
     public class HomeController : Controller
     {
+        private ascEntities1 db = new ascEntities1();
+
         public ActionResult Index()
         {
-            return View();
+            dynamic mymodel = new ExpandoObject();
+            mymodel.cartoon = db.cartoons.ToList();
+            return View(mymodel);
         }
 
         public ActionResult About()
@@ -38,5 +44,6 @@ namespace asc_general.Controllers
 
             return View();
         }
+  
     }
 }
