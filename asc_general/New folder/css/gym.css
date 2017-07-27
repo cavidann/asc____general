@@ -1,0 +1,727 @@
+#gymm {
+  /* =================reset css starts here================= */
+  /* =================reset css ends here================= */
+  /* ===================== PRELOADER  start======================== */
+  /* ================= Stats Section end ================= */
+  /* ================= Class Section start ================= */
+  /* ================= Class Section end ================= */
+  /* ================= Video Section start ================= */
+  /* ================= Video Section end ================= */
+  /* ================= Schedule Section start ================= */
+  /* ================= Schedule Section end ================= */
+  /* ================= Trainer Section start ================= */
+  /* ================= Trainer Section end ================= */
+  /* ================= Video Section start ================= */
+  /* ================= Video Section end ================= */
+  /* ================= Pricing Section start ================= */
+  /* ================= Pricing Section end ================= */
+  /* ================= Contact Section start ================= */
+  /* ================= Contact Section end ================= */
+  /* ================= Footer start ================= */
+  /* ================= Footer end ================= */
+  /* ================= go top start ================= */
+  /* ================= go top end ================= */
+  /* ============================= */
+  /* ! Layout for ipad lanscape */
+  /* ============================= */
+  /*============================= 
+  ! Layout for ipad portrait  
+  ============================= */
+  /* ============================= */
+  /* ! Layout for mobile(lanscape) version   */
+  /* ============================= */
+  /* ============================= */
+  /* ! Layout for mobile(portrait) version   */
+  /* ============================= */
+  /*h3,h6,p{
+    color: blue;
+  }*/ }
+  #gymm * {
+    margin: 0;
+    padding: 0; }
+  #gymm h1, #gymm h2, #gymm h3, #gymm h4, #gymm h5, #gymm h6, #gymm p, #gymm ul, #gymm li, #gymm body, #gymm html, #gymm form, #gymm fieldset {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: 0; }
+  #gymm form, #gymm fieldset {
+    width: 100%; }
+  #gymm img {
+    border: 0; }
+  #gymm a {
+    text-decoration: none;
+    border: 0;
+    outline: 0; }
+  #gymm .clear {
+    clear: both;
+    width: auto !important; }
+  #gymm ul {
+    list-style: none; }
+  #gymm a:focus, #gymm input:focus, #gymm textarea:focus, #gymm *:focus {
+    outline: 0 !important;
+    box-shadow: none !important; }
+  #gymm .nobg {
+    background: transparent !important; }
+  #gymm html, #gymm body {
+    height: 100%; }
+  #gymm body {
+    font-size: 13px;
+    line-height: 24px;
+    font-weight: 300;
+    font-family: 'open sans';
+    color: #000;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+  #gymm .container {
+    width: 100%;
+    max-width: 1300px; }
+  #gymm a, #gymm input, #gymm button {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in; }
+  #gymm a img {
+    border: 0px none; }
+  #gymm a:hover {
+    outline: none;
+    color: #2a2eec;
+    text-decoration: none; }
+  #gymm a:active {
+    outline: none;
+    text-decoration: none; }
+  #gymm a:focus {
+    outline: none;
+    outline-offset: 0px;
+    text-decoration: none;
+    color: inherit; }
+  #gymm ::-webkit-input-placeholder {
+    color: #999;
+    opacity: 1; }
+  #gymm ::-moz-placeholder {
+    color: #999;
+    opacity: 1; }
+  #gymm :-moz-placeholder {
+    color: #999;
+    opacity: 1; }
+  #gymm :-ms-input-placeholder {
+    color: #999;
+    opacity: 1; }
+  #gymm img {
+    max-width: 100%; }
+  #gymm h1, #gymm h2, #gymm h3, #gymm h4, #gymm h5, #gymm h6 {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-weight: bold;
+    font-family: 'Bubblegum Sans', cursive;
+    color: inherit;
+    letter-spacing: -1px; }
+  #gymm h1 {
+    font-size: 48px; }
+  #gymm h2 {
+    font-size: 40px; }
+  #gymm h3 {
+    font-size: 35px; }
+  #gymm h4 {
+    font-size: 28px; }
+  #gymm h5 {
+    font-size: 22px;
+    line-height: 1; }
+  #gymm h6 {
+    font-size: 18px;
+    line-height: 1; }
+  #gymm p {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 25px; }
+  #gymm b {
+    font-weight: 600; }
+  #gymm strong {
+    font-weight: 700; }
+  #gymm p:last-child {
+    margin-bottom: 0; }
+  #gymm .large-para {
+    font-size: 18px;
+    line-height: 27px;
+    color: #000; }
+  #gymm .mar-40 {
+    margin-bottom: 40px !important; }
+  #gymm .mar-30 {
+    margin-bottom: 30px !important; }
+  #gymm .no-mar {
+    margin: 0 !important; }
+  #gymm .btn {
+    border-radius: 50px;
+    font-weight: 400;
+    padding: 12px 30px;
+    font-size: 15px;
+    box-shadow: none;
+    font-family: 'Montserrat'; }
+  #gymm .btn-default {
+    color: #fff;
+    background-color: #2a2eec;
+    border: solid 1px  #2a2eec; }
+  #gymm .btn-default:hover, #gymm .btn-default:focus, #gymm .btn-default:active {
+    color: #2a2eec;
+    background-color: transparent;
+    border-color: #2a2eec; }
+  #gymm .btn-primary {
+    color: #2a2eec;
+    background-color: transparent;
+    border: solid 1px  #2a2eec; }
+  #gymm .btn-primary:hover, #gymm .btn-primary:focus, #gymm .btn-primary:active {
+    color: #fff;
+    background-color: #2a2eec;
+    border-color: #2a2eec; }
+  #gymm .btn-second {
+    color: #fff;
+    background-color: #2a2eec;
+    border: solid 1px  #2a2eec; }
+  #gymm .btn-second:hover, #gymm .btn-second:focus, #gymm .btn-second:active {
+    color: #fff;
+    background-color: #000;
+    border-color: #000; }
+  #gymm .btn.btn-lg {
+    padding: 18px 40px !important; }
+  #gymm .btn + .btn {
+    margin-left: 10px; }
+  #gymm .os-animation {
+    opacity: 0; }
+  #gymm .os-animation.animated {
+    opacity: 1; }
+  #gymm iframe {
+    border: 0;
+    width: 100%;
+    height: auto; }
+  #gymm ul.class-list {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top; }
+  #gymm ul.class-list li {
+    width: 33.3%;
+    float: left;
+    padding: 0 15px;
+    margin-bottom: 40px; }
+  #gymm .no-pad {
+    padding: 0 !important; }
+  #gymm .class-box {
+    width: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-shadow: 0 25px 30px -20px black;
+    -moz-box-shadow: 0 25px 30px -20px black;
+    box-shadow: 0 25px 30px -20px black;
+    border-radius: 10px;
+    z-index: 9; }
+  #gymm .class-box:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    float: left;
+    left: 0;
+    top: 0;
+    z-index: 8;
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    border-radius: 10px; }
+  #gymm .class-box > img {
+    -webkit-transition: all 1.5s ease;
+    transition: all 1.5s ease;
+    float: left;
+    width: 100%;
+    z-index: 1; }
+  #gymm .class-box:hover img {
+    transform: scale(1.15); }
+  #gymm .class-box:hover:before {
+    background: rgba(0, 140, 153, 0.5); }
+  #gymm .class-box-content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 15px;
+    color: #fff;
+    z-index: 9; }
+  #gymm .class-box-content h4 {
+    margin: 0; }
+  #gymm .class-box-content p {
+    font-weight: 400; }
+  #gymm .video-container {
+    padding: 150px 0;
+    background: #0a0a0a url(../images/video-bg.jpg) no-repeat right bottom;
+    background-attachment: fixed;
+    color: #fff;
+    text-align: center;
+    position: relative; }
+  #gymm .video-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1); }
+  #gymm .video-box a {
+    width: 72px;
+    height: 72px;
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -40px 0 0 -40px;
+    border: solid 2px #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 72px;
+    color: #fff;
+    font-size: 32px;
+    z-index: 9; }
+  #gymm .video-box a:hover {
+    background: #fff;
+    color: #2a2eec;
+    transform: scale(1.15); }
+  #gymm ul.schedule-tab {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top; }
+  #gymm ul.schedule-tab li {
+    float: left;
+    width: 16.66%;
+    padding: 1px; }
+  #gymm ul.schedule-tab li a {
+    float: left;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background: #fff;
+    font-weight: 400;
+    font-family: 'Nova Flat';
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); }
+  #gymm ul.schedule-tab li a.active, #gymm ul.schedule-tab li a.active:focus {
+    transform: scale(1.1);
+    background: #2a2eec;
+    color: #fff;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 20px 20px -15px rgba(0, 0, 0, 0.4) !important; }
+  #gymm .schedule-container {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 40px 0; }
+  #gymm .schedule-details {
+    display: none; }
+  #gymm .schedule-details.in {
+    display: block; }
+  #gymm ul.schedule-list {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top; }
+  #gymm ul.schedule-list li {
+    padding: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.06); }
+  #gymm ul.schedule-list li h6 {
+    margin: 0; }
+  #gymm ul.schedule-list li h6 .schedule-time {
+    float: right;
+    color: #999;
+    font-size: 80%;
+    font-weight: 400; }
+  #gymm ul.trainer-list {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0; }
+  #gymm ul.trainer-list > li {
+    width: 25%;
+    float: left;
+    padding: 0 15px;
+    margin-bottom: 30px; }
+  #gymm .trainer-box {
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 0 25px 30px -20px black;
+    -moz-box-shadow: 0 25px 30px -20px black;
+    box-shadow: 0 25px 30px -20px black;
+    background: #fff;
+    position: relative; }
+  #gymm .trainer-img {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    border-radius: 10px;
+    overflow: hidden; }
+  #gymm .trainer-img:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    float: left;
+    left: 0;
+    top: 0;
+    z-index: 8;
+    background: rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 1.3s ease;
+    transition: all 1.3s ease; }
+  #gymm .trainer-box:hover .trainer-img img {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15); }
+  #gymm .trainer-img img {
+    -webkit-transition: all 1.5s ease;
+    transition: all 1.5s ease;
+    z-index: 1; }
+  #gymm .trainer-box:hover .trainer-img:before {
+    background: rgba(0, 140, 153, 0.7); }
+  #gymm .trainer-details {
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    z-index: 9; }
+  #gymm .trainer-details h6 {
+    margin: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); }
+  #gymm .trainer-box:hover .trainer-details h6 {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  #gymm ul.trainer-social {
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 9; }
+  #gymm .trainer-box:hover ul.trainer-social {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); }
+  #gymm ul.trainer-social li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 7px; }
+  #gymm ul.trainer-social li a {
+    color: #fff; }
+  #gymm ul.trainer-social li a:hover {
+    color: #2a2eec; }
+  #gymm .testimonial-container {
+    padding: 150px 0;
+    background: #fff url(../images/testimonial.jpg) no-repeat right top;
+    background-attachment: fixed;
+    position: relative; }
+  #gymm .testimonial-container p {
+    font-size: 18px;
+    line-height: 28px; }
+  #gymm .testimonial-container h6 {
+    font-weight: normal;
+    color: #2a2eec;
+    text-transform: uppercase; }
+  #gymm ul.pricing-list {
+    display: inline-block;
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  #gymm ul.pricing-list > li {
+    width: 25%;
+    float: left;
+    padding: 10px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0; }
+  #gymm .pricing-box {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    background: #fff;
+    box-shadow: 0 15px 15px -15px rgba(0, 0, 0, 0.3);
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    color: #000;
+    border-radius: 10px; }
+  #gymm .pricing-box h6 {
+    font-weight: 400;
+    color: #999; }
+  #gymm .pricing-box h3 {
+    margin: 0;
+    color: #2a2eec; }
+  #gymm .pricing-box p {
+    margin: 0;
+    font-size: 18px; }
+  #gymm .map-container {
+    height: 400px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    background: #222; }
+  #gymm .contact-container {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top; }
+  #gymm .contact-box {
+    background: #fff;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -60px;
+    box-shadow: 0px 40px 60px rgba(0, 0, 0, 0.1);
+    max-width: 550px;
+    padding: 60px 60px 40px; }
+  #gymm .contact-details {
+    padding: 60px 0; }
+  #gymm .contact-details .heading-container {
+    margin-bottom: 40px; }
+  #gymm ul.contact-list {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto; }
+  #gymm ul.contact-list li {
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 50px;
+    font-size: 15px;
+    border-bottom: solid 1px #ededed;
+    padding-bottom: 25px; }
+  #gymm ul.contact-list li:last-child {
+    border: 0; }
+  #gymm ul.contact-list li span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 24px;
+    color: #2a2eec; }
+  #gymm #map-canvas {
+    height: 100%; }
+  #gymm .form-group {
+    margin-bottom: 20px; }
+  #gymm .form-control {
+    border: 0;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+    height: 44px;
+    border: solid 1px #f1f1f1;
+    color: #000; }
+  #gymm .form-control:focus {
+    border: solid 1px #f1f1f1;
+    box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.1) !important; }
+  #gymm textarea.form-control {
+    height: 120px;
+    resize: none; }
+  #gymm footer {
+    background: #222;
+    position: relative;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400; }
+  #gymm footer h5 {
+    color: #fff; }
+  #gymm .footer-upper {
+    padding: 60px 0; }
+  #gymm .footer-box {
+    padding-right: 60px; }
+  #gymm ul.footer-tweet-list li {
+    margin-bottom: 15px; }
+  #gymm ul.footer-tweet-list li a {
+    color: #2a2eec; }
+  #gymm ul.footer-tweet-list li span, #gymm .info {
+    display: block;
+    font-size: 85%; }
+  #gymm .newsletter-form {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    position: relative;
+    max-width: 380px; }
+  #gymm .newsletter-form button[type="submit"] {
+    width: 40px;
+    height: 42px;
+    background: #2a2eec;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    border: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    line-height: 42px;
+    border-radius: 0 2px 2px 0; }
+  #gymm footer ul.social-links {
+    margin-left: -10px; }
+  #gymm .footer-lower {
+    padding: 30px 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); }
+  #gymm .go-top {
+    position: fixed;
+    border-radius: 50%;
+    right: 25px;
+    bottom: -15px;
+    width: 40px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 18px;
+    background: #fff;
+    line-height: 44px;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 99999; }
+  #gymm .go-top.show {
+    opacity: 1;
+    visibility: visible;
+    bottom: 25px; }
+  @media only screen and (max-width: 1048px) {
+    #gymm .header-right {
+      margin-right: 60px; }
+    #gymm .navbar-collapse {
+      border: 0;
+      border-top: solid 1px rgba(255, 255, 255, 0.2);
+      background: #fff;
+      color: #000;
+      text-align: center; }
+    #gymm .navbar-right {
+      margin: 10px 0; }
+    #gymm .navbar-nav > li {
+      padding: 0; }
+    #gymm h1 {
+      font-size: 40px; }
+    #gymm h2 {
+      font-size: 32px; }
+    #gymm h3 {
+      font-size: 26px; }
+    #gymm h4 {
+      font-size: 22px; }
+    #gymm h5 {
+      font-size: 20px;
+      line-height: 1; }
+    #gymm h6 {
+      font-size: 16px;
+      line-height: 1; }
+    #gymm .section {
+      padding: 75px 0; }
+    #gymm .contact-box {
+      padding: 35px; }
+    #gymm .heading-container {
+      margin-bottom: 50px; }
+    #gymm .hero-slide-content h3 {
+      font-size: 60px; } }
+  @media only screen and (min-width: 1400px) {
+    #gymm .hero-slide {
+      height: 1062px !important; } }
+  @media only screen and (max-width: 991px) {
+    #gymm .footer-box {
+      padding: 0; }
+    #gymm .contact-box {
+      width: auto;
+      margin: 0 -15px;
+      max-width: 1048px;
+      display: block; }
+    #gymm .contact-details {
+      padding: 40px 0 20px; }
+    #gymm .stats-container, #gymm .video-container {
+      padding: 100px 0; }
+    #gymm ul.class-list li, #gymm ul.trainer-list > li {
+      width: 45%; }
+    #gymm .class-box:before {
+      background: rgba(0, 0, 0, 0.5); }
+    #gymm .trainer-box .trainer-details h6 {
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%); }
+    #gymm .trainer-box ul.trainer-social {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+      transform: translateY(0%); } }
+  @media handheld, only screen and (max-width: 767px) {
+    #gymm h1 {
+      font-size: 32px; }
+    #gymm h2 {
+      font-size: 28px; }
+    #gymm h3 {
+      font-size: 23px; }
+    #gymm h4 {
+      font-size: 20px; }
+    #gymm .hero-slide-content h3 {
+      font-size: 40px; }
+    #gymm .hero-slide-content p {
+      display: none; }
+    #gymm .hero-slide-content h6 {
+      font-size: 18px; }
+    #gymm .slide-content {
+      padding: 0;
+      text-align: center; }
+    #gymm header ul.social-links {
+      display: none; }
+    #gymm .search-icon {
+      border-right: solid 1px rgba(255, 255, 255, 0.2); }
+    #gymm .slick-prev, #gymm .slick-next {
+      display: none !important; }
+    #gymm .heading-container p {
+      font-size: 13px; }
+    #gymm .contact-box {
+      padding: 40px 15px; }
+    #gymm .map-container {
+      height: 240px; }
+    #gymm .btn {
+      padding: 10px 20px;
+      font-size: 13px; }
+    #gymm .footer-box {
+      padding: 0;
+      margin-bottom: 30px; }
+    #gymm .footer-upper {
+      padding: 40px 0 10px; }
+    #gymm .search-box .form-control, #gymm .search-box .form-control:focus {
+      font-size: 18px; }
+    #gymm .stats-container {
+      padding: 70px 0;
+      background-position: center top; }
+    #gymm ul.stats-list li {
+      width: 50%; }
+    #gymm .testimonial-container {
+      background: #fff;
+      padding: 80px 0; }
+    #gymm ul.pricing-list > li {
+      width: 50%; } }
+  @media only screen and (max-width: 650px) {
+    #gymm div.slick-slide.slick-current.slick-active {
+      height: 765px !important; }
+    #gymm ul.stats-list li, #gymm ul.class-list li, #gymm ul.trainer-list > li {
+      width: 100%; }
+    #gymm ul.schedule-tab li a {
+      padding: 12px 0;
+      font-size: 12px; } }
+  #gymm body {
+    background: #a9cee8; }
+  #gymm #classes, #gymm #trainer {
+    background: #a9cee8; }
+  #gymm div.trainer-box {
+    border-radius: 11px; }
+  #gymm .popup {
+    width: 50%; }
+
+/*# sourceMappingURL=idman.css.map */
