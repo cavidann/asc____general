@@ -1,15 +1,21 @@
-﻿
+﻿@using asc_general.Models;
+@using System.Dynamic;
+@model dynamic 
 @{
     ViewBag.Title = "index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section idmanCss{
+@section idmanCss {
+<link href="~/Public/css/themify-icons.css" rel="stylesheet" type="text/css">
+@*<link href="~/Public/css/bootstrap.css" rel="stylesheet" type="text/css">*@
+@*<link href="~/Public/css/slick.css" rel="stylesheet" type="text/css">*@
+@*<link href="~/Public/css/magnific-popup.css" rel="stylesheet" type="text/css">*@
+<link href="~/Public/css/idman.css" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-@*<link href="~/asc_temp/css/themify-icons.css" rel="stylesheet" type="text/css">*@
-@*<link href="~/asc_temp/css/bootstrap.css" rel="stylesheet" type="text/css">*@
-<link href="~/asc_temp/css/slick.css" rel="stylesheet" type="text/css">
-@*<link href="~/asc_temp/css/magnific-popup.css" rel="stylesheet" type="text/css">*@
-<link href="~/asc_temp/css/gym.css" rel="stylesheet" type="text/css">
 }
 
   <!-- Search Box Start -->
@@ -18,8 +24,8 @@
 
 <!--  =====================  Hero Section End  =====================  -->
 <!--  =====================  About Section Start  =====================  -->
-<section id="gymm " style="clear:both" >
-    <section class="section" id="about">
+
+    <section class="section" id="about" >
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -33,7 +39,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-md-offset-0 col-sm-8 col-sm-offset-2 text-center">
-                    <img src="~/asc_temp/images/about.jpg" alt="" />
+                    <img src="~/Public/images/about.jpg" alt="" />
 
                 </div>
                 <div class="col-md-6 col-md-offset-0 col-sm-12 col-sm-offset-0">
@@ -76,61 +82,18 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ul class="class-list">
-                        <li>
-                            <div class="class-box">
-                                <img src="~/asc_temp/images/class1.jpg" alt="" />
-                                <div class="class-box-content">
-                                    <h4>Üzgüçülük</h4>
-                                    <p>Mon - Fri 5:30 - 7:30 am / Cavi</p>
+                        @foreach (gym_blog item in Model.gym)
+                        {
+                            <li>
+                                <div class="class-box">
+                                    <img src="~/Uploads/@item.photo" alt="" />
+                                    <div class="class-box-content">
+                                        <h4>@item.title</h4>
+                                        <p>@item.description</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="class-box">
-                                <img src="~/asc_temp/images/class2.jpg" alt="" />
-                                <div class="class-box-content">
-                                    <h4>Yoga</h4>
-                                    <p>Mon - Fri 5:30 - 7:30 am / Cavi</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="class-box">
-                                <img src="~/asc_temp/images/class3.jpg" alt="" />
-                                <div class="class-box-content">
-                                    <h4>Qaçış</h4>
-                                    <p>Mon - Fri 5:30 - 7:30 am / Cavi</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="class-box">
-                                <img src="~/asc_temp/images/class4.jpg" alt="" />
-                                <div class="class-box-content">
-                                    <h4>Velosiped sürmək</h4>
-                                    <p>Mon - Fri 5:30 - 7:30 am / Cavi</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="class-box">
-                                <img src="~/asc_temp/images/class5.jpg" alt="" />
-                                <div class="class-box-content">
-                                    <h4>Futbol</h4>
-                                    <p>Mon - Fri 5:30 - 7:30 am / Cavi</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="class-box">
-                                <img src="~/asc_temp/images/class6.jpg" alt="" />
-                                <div class="class-box-content">
-                                    <h4>Taekwondo</h4>
-                                    <p>Mon - Fri 5:30 - 7:30 am / Cavi</p>
-                                </div>
-                            </div>
-                        </li>
-
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -155,11 +118,11 @@
             </div>
 
         </div>
-        </div>
+        @*</div>*@
     </section>
     <!-- =====================  Video Section End  ===================== -->
     <!-- =====================  Trainer Section Start  ===================== -->
-    <section class="section clearfix" id="trainer">
+    <section class="section" id="trainer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -174,62 +137,24 @@
             <div class="row">
                 <div class="col-sm-12">
                     <ul class="trainer-list">
-                        <li>
-                            <div class="trainer-box">
-                                <div class="trainer-img"><img src="~/asc_temp/images/trainer1.jpg" alt=""></div>
-                                <div class="trainer-details">
-                                    <h6>Sərhədçi</h6>
-                                    <ul class="trainer-social">
-                                        <li><a href="#" target="_blank"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-twitter-alt"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-linkedin"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-google"></i></a></li>
-                                    </ul>
+                        @foreach (idman_kompp item in Model.idman)
+                        {
+                            <li>
+                                <div class="trainer-box">
+                                    <div class="trainer-img"><img src="~/Uploads/@item.photo" alt="" width="300" height="200"></div>
+                                    <div class="trainer-details">
+                                        <h6>Sərhədçi</h6>
+                                        <ul class="trainer-social">
+                                            <li><a href="#" target="_blank"><i class="ti-facebook"></i></a></li>
+                                            <li><a href="#" target="_blank"><i class="ti-twitter-alt"></i></a></li>
+                                            <li><a href="#" target="_blank"><i class="ti-linkedin"></i></a></li>
+                                            <li><a href="#" target="_blank"><i class="ti-google"></i></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="trainer-box">
-                                <div class="trainer-img"><img src="~/asc_temp/images/trainer2.jpg" alt=""></div>
-                                <div class="trainer-details">
-                                    <h6>Sərhədçi</h6>
-                                    <ul class="trainer-social">
-                                        <li><a href="#" target="_blank"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-twitter-alt"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-linkedin"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-google"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="trainer-box">
-                                <div class="trainer-img"><img src="~/asc_temp/images/trainer3.jpg" alt=""></div>
-                                <div class="trainer-details">
-                                    <h6>Sərhədçi</h6>
-                                    <ul class="trainer-social">
-                                        <li><a href="#" target="_blank"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-twitter-alt"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-linkedin"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-google"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="trainer-box">
-                                <div class="trainer-img"><img src="~/asc_temp/images/trainer4.jpg" alt=""></div>
-                                <div class="trainer-details">
-                                    <h6>Sərhədçi</h6>
-                                    <ul class="trainer-social">
-                                        <li><a href="#" target="_blank"><i class="ti-facebook"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-twitter-alt"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-linkedin"></i></a></li>
-                                        <li><a href="#" target="_blank"><i class="ti-google"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        }
+                       
 
                     </ul>
 
@@ -237,6 +162,3 @@
             </div>
         </div>
     </section>
-
-</section>
-

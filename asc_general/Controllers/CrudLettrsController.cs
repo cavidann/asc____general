@@ -12,7 +12,7 @@ namespace asc_general.Controllers
 {
     public class CrudLettrsController : Controller
     {
-        private ascEntities db = new ascEntities();
+        private DbAscEntities db = new DbAscEntities();
 
         // GET: CrudLettrs
         public ActionResult Index()

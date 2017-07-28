@@ -2,11 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\asc_general",
-    "\\asc_general\\asc_temp\\js",
-    "\\asc_general\\Views",
-    "\\asc_general\\Views\\Education",
-    "\\asc_general\\Views\\Shared"
+    "\\asc_general\\Controllers",
+    "\\asc_general\\Models"
   ],
-  "SelectedNode": "\\asc_general\\Views\\Education\\Index.cshtml",
+  "SelectedNode": "\\asc_general\\Models\\food_categories.cs",
   "PreviewInSolutionExplorer": false
 }

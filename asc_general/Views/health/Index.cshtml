@@ -1,4 +1,6 @@
-﻿
+﻿@using asc_general.Models;
+@using System.Dynamic;
+@model dynamic 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,12 +24,12 @@
 
 
 <!--<link href="css/themify-icons.css" rel="stylesheet" type="text/css">-->
-<link href="~/asc_temp/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="~/asc_temp/css/slick.css" rel="stylesheet" type="text/css">
-<link href="~/asc_temp/css/health.css" rel="stylesheet" type="text/css">
-@*<link href="~/asc_temp/css/gym.css" rel="stylesheet" type="text/css">*@
-<link rel="stylesheet" href="~/asc_temp/css/food.css">
-<link rel="stylesheet" href="~/asc_temp/css/stylel.css">
+<link href="~/Public/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="~/Public/css/slick.css" rel="stylesheet" type="text/css">
+<link href="~/Public/css/health.css" rel="stylesheet" type="text/css">
+@*<link href="~/Public/css/gym.css" rel="stylesheet" type="text/css">*@
+<link rel="stylesheet" href="~/Public/css/food.css">
+<link rel="stylesheet" href="~/Public/css/stylel.css">
 }
 
 
@@ -38,7 +40,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="heading-container">
-                    <h3>Sağlamlıq haqqında.</h3>
+                    <h3 style="color:#74a534;">Sağlamlıq haqqında.</h3>
                     <span class="partition"></span>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
                 </div>
@@ -46,7 +48,7 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-md-offset-0 col-sm-8 col-sm-offset-2 text-center">
-                <img src="~/asc_temp/images/about.jpg" alt="" />
+                <img src="~/Public/images/about.jpg" alt="" />
 
             </div>
             <div class="col-md-6 col-md-offset-0 col-sm-12 col-sm-offset-0">
@@ -94,7 +96,7 @@
                 <div class="col-sm-6 col-md-4 blog-box wow fadeInUp animated margin-bottom-30" data-wow-delay=".2s">
                     <div class="blog-post">
                         <figure class="image">
-                            <img alt="Blog Image" src="~/asc_temp/img/kasha.jpg" class="img-responsive">
+                            <img alt="Blog Image" src="~/Public/img/kasha.jpg" class="img-responsive">
                             <div class="overly">
                                 <div class="overly-icon">
                                     <a class="link" href="#"><i class="fa fa-arrows"></i></a>
@@ -122,7 +124,7 @@
                 <div class="col-sm-6 col-md-4 blog-box wow fadeInUp animated margin-bottom-30" data-wow-delay=".4s">
                     <div class="blog-post">
                         <figure class="image">
-                            <img alt="Blog Image" src="~/asc_temp/img/kasha.jpg" class="img-responsive">
+                            <img alt="Blog Image" src="~/Public/img/kasha.jpg" class="img-responsive">
                             <div class="overly">
                                 <div class="overly-icon">
                                     <a class="link" href="#"><i class="fa fa-arrows"></i></a>
@@ -149,7 +151,7 @@
                 <div class="col-sm-6 col-md-4 blog-box center-block wow fadeInUp animated margin-top-25-991 margin-bottom-30" data-wow-delay=".6s">
                     <div class="blog-post">
                         <figure class="image">
-                            <img alt="Blog Image" src="~/asc_temp/img/kasha.jpg" class="img-responsive">
+                            <img alt="Blog Image" src="~/Public/img/kasha.jpg" class="img-responsive">
                             <div class="overly">
                                 <div class="overly-icon">
                                     <a class="link" href="#"><i class="fa fa-arrows"></i></a>
@@ -195,7 +197,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12  wow fadeInRight  ">
-                    <h2 class="text-center">Happy Clients</h2>
+                    <h2 class="text-center" style="color:#74a534;">Happy Clients</h2>
                     <div id="owl-slider" class="owl-carousel owl-theme">
                         <div class="item text-center">
                             <div class="client-img"><img src="http://www.themesindustry.com/html/mitex/images/team1.jpg" alt="client"></div>
@@ -228,95 +230,37 @@
             <div class="row">
                 <div class="col-xs-12 text-center ">
                     <div class="section-top-heading">
-                        <h5>Tempor Incididunt U</h5>
-                        <h2>Our Staff</h2>
+                        <h2 style="color:#74a534;">Our Staff</h2>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                     </div>
                 </div>
 
             </div>
             <div class="row text-center">
+                @foreach (health_staff item in Model.health)
+                {
+                    <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="thinker-wrap">
+                            <div class="thinker-image">
+                                <img src="~/Uploads/@item.photo" alt="" class="img-responsive">
+                                <div class="overlay">
+                                    <div class="overlay-inner">
+                                        <ul class=" list-inline">
+                                            <li><a href="#" class="text-center"><i class="fa fa-user" aria-hidden="true"></i><span></span></a></li>
+                                            <li><a href="#" class="text-center"><i class="fa fa-facebook"></i><span></span></a></li>
+                                            <li><a href="#" class="text-center"><i class="fa fa-fw fa fa-instagram"></i><span></span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4>@item.name</h4>
+                            <small>@item.profession</small>
+                            <p style="height:75px; overflow:hidden">@item.text_about</p>
+                        </div>
+                    </div>
+                }
 
-                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                    <div class="thinker-wrap">
-                        <div class="thinker-image">
-                            <img src="http://www.themesindustry.com/html/mitex/images/thinker.jpg" alt="Richard" class="img-responsive">
-                            <div class="overlay">
-                                <div class="overlay-inner">
-                                    <ul class=" list-inline">
-                                        <li><a href="#" class="text-center"><i class="fa fa-user" aria-hidden="true"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-facebook"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-twitter"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-fw fa fa-instagram"></i><span></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <h4>John Doe</h4>
-                        <small>Ceo</small>
-                        <p>Keep away from people who try to belittle your ambitions. Small people always do that. </p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="600ms">
-                    <div class="thinker-wrap margin-top">
-                        <div class="thinker-image">
-                            <img src="http://www.themesindustry.com/html/mitex/images/thinker2.jpg" alt="Richard" class="img-responsive">
-                            <div class="overlay green">
-                                <div class="overlay-inner">
-                                    <ul class=" list-inline">
-                                        <li><a href="#" class="text-center"><i class="fa fa-user" aria-hidden="true"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-facebook"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-twitter"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-fw fa fa-instagram"></i><span></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <h4>Mary Jane</h4>
-                        <small>Co-Founder</small>
-                        <p>Keep away from people who try to belittle your ambitions. Small people always do that.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="900ms">
-                    <div class="thinker-wrap margin-top">
-                        <div class="thinker-image">
-                            <img src="http://www.themesindustry.com/html/mitex/images/thinker3.jpg" alt="Richard" class="img-responsive">
-                            <div class="overlay">
-                                <div class="overlay-inner">
-                                    <ul class="list-inline">
-                                        <li><a href="#" class="text-center"><i class="fa fa-user" aria-hidden="true"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-facebook"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-twitter"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-fw fa fa-instagram"></i><span></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <h4>Josh Clark</h4>
-                        <small>Sales Head</small>
-                        <p>Keep away from people who try to belittle your ambitions. Small people always do that.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="1200ms">
-                    <div class="thinker-wrap margin-top">
-                        <div class="thinker-image">
-                            <img src="http://www.themesindustry.com/html/mitex/images/thinker4.jpg" alt="Richard" class="img-responsive">
-                            <div class="overlay">
-                                <div class="overlay-inner">
-                                    <ul class="list-inline">
-                                        <li><a href="#" class="text-center"><i class="fa fa-user" aria-hidden="true"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-facebook"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-twitter"></i><span></span></a></li>
-                                        <li><a href="#" class="text-center"><i class="fa fa-fw fa fa-instagram"></i><span></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <h4>Alissa</h4>
-                        <small>Creative Head</small>
-                        <p>Keep away from people who try to belittle your ambitions. Small people always do that.</p>
-                    </div>
-                </div>
+             
             </div>
         </div>
     </div>
