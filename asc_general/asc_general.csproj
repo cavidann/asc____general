@@ -165,57 +165,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\asc.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>asc.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\asc.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\asc.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>asc.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\blog.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\blog_category.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\cartoon.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\education.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\edu_categories.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\food.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\food_categories.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\gym_blog.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\health_staff.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\idman_kompp.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\lettr.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\name.cs">
-      <DependentUpon>asc.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -965,16 +914,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\asc.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>asc.edmx</DependentUpon>
-      <LastGenOutput>asc.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\asc.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>asc.edmx</DependentUpon>
-      <LastGenOutput>asc.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -2009,13 +1948,6 @@
     <Content Include="asc_temp\school\fonts\icomoon4ca0.eot" />
     <Content Include="asc_temp\school\fonts\icomoon4ca0.ttf" />
     <Content Include="asc_temp\school\fonts\icomoon4ca0.woff" />
-    <EntityDeploy Include="Models\asc.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>asc.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\asc.edmx.diagram">
-      <DependentUpon>asc.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -2079,6 +2011,7 @@
     <Folder Include="asc_temp\.git\objects\info\" />
     <Folder Include="asc_temp\.git\objects\pack\" />
     <Folder Include="asc_temp\.git\refs\tags\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
