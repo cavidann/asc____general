@@ -10,7 +10,7 @@ namespace asc_general.Controllers
 {
     public class gymController : Controller
     {
-        private ascEntities db = new ascEntities();
+        private DbAscEntities db = new DbAscEntities();
         // GET: gym
         public ActionResult Index()
         {

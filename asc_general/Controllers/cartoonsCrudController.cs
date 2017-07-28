@@ -14,7 +14,7 @@ namespace asc_general.Controllers
 {
     public class cartoonsCrudController : Controller
     {
-        private ascEntities1 db = new ascEntities1();
+        private DbAscEntities db = new DbAscEntities();
 
         // GET: cartoonsCrud
         public ActionResult Index()

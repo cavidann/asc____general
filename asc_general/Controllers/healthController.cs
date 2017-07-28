@@ -10,8 +10,8 @@ namespace asc_general.Controllers
 {
     public class healthController : Controller
     {
-        
-        private ascEntities db = new ascEntities();
+
+        private DbAscEntities db = new DbAscEntities();
         // GET: health
         public ActionResult Index()
         {

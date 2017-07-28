@@ -19,7 +19,7 @@
             @Html.DisplayNameFor(model => model.text)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.food_categories.name)
+            @Html.DisplayNameFor(model => model.food_categories.category_name)
         </th>
         <th></th>
     </tr>
@@ -33,7 +33,7 @@
             @Html.DisplayFor(modelItem => item.text)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.food_categories.name)
+            @Html.DisplayFor(modelItem => item.food_categories.category_name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

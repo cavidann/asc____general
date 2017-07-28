@@ -13,7 +13,7 @@ namespace asc_general.Controllers
 {
     public class Health_Staff_CrudController : Controller
     {
-        private ascEntities db = new ascEntities();
+        private DbAscEntities db = new DbAscEntities();
 
         // GET: Health_Staff_Crud
         public ActionResult Index()

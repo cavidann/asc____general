@@ -12,7 +12,7 @@ namespace asc_general.Controllers
 {
     public class food_categoriesCrudController : Controller
     {
-        private ascEntities1 db = new ascEntities1();
+        private DbAscEntities db = new DbAscEntities();
 
         // GET: food_categoriesCrud
         public ActionResult Index()
