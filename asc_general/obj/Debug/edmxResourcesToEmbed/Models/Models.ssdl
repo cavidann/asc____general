@@ -52,8 +52,8 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="sira" Type="int" Nullable="false" />
-    <Property Name="category_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="sira" Type="int" />
+    <Property Name="category_name" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="foods">
     <Key>
@@ -112,7 +112,7 @@
     <Property Name="name" Type="varchar" MaxLength="255" />
     <Property Name="lettrs_id" Type="int" />
     <Property Name="decription" Type="text" />
-    <Property Name="type" Type="int" />
+    <Property Name="type" Type="bit" />
   </EntityType>
   <Association Name="FK_blog_blog_category">
     <End Role="blog_category" Type="Self.blog_category" Multiplicity="0..1" />
