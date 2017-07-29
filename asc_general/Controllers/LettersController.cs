@@ -16,7 +16,7 @@ namespace asc_general.Controllers
         public ActionResult Index()
         {
             dynamic datalar = new ExpandoObject();
-            datalar.Herfler = db.lettrs.ToList();
+            datalar.herfler = db.lettrs.ToList();
             return View(datalar);
         }
     }
