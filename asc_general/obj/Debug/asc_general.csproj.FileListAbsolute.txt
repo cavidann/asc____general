@@ -68,7 +68,6 @@ C:\Users\Adel\Desktop\asc_general\asc_general\bin\EntityFramework.dll
 C:\Users\Adel\Desktop\asc_general\asc_general\bin\EntityFramework.SqlServer.dll
 C:\Users\Adel\Desktop\asc_general\asc_general\bin\EntityFramework.xml
 C:\Users\Adel\Desktop\asc_general\asc_general\bin\EntityFramework.SqlServer.xml
-C:\Users\Adel\Desktop\asc_general\asc_general\obj\Debug\asc_general.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\ascSenem\asc_general\bin\ApplicationInsights.config
 C:\Users\User\Desktop\ascSenem\asc_general\bin\roslyn\csc.exe
 C:\Users\User\Desktop\ascSenem\asc_general\bin\roslyn\csc.exe.config
@@ -140,3 +139,4 @@ C:\Users\User\Desktop\ascSenem\asc_general\bin\Microsoft.AI.Web.xml
 C:\Users\User\Desktop\ascSenem\asc_general\obj\Debug\asc_general.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\ascSenem\asc_general\obj\Debug\asc_general.dll
 C:\Users\User\Desktop\ascSenem\asc_general\obj\Debug\asc_general.pdb
+C:\Users\Adel\Desktop\asc_general\asc_general\obj\Debug\asc_general.csprojResolveAssemblyReference.cache

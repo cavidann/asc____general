@@ -44,6 +44,10 @@ public partial class DbAscEntities : DbContext
 
     public virtual DbSet<idman_kompp> idman_kompp { get; set; }
 
+    public virtual DbSet<food_categories> food_categories { get; set; }
+
+    public virtual DbSet<food> foods { get; set; }
+
     public virtual DbSet<lettr> lettrs { get; set; }
 
     public virtual DbSet<name> names { get; set; }
@@ -51,10 +55,6 @@ public partial class DbAscEntities : DbContext
     public virtual DbSet<edu_categories> edu_categories { get; set; }
 
     public virtual DbSet<education> educations { get; set; }
-
-    public virtual DbSet<food_categories> food_categories { get; set; }
-
-    public virtual DbSet<food> foods { get; set; }
 
 }
 

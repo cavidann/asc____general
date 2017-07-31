@@ -28,6 +28,8 @@ public partial class gym_blog
 
     public string text { get; set; }
 
+    public string video_url { get; set; }
+
 }
 
 }

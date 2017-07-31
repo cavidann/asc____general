@@ -13,7 +13,7 @@ namespace asc_general.Controllers
 {
     public class idman_komppController : Controller
     {
-        private DbAscEntities db = new DbAscEntities();
+         private DbAscEntities db = new DbAscEntities();
 
         // GET: idman_kompp
         public ActionResult Index()

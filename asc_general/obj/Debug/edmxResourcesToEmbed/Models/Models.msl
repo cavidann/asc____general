@@ -36,6 +36,7 @@
     <EntitySetMapping Name="gym_blog">
       <EntityTypeMapping TypeName="ascModel.gym_blog">
         <MappingFragment StoreEntitySet="gym_blog">
+          <ScalarProperty Name="video_url" ColumnName="video_url" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="photo" ColumnName="photo" />
@@ -65,6 +66,26 @@
           <ScalarProperty Name="photo" ColumnName="photo" />
           <ScalarProperty Name="facebook" ColumnName="facebook" />
           <ScalarProperty Name="instagram" ColumnName="instagram" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="food_categories">
+      <EntityTypeMapping TypeName="ascModel.food_categories">
+        <MappingFragment StoreEntitySet="food_categories">
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="sira" ColumnName="sira" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foods">
+      <EntityTypeMapping TypeName="ascModel.food">
+        <MappingFragment StoreEntitySet="foods">
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -102,26 +123,6 @@
           <ScalarProperty Name="photo" ColumnName="photo" />
           <ScalarProperty Name="text" ColumnName="text" />
           <ScalarProperty Name="edu_cat_id" ColumnName="edu_cat_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="food_categories">
-      <EntityTypeMapping TypeName="ascModel.food_categories">
-        <MappingFragment StoreEntitySet="food_categories">
-          <ScalarProperty Name="category_name" ColumnName="category_name" />
-          <ScalarProperty Name="sira" ColumnName="sira" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="foods">
-      <EntityTypeMapping TypeName="ascModel.food">
-        <MappingFragment StoreEntitySet="foods">
-          <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="text" ColumnName="text" />
-          <ScalarProperty Name="category_id" ColumnName="category_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>

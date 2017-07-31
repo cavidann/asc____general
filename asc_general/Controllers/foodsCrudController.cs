@@ -26,7 +26,7 @@ namespace asc_general.Controllers
         public ActionResult Create([Bind(Include = "id,name,category_id,text,photo")] food food, HttpPostedFileBase photo)
         {   
 
-            if (photo.ContentLength > 0)
+            if (ModelState.IsValid)
             {
                 if (photo.ContentType == "image/jpeg" || photo.ContentType == "image/png" || photo.ContentType == "image/gif")
                 {

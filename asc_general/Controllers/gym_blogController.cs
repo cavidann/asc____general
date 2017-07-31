@@ -8,12 +8,13 @@ using System.Web;
 using System.Web.Mvc;
 using asc_general.Models;
 using System.IO;
+using System.Web.Helpers;
 
 namespace asc_general.Controllers
 {
     public class gym_blogController : Controller
     {
-        private DbAscEntities db = new DbAscEntities();
+       private DbAscEntities db = new DbAscEntities();
 
         // GET: gym_blog
         public ActionResult Index()
@@ -44,34 +45,30 @@ namespace asc_general.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "id,title,description,text")] gym_blog gym_blog, HttpPostedFileBase photo)
         {
-
+            if (ModelState.IsValid) {
             if (photo.ContentType == "image/jpeg" || photo.ContentType == "image/png" || photo.ContentType == "image/gif")
             {
-                //double olcu = Convert.ToDouble(photo.ContentLength) / 1024.0;
-                //if (olcu < 1000)
-                //{
+                 //   WebImage img = new WebImage(photo.InputStream);
                     DateTime now = DateTime.Now;
 
                     string fileName = now.ToString("yyyyMdHms") + Path.GetFileName(photo.FileName);
                     string path = Path.Combine(Server.MapPath("~/Uploads"), fileName);
                     photo.SaveAs(path);
-
-                    // cartoon cart = new cartoon();
+                    //if (img.Width > 1000)
+                    //img.Resize(500, 500);
+                    //img.Save(path);
                     gym_blog.photo = fileName;
                     db.gym_blog.Add(gym_blog);
                     db.SaveChanges();
-                //}
-                //else
-                //{
-                //    ViewBag.FileError = "Max size is 1000 kb";
-
-                //    return Content(ViewBag.FileError);
-                //}
-
             }
             else
             {
                 ViewBag.Message = "You can only jpg,png or gif file upload";
+                return View();
+            }
+            } else
+            {
+                ViewBag.Message = "Error";
                 return View();
             }
             return RedirectToAction("Index");

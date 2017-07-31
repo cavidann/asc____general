@@ -10,7 +10,7 @@ namespace asc_general.Controllers
 {
     public class HomeController : Controller
     {
-        private DbAscEntities db = new DbAscEntities();
+       private DbAscEntities db = new DbAscEntities();
 
         public ActionResult Index()
         {

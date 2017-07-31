@@ -52,8 +52,8 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="sira" Type="int" />
-    <Property Name="category_name" Type="varchar" MaxLength="255" />
+    <Property Name="sira" Type="int" Nullable="false" />
+    <Property Name="category_name" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="foods">
     <Key>
@@ -74,6 +74,7 @@
     <Property Name="photo" Type="varchar(max)" />
     <Property Name="description" Type="varchar" MaxLength="255" />
     <Property Name="text" Type="text" />
+    <Property Name="video_url" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="health_staff">
     <Key>

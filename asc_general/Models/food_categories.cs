@@ -29,7 +29,7 @@ public partial class food_categories
 
     public int id { get; set; }
 
-    public Nullable<int> sira { get; set; }
+    public int sira { get; set; }
 
     public string category_name { get; set; }
 

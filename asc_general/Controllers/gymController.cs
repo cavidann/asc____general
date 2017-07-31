@@ -10,13 +10,13 @@ namespace asc_general.Controllers
 {
     public class gymController : Controller
     {
-        private DbAscEntities db = new DbAscEntities();
+       private DbAscEntities db = new DbAscEntities();
         // GET: gym
         public ActionResult Index()
         {
             dynamic mymodel = new ExpandoObject();
-            mymodel.gym = db.gym_blog.ToList();
-            mymodel.idman = db.idman_kompp.ToList();
+            mymodel.gym = db.gym_blog.Take(6).ToList();
+            mymodel.idman = db.idman_kompp.Take(4).ToList();
             return View(mymodel);
             
         }

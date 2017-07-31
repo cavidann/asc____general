@@ -7,13 +7,9 @@
 
 <h2>Edit</h2>
 
+    @Html.AntiForgeryToken()
+    @using (Html.BeginForm("Edit", "foodsCrud", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
-    @Html.AntiForgeryToken()
-    @Html.AntiForgeryToken()
-    @using (Html.BeginForm("Edit",
-                                                                       "foodsCrud",
-                                                                        FormMethod.Post,
-                                                                        new { enctype = "multipart/form-data" }))
     {
     <div class="form-horizontal">
         <h4>food</h4>

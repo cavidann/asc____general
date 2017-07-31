@@ -94,7 +94,7 @@
                             <figcaption class="gallery-hover">
                                 <div class="tc-display-table">
                                     <div class="tc-display-table-cell">
-                                        <a class="fa fa-search" href="~/Uploads/@edu.photo" data-rel="prettyPhoto[gallery]"></a>
+                                        <a class="fa fa-link"  href="#"> <h2 style="color:#ffce72;">@edu.name </h2>  </a>
                                     </div>
                                 </div>
                             </figcaption>
@@ -126,90 +126,36 @@
         <div class="row">
             <!--  End Section Header -->
             <div class="blog-area">
-                <div class="col-sm-6 col-md-4 blog-box wow fadeInUp animated margin-bottom-30-991" data-wow-delay=".2s">
-                    <div class="blog-post">
-                        <figure class="image">
-                            <img alt="Blog Image" src="~/Public/images/mypics/alma.jpg" class="img-responsive">
-                            <div class="overly">
-                                <div class="overly-icon">
-                                    <a class="link" href="#"><i class="fa fa-arrows"></i></a>
+                @foreach (blog e_blog in Model.edu_blog)
+                {
+                    <div class="col-sm-6 col-md-4 blog-box wow fadeInUp animated margin-bottom-30-991" data-wow-delay=".2s">
+                        <div class="blog-post">
+                            <figure class="image">
+                                <img alt="Blog Image" src="~/Uploads/@e_blog.photo" class="img-responsive"  style="height:217px">
+                                <div class="overly">
+                                    <div class="overly-icon">
+                                        <a class="link" href="#"><i class="fa fa-arrows"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                        </figure>
-                        <div class="contents-box">
+                            </figure>
+                            <div class="contents-box">
 
-                            <div class="content">
-                                <a href="single.blog.html">
-                                    <h4 class="color-black">0-5 yaşlı uşaqların təhsili</h4>
-                                </a>
+                                <div class="content">
+                                    <a href="single.blog.html">
+                                        <h4 class="color-black">@e_blog.title</h4>
+                                    </a>
 
-                                <p class="text-muted"> There are many variations passages available, but the Lorem, ipsum... </p>
-                            </div>
-                            <div class="row Continue-btn">
-                                <div class="text-center">
-                                    <a href="single.blog.html" class="color-yellow">Ətraflı Oxu &nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
+                                    <p class="text-muted"> @e_blog.text.Substring(0,Math.Min(e_blog.text.Length,40))... </p>
+                                </div>
+                                <div class="row Continue-btn">
+                                    <div class="text-center">
+                                        <a href="@Url.Action("index","singleblog",new { id = e_blog.id })" class="color-yellow">Ətraflı Oxu &nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- End Blog 01 -->
-                <div class="col-sm-6 col-md-4 blog-box wow fadeInUp animated margin-bottom-30-991" data-wow-delay=".4s">
-                    <div class="blog-post">
-                        <figure class="image">
-                            <img alt="Blog Image" src="~/Public/images/mypics/board.jpg" class="img-responsive">
-                            <div class="overly">
-                                <div class="overly-icon">
-                                    <a class="link" href="#"><i class="fa fa-arrows"></i></a>
-                                </div>
-                            </div>
-                        </figure>
-                        <div class="contents-box">
-                            <div class="content">
-                                <a href="single.blog.html">
-                                    <h4 class="color-black">0-5 yaşlı uşaqların təhsili</h4>
-                                </a>
-
-                                <p class="text-muted"> There are many variations passages available, but the Lorem, ipsum... </p>
-                            </div>
-                            <div class="row Continue-btn">
-                                <div class="text-center">
-                                    <a href="single.blog.html" class="color-yellow">Ətraflı Oxu &nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Blog 02 -->
-                <div class="col-sm-6 col-md-4 blog-box center-block wow fadeInUp animated margin-bottom-30-991" data-wow-delay=".6s">
-                    <div class="blog-post">
-                        <figure class="image">
-                            <img alt="Blog Image" src="~/Public/images/mypics/ideas.jpg" class="img-responsive">
-                            <div class="overly">
-                                <div class="overly-icon">
-                                    <a class="link" href="#"><i class="fa fa-arrows"></i></a>
-                                </div>
-                            </div>
-                        </figure>
-                        <div class="contents-box">
-                            <div class="content">
-                                <a href="single.blog.html">
-                                    <h4 class="color-black">0-5 yaşlı uşaqların təhsili</h4>
-                                </a>
-
-                                <p class="text-muted">
-                                    There are many variations passages available, but the lorem, ipsum...
-                                </p>
-                            </div>
-                            <div class="row Continue-btn">
-                                <div class="text-center">
-                                    <a href="single.blog.html" class="color-yellow">Ətraflı Oxu &nbsp;&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Blog 03 -->
+                }
             </div>
         </div>
     </div>

@@ -14,14 +14,10 @@
  
 <!-- Strat Priching Data -->
 
-
-
     <!-- About The Food -->
 <section class="about-food" style="clear:both">
     <div class="container">
-
         <div class="row">
-
             <!-- About Img Section -->
             <div class="col-sm-5">
                 <figure class="about-sec-img">
@@ -170,90 +166,37 @@
         <div class="row">
             <!--  End Section Header -->
             <div class="blog-area">
-                <div class="col-sm-6 col-md-4 blog-box wow fadeInUp animated margin-bottom-30" data-wow-delay=".2s">
-                    <div class="blog-post">
-                        <figure class="image">
-                            <img alt="Blog Image" src="~/Public/img/kasha.jpg" class="img-responsive">
-                            <div class="overly">
-                                <div class="overly-icon">
-                                    <a class="link" href="#"><i class="fa fa-arrows"></i></a>
-                                </div>
-                            </div>
-                        </figure>
-                        <div class="contents-box">
 
-                            <div class="content">
-                                <a href="single.blog.html">
-                                    <h4 class="color-black">0-5 yaşlı uşaqların qidalanması</h4>
-                                </a>
-
-                                <p class="text-muted"> There are many variations passages available, but the Lorem, ipsum... </p>
+          @foreach (blog fblog in Model.food_blog)
+          {
+            <div class="col-sm-6 col-md-4 blog-box wow fadeInUp animated margin-bottom-30" data-wow-delay=".2s">
+                <div class="blog-post">
+                    <figure class="image">
+                        <img alt="Blog Image" src="~/Uploads/@fblog.photo" class="img-responsive"  style="height:217px">
+                        <div class="overly">
+                            <div class="overly-icon">
+                                <a class="link" href="#"><i class="fa fa-arrows"></i></a>
                             </div>
-                            <div class="row Continue-btn">
-                                <div class="text-center">
-                                    <a href="@Url.Action("Index", "SingleBlog")">Ətraflı Oxu &nbsp;&nbsp;&nbsp; <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
+                        </div>
+                    </figure>
+                    <div class="contents-box">
+                        <div class="content">
+                            <a href="single.blog.html">
+                                <h4 class="color-flamingo">@fblog.title</h4>
+                            </a>
+
+                            <p class="text-muted">@fblog.text.Substring(0, Math.Min(fblog.text.Length, 40))....</p>
+                        </div>
+                        <div class="row Continue-btn">
+                            <div class="text-center">
+                                <a href="@Url.Action("index","singleblog",new { id = fblog.id })">Ətraflı Oxu &nbsp;&nbsp;&nbsp; <i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- End Blog 01 -->
-                <div class="col-sm-6 col-md-4 blog-box wow fadeInUp animated margin-bottom-30" data-wow-delay=".4s">
-                    <div class="blog-post">
-                        <figure class="image">
-                            <img alt="Blog Image" src="~/Public/img/kasha.jpg" class="img-responsive">
-                            <div class="overly">
-                                <div class="overly-icon">
-                                    <a class="link" href="#"><i class="fa fa-arrows"></i></a>
-                                </div>
-                            </div>
-                        </figure>
-                        <div class="contents-box">
-                            <div class="content">
-                                <a href="single.blog.html">
-                                    <h4 class="color-black">0-5 yaşlı uşaqların qidalanması</h4>
-                                </a>
+            </div>
+          }
 
-                                <p class="text-muted"> There are many variations passages available, but the Lorem, ipsum... </p>
-                            </div>
-                            <div class="row Continue-btn">
-                                <div class="text-center">
-                                    <a href="@Url.Action("Index", "SingleBlog")">Ətraflı Oxu &nbsp;&nbsp;&nbsp; <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Blog 02 -->
-                <div class="col-sm-6 col-md-4 blog-box center-block wow fadeInUp animated margin-top-25-991 margin-bottom-30" data-wow-delay=".6s">
-                    <div class="blog-post">
-                        <figure class="image">
-                            <img alt="Blog Image" src="~/Public/img/kasha.jpg" class="img-responsive">
-                            <div class="overly">
-                                <div class="overly-icon">
-                                    <a class="link" href="#"><i class="fa fa-arrows"></i></a>
-                                </div>
-                            </div>
-                        </figure>
-                        <div class="contents-box">
-                            <div class="content">
-                                <a href="single.blog.html">
-                                    <h4 class="color-black">0-5 yaşlı uşaqların qidalanması</h4>
-                                </a>
-
-                                <p class="text-muted">
-                                    There are many variations passages available, but the lorem, ipsum...
-                                </p>
-                            </div>
-                            <div class="row Continue-btn">
-                                <div class="text-center">
-                                    <a href="@Url.Action("Index", "SingleBlog")">Ətraflı Oxu &nbsp;&nbsp;&nbsp; <i class="fa fa-long-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Blog 03 -->
             </div>
         </div>
     </div>

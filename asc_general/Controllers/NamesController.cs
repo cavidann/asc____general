@@ -12,7 +12,7 @@ namespace asc_general.Controllers
     public class NamesController : Controller
     {
         // GET: Names
-        private DbAscEntities db = new DbAscEntities();
+       private DbAscEntities db = new DbAscEntities();
         public ActionResult Name(int? id)
         {            
             if (id == null)
