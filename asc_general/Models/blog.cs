@@ -28,8 +28,6 @@ public partial class blog
 
     public Nullable<int> category_id { get; set; }
 
-    public string dec { get; set; }
-
     public string text { get; set; }
 
 

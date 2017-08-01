@@ -32,17 +32,11 @@ public partial class DbAscEntities : DbContext
     }
 
 
-    public virtual DbSet<blog> blogs { get; set; }
-
     public virtual DbSet<blog_category> blog_category { get; set; }
 
     public virtual DbSet<cartoon> cartoons { get; set; }
 
     public virtual DbSet<gym_blog> gym_blog { get; set; }
-
-    public virtual DbSet<health_staff> health_staff { get; set; }
-
-    public virtual DbSet<idman_kompp> idman_kompp { get; set; }
 
     public virtual DbSet<food_categories> food_categories { get; set; }
 
@@ -52,9 +46,13 @@ public partial class DbAscEntities : DbContext
 
     public virtual DbSet<name> names { get; set; }
 
-    public virtual DbSet<edu_categories> edu_categories { get; set; }
+    public virtual DbSet<blog> blogs { get; set; }
 
-    public virtual DbSet<education> educations { get; set; }
+    public virtual DbSet<our_complex> our_complex { get; set; }
+
+    public virtual DbSet<region> regions { get; set; }
+
+    public virtual DbSet<health_staff> health_staff { get; set; }
 
 }
 

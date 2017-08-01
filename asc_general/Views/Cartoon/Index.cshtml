@@ -2,11 +2,13 @@
 @using asc_general.Models;
 @model dynamic
 
-@{
+@{ 
+
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
+}
 
 @section cizgiCss{
     <link rel="stylesheet" href="~/Public/css/cizgi.css">
@@ -29,7 +31,7 @@
 {
                 <li class="hex">
                     <div class="hexIn">                        
-                        <a class="hexLink" href="@Url.Action("Index","cartoon_blog")">                            
+                        <a class="hexLink" href="@Url.Action("index","cartoon_blog",new { id =ctoon.id })">                            
                             <img src="~/Uploads/@ctoon.photo" alt="" />
                             <h1>@ctoon.title</h1>
                             <i class="fa fa-link" aria-hidden="true"></i>

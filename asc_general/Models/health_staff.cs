@@ -32,6 +32,10 @@ public partial class health_staff
 
     public string facebook { get; set; }
 
+    public string phone { get; set; }
+
+    public string email { get; set; }
+
 }
 
 }

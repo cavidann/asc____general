@@ -16,7 +16,7 @@ namespace asc_general.Controllers
         {
             dynamic mymodel = new ExpandoObject();
             mymodel.gym = db.gym_blog.Take(6).ToList();
-            mymodel.idman = db.idman_kompp.Take(4).ToList();
+            //mymodel.idman = db.idman_kompp.Take(4).ToList();
             return View(mymodel);
             
         }

@@ -1,25 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ascModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="blog">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="date" Type="DateTime" Precision="3" />
-    <Property Name="category_id" Type="Int32" />
-    <Property Name="dec" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="blog_category" Relationship="Self.FK_blog_blog_category" FromRole="blog" ToRole="blog_category" />
-  </EntityType>
   <EntityType Name="blog_category">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="blogs" Relationship="Self.FK_blog_blog_category" FromRole="blog_category" ToRole="blog" />
+    <NavigationProperty Name="blogs" Relationship="ascModel.FK_blog_blog_category" FromRole="blog_category" ToRole="blog" />
   </EntityType>
   <EntityType Name="cartoon">
     <Key>
@@ -42,51 +29,10 @@
     <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="video_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="health_staff">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="profession" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="text_about" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="instagram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="idman_kompp">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="instagram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <Association Name="FK_blog_blog_category">
-    <End Role="blog_category" Type="Self.blog_category" Multiplicity="0..1" />
-    <End Role="blog" Type="Self.blog" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="blog_category">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="blog">
-        <PropertyRef Name="category_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="DbAscEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="blogs" EntityType="Self.blog" />
     <EntitySet Name="blog_category" EntityType="Self.blog_category" />
     <EntitySet Name="cartoons" EntityType="Self.cartoon" />
     <EntitySet Name="gym_blog" EntityType="Self.gym_blog" />
-    <EntitySet Name="health_staff" EntityType="Self.health_staff" />
-    <EntitySet Name="idman_kompp" EntityType="Self.idman_kompp" />
-    <AssociationSet Name="FK_blog_blog_category" Association="Self.FK_blog_blog_category">
-      <End Role="blog_category" EntitySet="blog_category" />
-      <End Role="blog" EntitySet="blogs" />
-    </AssociationSet>
     <EntitySet Name="food_categories" EntityType="ascModel.food_categories" />
     <EntitySet Name="foods" EntityType="ascModel.food" />
     <AssociationSet Name="FK_foods_food_categories" Association="ascModel.FK_foods_food_categories">
@@ -99,12 +45,18 @@
       <End Role="lettr" EntitySet="lettrs" />
       <End Role="name" EntitySet="names" />
     </AssociationSet>
-    <EntitySet Name="edu_categories" EntityType="ascModel.edu_categories" />
-    <EntitySet Name="educations" EntityType="ascModel.education" />
-    <AssociationSet Name="FK_education_edu_categories" Association="ascModel.FK_education_edu_categories">
-      <End Role="edu_categories" EntitySet="edu_categories" />
-      <End Role="education" EntitySet="educations" />
+    <EntitySet Name="blogs" EntityType="ascModel.blog" />
+    <AssociationSet Name="FK_blog_blog_category" Association="ascModel.FK_blog_blog_category">
+      <End Role="blog_category" EntitySet="blog_category" />
+      <End Role="blog" EntitySet="blogs" />
     </AssociationSet>
+    <EntitySet Name="our_complex" EntityType="ascModel.our_complex" />
+    <EntitySet Name="regions" EntityType="ascModel.region" />
+    <AssociationSet Name="FK_our_complex_region_categories" Association="ascModel.FK_our_complex_region_categories">
+      <End Role="region" EntitySet="regions" />
+      <End Role="our_complex" EntitySet="our_complex" />
+    </AssociationSet>
+    <EntitySet Name="health_staff" EntityType="ascModel.health_staff" />
   </EntityContainer>
   <EntityType Name="food_categories">
     <Key>
@@ -169,36 +121,79 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="edu_categories">
+  <EntityType Name="blog">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="sira" Type="Int32" />
-    <NavigationProperty Name="educations" Relationship="ascModel.FK_education_edu_categories" FromRole="edu_categories" ToRole="education" />
-  </EntityType>
-  <EntityType Name="education">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="edu_cat_id" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="category_id" Type="Int32" />
     <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="edu_categories" Relationship="ascModel.FK_education_edu_categories" FromRole="education" ToRole="edu_categories" />
+    <NavigationProperty Name="blog_category" Relationship="ascModel.FK_blog_blog_category" FromRole="blog" ToRole="blog_category" />
   </EntityType>
-  <Association Name="FK_education_edu_categories">
-    <End Type="ascModel.edu_categories" Role="edu_categories" Multiplicity="0..1" />
-    <End Type="ascModel.education" Role="education" Multiplicity="*" />
+  <Association Name="FK_blog_blog_category">
+    <End Type="ascModel.blog_category" Role="blog_category" Multiplicity="0..1" />
+    <End Type="ascModel.blog" Role="blog" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="edu_categories">
+      <Principal Role="blog_category">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="education">
-        <PropertyRef Name="edu_cat_id" />
+      <Dependent Role="blog">
+        <PropertyRef Name="category_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="our_complex">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="region_id" Type="Int32" />
+    <Property Name="complex_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="edu_or_gym" Type="Boolean" />
+    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="map_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="region" Relationship="ascModel.FK_our_complex_region_categories" FromRole="our_complex" ToRole="region" />
+  </EntityType>
+  <EntityType Name="region">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="region1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="our_complex" Relationship="ascModel.FK_our_complex_region_categories" FromRole="region" ToRole="our_complex" />
+  </EntityType>
+  <Association Name="FK_our_complex_region_categories">
+    <End Type="ascModel.region" Role="region" Multiplicity="0..1" />
+    <End Type="ascModel.our_complex" Role="our_complex" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="region">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="our_complex">
+        <PropertyRef Name="region_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="health_staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="profession" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="text_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="instagram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

@@ -1,19 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ascModelStoreContainer" CdmEntityContainer="DbAscEntities">
-    <EntitySetMapping Name="blogs">
-      <EntityTypeMapping TypeName="ascModel.blog">
-        <MappingFragment StoreEntitySet="blog">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="title" ColumnName="title" />
-          <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="category_id" ColumnName="category_id" />
-          <ScalarProperty Name="dec" ColumnName="dec" />
-          <ScalarProperty Name="text" ColumnName="text" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="blog_category">
       <EntityTypeMapping TypeName="ascModel.blog_category">
         <MappingFragment StoreEntitySet="blog_category">
@@ -42,30 +29,6 @@
           <ScalarProperty Name="photo" ColumnName="photo" />
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="text" ColumnName="text" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="health_staff">
-      <EntityTypeMapping TypeName="ascModel.health_staff">
-        <MappingFragment StoreEntitySet="health_staff">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="profession" ColumnName="profession" />
-          <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="text_about" ColumnName="text_about" />
-          <ScalarProperty Name="instagram" ColumnName="instagram" />
-          <ScalarProperty Name="facebook" ColumnName="facebook" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="idman_kompp">
-      <EntityTypeMapping TypeName="ascModel.idman_kompp">
-        <MappingFragment StoreEntitySet="idman_kompp">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="facebook" ColumnName="facebook" />
-          <ScalarProperty Name="instagram" ColumnName="instagram" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -108,21 +71,53 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="edu_categories">
-      <EntityTypeMapping TypeName="ascModel.edu_categories">
-        <MappingFragment StoreEntitySet="edu_categories">
-          <ScalarProperty Name="sira" ColumnName="sira" />
-          <ScalarProperty Name="name" ColumnName="name" />
+    <EntitySetMapping Name="blogs">
+      <EntityTypeMapping TypeName="ascModel.blog">
+        <MappingFragment StoreEntitySet="blog">
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="educations">
-      <EntityTypeMapping TypeName="ascModel.education">
-        <MappingFragment StoreEntitySet="education">
-          <ScalarProperty Name="photo" ColumnName="photo" />
+    <EntitySetMapping Name="our_complex">
+      <EntityTypeMapping TypeName="ascModel.our_complex">
+        <MappingFragment StoreEntitySet="our_complex">
+          <ScalarProperty Name="map_url" ColumnName="map_url" />
           <ScalarProperty Name="text" ColumnName="text" />
-          <ScalarProperty Name="edu_cat_id" ColumnName="edu_cat_id" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="edu_or_gym" ColumnName="edu_or_gym" />
+          <ScalarProperty Name="instagram" ColumnName="instagram" />
+          <ScalarProperty Name="facebook" ColumnName="facebook" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="complex_name" ColumnName="complex_name" />
+          <ScalarProperty Name="region_id" ColumnName="region_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="regions">
+      <EntityTypeMapping TypeName="ascModel.region">
+        <MappingFragment StoreEntitySet="regions">
+          <ScalarProperty Name="region1" ColumnName="region" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="health_staff">
+      <EntityTypeMapping TypeName="ascModel.health_staff">
+        <MappingFragment StoreEntitySet="health_staff">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="facebook" ColumnName="facebook" />
+          <ScalarProperty Name="instagram" ColumnName="instagram" />
+          <ScalarProperty Name="text_about" ColumnName="text_about" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>

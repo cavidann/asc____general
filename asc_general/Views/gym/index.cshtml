@@ -88,7 +88,7 @@
                                 <div class="class-box">
                                     <img src="~/Uploads/@item.photo" alt=""  style="height:220px;"/>
                                     <div class="class-box-content">
-                                        <a href="#"><h2 style="color:#2a2eec;">@item.title</h2> </a> 
+                                        <a href="@Url.Action("Index","gymblog",new { id = item.id })"><h2 style="color:#2a2eec;">@item.title</h2> </a> 
                                         <p>@item.description</p>
                                     </div>
                                 </div>

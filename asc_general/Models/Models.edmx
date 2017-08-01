@@ -14,7 +14,6 @@
           <Property Name="photo" Type="varchar(max)" />
           <Property Name="date" Type="datetime" />
           <Property Name="category_id" Type="int" />
-          <Property Name="dec" Type="varchar" MaxLength="255" />
           <Property Name="text" Type="text" />
         </EntityType>
         <EntityType Name="blog_category">
@@ -33,24 +32,6 @@
           <Property Name="photo" Type="varchar(max)" />
           <Property Name="text" Type="text" />
           <Property Name="video_url" Type="varchar" MaxLength="255" />
-        </EntityType>
-        <EntityType Name="edu_categories">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="sira" Type="int" />
-        </EntityType>
-        <EntityType Name="education">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="edu_cat_id" Type="int" />
-          <Property Name="text" Type="text" />
-          <Property Name="photo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="food_categories">
           <Key>
@@ -89,19 +70,11 @@
           <Property Name="name" Type="varchar" MaxLength="255" />
           <Property Name="profession" Type="varchar" MaxLength="255" />
           <Property Name="photo" Type="varchar(max)" />
-          <Property Name="text_about" Type="varchar" MaxLength="255" />
+          <Property Name="text_about" Type="text" />
           <Property Name="instagram" Type="varchar" MaxLength="255" />
           <Property Name="facebook" Type="varchar" MaxLength="255" />
-        </EntityType>
-        <EntityType Name="idman_kompp">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="255" />
-          <Property Name="photo" Type="varchar(max)" />
-          <Property Name="facebook" Type="varchar" MaxLength="255" />
-          <Property Name="instagram" Type="varchar" MaxLength="255" />
+          <Property Name="phone" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="lettrs">
           <Key>
@@ -120,6 +93,29 @@
           <Property Name="decription" Type="text" />
           <Property Name="type" Type="bit" />
         </EntityType>
+        <EntityType Name="our_complex">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="region_id" Type="int" />
+          <Property Name="complex_name" Type="varchar(max)" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="phone" Type="varchar(max)" />
+          <Property Name="facebook" Type="varchar(max)" />
+          <Property Name="instagram" Type="varchar(max)" />
+          <Property Name="edu_or_gym" Type="bit" />
+          <Property Name="photo" Type="varchar(max)" />
+          <Property Name="text" Type="varchar(max)" />
+          <Property Name="map_url" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="regions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="region" Type="varchar(max)" />
+        </EntityType>
         <Association Name="FK_blog_blog_category">
           <End Role="blog_category" Type="Self.blog_category" Multiplicity="0..1" />
           <End Role="blog" Type="Self.blog" Multiplicity="*" />
@@ -129,18 +125,6 @@
             </Principal>
             <Dependent Role="blog">
               <PropertyRef Name="category_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_education_edu_categories">
-          <End Role="edu_categories" Type="Self.edu_categories" Multiplicity="0..1" />
-          <End Role="education" Type="Self.education" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="edu_categories">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="education">
-              <PropertyRef Name="edu_cat_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -168,26 +152,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_our_complex_region_categories">
+          <End Role="regions" Type="Self.regions" Multiplicity="0..1" />
+          <End Role="our_complex" Type="Self.our_complex" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="regions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="our_complex">
+              <PropertyRef Name="region_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ascModelStoreContainer">
           <EntitySet Name="blog" EntityType="Self.blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="blog_category" EntityType="Self.blog_category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cartoon" EntityType="Self.cartoon" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="edu_categories" EntityType="Self.edu_categories" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="education" EntityType="Self.education" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="food_categories" EntityType="Self.food_categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="foods" EntityType="Self.foods" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="gym_blog" EntityType="Self.gym_blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="health_staff" EntityType="Self.health_staff" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="idman_kompp" EntityType="Self.idman_kompp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lettrs" EntityType="Self.lettrs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="names" EntityType="Self.names" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="our_complex" EntityType="Self.our_complex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="regions" EntityType="Self.regions" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_blog_blog_category" Association="Self.FK_blog_blog_category">
             <End Role="blog_category" EntitySet="blog_category" />
             <End Role="blog" EntitySet="blog" />
-          </AssociationSet>
-          <AssociationSet Name="FK_education_edu_categories" Association="Self.FK_education_edu_categories">
-            <End Role="edu_categories" EntitySet="edu_categories" />
-            <End Role="education" EntitySet="education" />
           </AssociationSet>
           <AssociationSet Name="FK_foods_food_categories" Association="Self.FK_foods_food_categories">
             <End Role="food_categories" EntitySet="food_categories" />
@@ -197,31 +188,22 @@
             <End Role="lettrs" EntitySet="lettrs" />
             <End Role="names" EntitySet="names" />
           </AssociationSet>
+          <AssociationSet Name="FK_our_complex_region_categories" Association="Self.FK_our_complex_region_categories">
+            <End Role="regions" EntitySet="regions" />
+            <End Role="our_complex" EntitySet="our_complex" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ascModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="blog">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="date" Type="DateTime" Precision="3" />
-          <Property Name="category_id" Type="Int32" />
-          <Property Name="dec" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="blog_category" Relationship="Self.FK_blog_blog_category" FromRole="blog" ToRole="blog_category" />
-        </EntityType>
         <EntityType Name="blog_category">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="blogs" Relationship="Self.FK_blog_blog_category" FromRole="blog_category" ToRole="blog" />
+          <NavigationProperty Name="blogs" Relationship="ascModel.FK_blog_blog_category" FromRole="blog_category" ToRole="blog" />
         </EntityType>
         <EntityType Name="cartoon">
           <Key>
@@ -244,51 +226,10 @@
           <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="video_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="health_staff">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="profession" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="text_about" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="instagram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="idman_kompp">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="instagram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <Association Name="FK_blog_blog_category">
-          <End Role="blog_category" Type="Self.blog_category" Multiplicity="0..1" />
-          <End Role="blog" Type="Self.blog" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="blog_category">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="blog">
-              <PropertyRef Name="category_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DbAscEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="blogs" EntityType="Self.blog" />
           <EntitySet Name="blog_category" EntityType="Self.blog_category" />
           <EntitySet Name="cartoons" EntityType="Self.cartoon" />
           <EntitySet Name="gym_blog" EntityType="Self.gym_blog" />
-          <EntitySet Name="health_staff" EntityType="Self.health_staff" />
-          <EntitySet Name="idman_kompp" EntityType="Self.idman_kompp" />
-          <AssociationSet Name="FK_blog_blog_category" Association="Self.FK_blog_blog_category">
-            <End Role="blog_category" EntitySet="blog_category" />
-            <End Role="blog" EntitySet="blogs" />
-          </AssociationSet>
           <EntitySet Name="food_categories" EntityType="ascModel.food_categories" />
           <EntitySet Name="foods" EntityType="ascModel.food" />
           <AssociationSet Name="FK_foods_food_categories" Association="ascModel.FK_foods_food_categories">
@@ -301,12 +242,18 @@
             <End Role="lettr" EntitySet="lettrs" />
             <End Role="name" EntitySet="names" />
           </AssociationSet>
-          <EntitySet Name="edu_categories" EntityType="ascModel.edu_categories" />
-          <EntitySet Name="educations" EntityType="ascModel.education" />
-          <AssociationSet Name="FK_education_edu_categories" Association="ascModel.FK_education_edu_categories">
-            <End Role="edu_categories" EntitySet="edu_categories" />
-            <End Role="education" EntitySet="educations" />
+          <EntitySet Name="blogs" EntityType="ascModel.blog" />
+          <AssociationSet Name="FK_blog_blog_category" Association="ascModel.FK_blog_blog_category">
+            <End Role="blog_category" EntitySet="blog_category" />
+            <End Role="blog" EntitySet="blogs" />
           </AssociationSet>
+          <EntitySet Name="our_complex" EntityType="ascModel.our_complex" />
+          <EntitySet Name="regions" EntityType="ascModel.region" />
+          <AssociationSet Name="FK_our_complex_region_categories" Association="ascModel.FK_our_complex_region_categories">
+            <End Role="region" EntitySet="regions" />
+            <End Role="our_complex" EntitySet="our_complex" />
+          </AssociationSet>
+          <EntitySet Name="health_staff" EntityType="ascModel.health_staff" />
         </EntityContainer>
         <EntityType Name="food_categories">
           <Key>
@@ -371,57 +318,87 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="edu_categories">
+        <EntityType Name="blog">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="sira" Type="Int32" />
-          <NavigationProperty Name="educations" Relationship="ascModel.FK_education_edu_categories" FromRole="edu_categories" ToRole="education" />
-        </EntityType>
-        <EntityType Name="education">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="edu_cat_id" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="category_id" Type="Int32" />
           <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="edu_categories" Relationship="ascModel.FK_education_edu_categories" FromRole="education" ToRole="edu_categories" />
+          <NavigationProperty Name="blog_category" Relationship="ascModel.FK_blog_blog_category" FromRole="blog" ToRole="blog_category" />
         </EntityType>
-        <Association Name="FK_education_edu_categories">
-          <End Type="ascModel.edu_categories" Role="edu_categories" Multiplicity="0..1" />
-          <End Type="ascModel.education" Role="education" Multiplicity="*" />
+        <Association Name="FK_blog_blog_category">
+          <End Type="ascModel.blog_category" Role="blog_category" Multiplicity="0..1" />
+          <End Type="ascModel.blog" Role="blog" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="edu_categories">
+            <Principal Role="blog_category">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="education">
-              <PropertyRef Name="edu_cat_id" />
+            <Dependent Role="blog">
+              <PropertyRef Name="category_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="our_complex">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="region_id" Type="Int32" />
+          <Property Name="complex_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="edu_or_gym" Type="Boolean" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="map_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="region" Relationship="ascModel.FK_our_complex_region_categories" FromRole="our_complex" ToRole="region" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="region1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="our_complex" Relationship="ascModel.FK_our_complex_region_categories" FromRole="region" ToRole="our_complex" />
+        </EntityType>
+        <Association Name="FK_our_complex_region_categories">
+          <End Type="ascModel.region" Role="region" Multiplicity="0..1" />
+          <End Type="ascModel.our_complex" Role="our_complex" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="our_complex">
+              <PropertyRef Name="region_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="health_staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="profession" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="text_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="instagram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ascModelStoreContainer" CdmEntityContainer="DbAscEntities">
-          <EntitySetMapping Name="blogs">
-            <EntityTypeMapping TypeName="ascModel.blog">
-              <MappingFragment StoreEntitySet="blog">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="photo" ColumnName="photo" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="category_id" ColumnName="category_id" />
-                <ScalarProperty Name="dec" ColumnName="dec" />
-                <ScalarProperty Name="text" ColumnName="text" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="blog_category">
             <EntityTypeMapping TypeName="ascModel.blog_category">
               <MappingFragment StoreEntitySet="blog_category">
@@ -450,30 +427,6 @@
                 <ScalarProperty Name="photo" ColumnName="photo" />
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="text" ColumnName="text" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="health_staff">
-            <EntityTypeMapping TypeName="ascModel.health_staff">
-              <MappingFragment StoreEntitySet="health_staff">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="profession" ColumnName="profession" />
-                <ScalarProperty Name="photo" ColumnName="photo" />
-                <ScalarProperty Name="text_about" ColumnName="text_about" />
-                <ScalarProperty Name="instagram" ColumnName="instagram" />
-                <ScalarProperty Name="facebook" ColumnName="facebook" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="idman_kompp">
-            <EntityTypeMapping TypeName="ascModel.idman_kompp">
-              <MappingFragment StoreEntitySet="idman_kompp">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="photo" ColumnName="photo" />
-                <ScalarProperty Name="facebook" ColumnName="facebook" />
-                <ScalarProperty Name="instagram" ColumnName="instagram" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -516,21 +469,53 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="edu_categories">
-            <EntityTypeMapping TypeName="ascModel.edu_categories">
-              <MappingFragment StoreEntitySet="edu_categories">
-                <ScalarProperty Name="sira" ColumnName="sira" />
-                <ScalarProperty Name="name" ColumnName="name" />
+          <EntitySetMapping Name="blogs">
+            <EntityTypeMapping TypeName="ascModel.blog">
+              <MappingFragment StoreEntitySet="blog">
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="educations">
-            <EntityTypeMapping TypeName="ascModel.education">
-              <MappingFragment StoreEntitySet="education">
-                <ScalarProperty Name="photo" ColumnName="photo" />
+          <EntitySetMapping Name="our_complex">
+            <EntityTypeMapping TypeName="ascModel.our_complex">
+              <MappingFragment StoreEntitySet="our_complex">
+                <ScalarProperty Name="map_url" ColumnName="map_url" />
                 <ScalarProperty Name="text" ColumnName="text" />
-                <ScalarProperty Name="edu_cat_id" ColumnName="edu_cat_id" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="edu_or_gym" ColumnName="edu_or_gym" />
+                <ScalarProperty Name="instagram" ColumnName="instagram" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="complex_name" ColumnName="complex_name" />
+                <ScalarProperty Name="region_id" ColumnName="region_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="regions">
+            <EntityTypeMapping TypeName="ascModel.region">
+              <MappingFragment StoreEntitySet="regions">
+                <ScalarProperty Name="region1" ColumnName="region" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="health_staff">
+            <EntityTypeMapping TypeName="ascModel.health_staff">
+              <MappingFragment StoreEntitySet="health_staff">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="instagram" ColumnName="instagram" />
+                <ScalarProperty Name="text_about" ColumnName="text_about" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="profession" ColumnName="profession" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

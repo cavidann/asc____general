@@ -64,32 +64,26 @@
                         <div class="dt-menu-toggle" id="dt-menu-toggle">Menu<span class="dt-menu-toggle-icon"></span></div>
                         <ul id="menu-main-menu" class="menu">
                             <li class="current_page_item  red">
-                                <a href="index.html">Ana səhifə </a>
+                                @Html.ActionLink("Ana Səhifə", "Index", "Home")
                             </li>
                             <li class="mustard">
-                                <a href="name.html"> Adlar</a>
+                                @Html.ActionLink("Adlar", "Index", "Letters")
                             </li>
-                            <!--<li class="green">
-                                <a href="#"> Heyətimiz </a>
-                            </li>-->
                             <li class="yellow">
                                @Html.ActionLink(" Cizgi Filmlər", "Index", "Cartoon")
                             </li>
                             <li class="blue">
-                                <a href="~/Public/gym.html" title="">İdman</a>
+                               @Html.ActionLink("Idman", "Index", "gym")
                             </li>
                             <li class="steelblue">
                                 @Html.ActionLink("Qida", "Index", "Food")
                             </li>
                             <li class="lavender">
-                                <a href="~/Public/tehsil.html" title="">Təhsil</a>
+                                @Html.ActionLink("Təhsil", "Index", "Education")
                             </li>
                             <li class="purple">
-                                <a href="~/Public/medical.html" title="">Sağlamlıq</a>
+                                @Html.ActionLink("Sağlamlıq", "Index", "Health")
                             </li>
-                            <!--<li class="pink">
-                                <a href="#" title="">Geyim</a>
-                            </li>-->
                         </ul>
                     </nav>
                     <!--nav ends-->
