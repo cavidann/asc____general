@@ -15,8 +15,8 @@ namespace asc_general.Controllers
         public ActionResult Index()
         {
             dynamic datalar = new ExpandoObject();
-            //datalar.EduCategory = db.edu_categories.OrderBy(cat => cat.sira).ToList();
-            //datalar.Education = db.educations.ToList();
+            datalar.regions = db.regions.ToList();
+            datalar.complex = db.our_complex.Where(b => b.edu_or_gym == true).ToList();
             datalar.edu_blog = db.blogs.Where(e => e.blog_category.name.Equals("Tehsil")).OrderByDescending(e => e.date).Take(3).ToList();
             return View(datalar);
         }

@@ -71,10 +71,10 @@
         <div class="filter-tags-holder">
             <ul id="tg-filterbale-nav" class="option-set">
                 <li><a class="selected" data-filter="*" href="#">Hamısı</a></li>
-                @foreach (edu_categories cat in Model.EduCategory)
+                @foreach (region categoires in Model.regions)
                 {
                     <li>
-                        <a data-filter=".@cat.id" href="#">@cat.name</a>
+                        <a data-filter=".@categoires.id" href="#">@categoires.region1</a>
                     </li>
                 }
             </ul>
@@ -86,15 +86,15 @@
     <div class="container">
         <div class="row">
             <div id="filter-masonry" class="gallery-masonry section-padding-top">
-                @foreach (education edu in Model.Education)
+                @foreach (our_complex comp in Model.complex)
                 {                    
-                    <div class="masonry-grid col-sm-4 col-xs-6 @edu.edu_cat_id r-full-width">
+                    <div class="masonry-grid col-sm-4 col-xs-6 @comp.region_id r-full-width">
                         <figure class="gallery-figure">
-                            <img src="~/Uploads/@edu.photo" alt="@edu.name">
+                            <img src="~/Uploads/@comp.photo" alt="@comp.complex_name">
                             <figcaption class="gallery-hover">
                                 <div class="tc-display-table">
                                     <div class="tc-display-table-cell">
-                                        <a class="fa fa-link"  href="#"> <h2 style="color:#ffce72;">@edu.name </h2>  </a>
+                                        <a class="fa fa-link"  href="@Url.Action("index","complex",new { id = comp.id})"> <h2 style="color:#ffce72;">@comp.complex_name </h2>  </a>
                                     </div>
                                 </div>
                             </figcaption>

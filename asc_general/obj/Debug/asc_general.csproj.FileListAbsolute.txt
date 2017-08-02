@@ -140,3 +140,7 @@ C:\Users\User\Desktop\ascSenem\asc_general\obj\Debug\asc_general.csprojResolveAs
 C:\Users\User\Desktop\ascSenem\asc_general\obj\Debug\asc_general.dll
 C:\Users\User\Desktop\ascSenem\asc_general\obj\Debug\asc_general.pdb
 C:\Users\Adel\Desktop\asc_general\asc_general\obj\Debug\asc_general.csprojResolveAssemblyReference.cache
+C:\Users\Adel\Desktop\asc_general\asc_general\bin\PagedList.dll
+C:\Users\Adel\Desktop\asc_general\asc_general\bin\PagedList.Mvc.dll
+C:\Users\Adel\Desktop\asc_general\asc_general\bin\PagedList.xml
+C:\Users\Adel\Desktop\asc_general\asc_general\bin\PagedList.Mvc.xml

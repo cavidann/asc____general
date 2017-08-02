@@ -152,7 +152,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_our_complex_region_categories">
+        <Association Name="FK_our_complex_regions">
           <End Role="regions" Type="Self.regions" Multiplicity="0..1" />
           <End Role="our_complex" Type="Self.our_complex" Multiplicity="*" />
           <ReferentialConstraint>
@@ -188,7 +188,7 @@
             <End Role="lettrs" EntitySet="lettrs" />
             <End Role="names" EntitySet="names" />
           </AssociationSet>
-          <AssociationSet Name="FK_our_complex_region_categories" Association="Self.FK_our_complex_region_categories">
+          <AssociationSet Name="FK_our_complex_regions" Association="Self.FK_our_complex_regions">
             <End Role="regions" EntitySet="regions" />
             <End Role="our_complex" EntitySet="our_complex" />
           </AssociationSet>

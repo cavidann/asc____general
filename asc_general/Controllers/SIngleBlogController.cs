@@ -22,7 +22,6 @@ namespace asc_general.Controllers
             }
             dynamic mymodel = new ExpandoObject();
             blog blg = db.blogs.Find(id);
-           
             mymodel.myblog = db.blogs.ToList();
             mymodel.Blog = blg;
             mymodel.otherblogs = db.blogs.Where( o=> o.id != id && o.category_id == blg.category_id ).Take(3).ToList();

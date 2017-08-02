@@ -55,6 +55,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -162,8 +168,12 @@
     <Compile Include="Areas\Admins\Controllers\gym_blogController.cs" />
     <Compile Include="Areas\Admins\Controllers\health_staffController.cs" />
     <Compile Include="Areas\Admins\Controllers\Health_Staff_CrudController.cs" />
+    <Compile Include="Areas\Admins\Controllers\our_complex_CrudController.cs" />
+    <Compile Include="Areas\Admins\Controllers\regions_CrudController.cs" />
     <Compile Include="Controllers\CartoonController.cs" />
     <Compile Include="Controllers\cartoon_blogController.cs" />
+    <Compile Include="Controllers\Controllers\ComplexController.cs" />
+    <Compile Include="Controllers\Dr_ProfileController.cs" />
     <Compile Include="Controllers\EducationController.cs" />
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\gymController.cs" />
@@ -234,6 +244,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -301,6 +312,8 @@
     <Content Include="Public\css\bootstrap.css" />
     <Content Include="Public\css\bootstrap.min.css" />
     <Content Include="Public\css\cizgi.css" />
+    <Content Include="Public\css\complex.css" />
+    <Content Include="Public\css\dr_profile.css" />
     <Content Include="Public\css\font-awesome.min.css" />
     <Content Include="Public\css\food.css" />
     <Content Include="Public\css\foodHut_responsive.css" />
@@ -1142,6 +1155,16 @@
     <Content Include="Areas\Admins\Views\Health_Staff_Crud\Index.cshtml" />
     <Content Include="Areas\Admins\Views\Shared\_adminlayout.cshtml" />
     <Content Include="Areas\Admins\Views\web.config" />
+    <Content Include="Areas\Admins\Views\regions_Crud\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\regions_Crud\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\regions_Crud\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\regions_Crud\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\regions_Crud\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\our_complex_Crud\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\our_complex_Crud\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\our_complex_Crud\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\our_complex_Crud\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\our_complex_Crud\Index.cshtml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -1224,6 +1247,118 @@
     <Content Include="Uploads\20177262530image1.jpg" />
     <Content Include="Uploads\201772625311image3.jpg" />
     <Content Include="Uploads\201772625412portfolio_detail1.jpg" />
+    <Content Include="Uploads\2017729152638img-01.jpg" />
+    <Content Include="Uploads\2017729152652img-05.jpg" />
+    <Content Include="Uploads\2017729152659img-03.jpg" />
+    <Content Include="Uploads\201772915277img-04.jpg" />
+    <Content Include="Uploads\2017729154935img-02.jpg" />
+    <Content Include="Uploads\201772915506img-08.jpg" />
+    <Content Include="Uploads\20177292327252017729154935img-02.jpg" />
+    <Content Include="Uploads\2017729232832017729152652img-05.jpg" />
+    <Content Include="Uploads\20177292328342017729152659img-03.jpg" />
+    <Content Include="Uploads\2017730193626kasha.jpg" />
+    <Content Include="Uploads\2017730193726kasha.jpg" />
+    <Content Include="Uploads\2017730193821kasha.jpg" />
+    <Content Include="Uploads\2017730193853kasha.jpg" />
+    <Content Include="Uploads\201773113337br2.jpg" />
+    <Content Include="Uploads\201773115726alma.jpg" />
+    <Content Include="Uploads\201773115816board.jpg" />
+    <Content Include="Uploads\201773115848ideas.jpg" />
+    <Content Include="Uploads\20177311599ideas.jpg" />
+    <Content Include="Uploads\201773121010class2.jpg" />
+    <Content Include="Uploads\20177312111blog_img6.jpg" />
+    <Content Include="Uploads\201773121123blog_img3.jpg" />
+    <Content Include="Uploads\201773124525class1.jpg" />
+    <Content Include="Uploads\201773124823class2.jpg" />
+    <Content Include="Uploads\201773124850class3.jpg" />
+    <Content Include="Uploads\201773125024class4.jpg" />
+    <Content Include="Uploads\201773125056blog_img3.jpg" />
+    <Content Include="Uploads\201773125135class6.jpg" />
+    <Content Include="Uploads\201773133133video-bg.jpg" />
+    <Content Include="Uploads\20177313436video-bg.jpg" />
+    <Content Include="Uploads\20177313452video-bg.jpg" />
+    <Content Include="Uploads\2017731349video-bg.jpg" />
+    <Content Include="Uploads\20177313511video-bg.jpg" />
+    <Content Include="Uploads\2017811612142017725145848team1.jpg" />
+    <Content Include="Uploads\2017811618412017811612142017725145848team1.jpg" />
+    <Content Include="Uploads\2017811619572017811612142017725145848team1.jpg" />
+    <Content Include="Uploads\2017811622302017811619572017811612142017725145848team1.jpg" />
+    <Content Include="Uploads\2017811624282017725145848team1.jpg" />
+    <Content Include="Uploads\20178116272320177241752class6.jpg" />
+    <Content Include="Uploads\201781164447201772515037team3.jpg" />
+    <Content Include="Uploads\201781164629201772515118team4.jpg" />
+    <Content Include="Uploads\201781164748201772515037team3.jpg" />
+    <Content Include="Uploads\2017811655472017811612142017725145848team1.jpg" />
+    <Content Include="Uploads\201782224162017729154935img-02.jpg" />
+    <Content Include="Uploads\201782234482017729152638img-01.jpg" />
+    <Content Include="Uploads\201782235582017729152659img-03.jpg" />
+    <Content Include="Uploads\2017822365720177311599ideas.jpg" />
+    <Content Include="Uploads\20178223855201773115816board.jpg" />
+    <Content Include="Uploads\2017822389201773115726alma.jpg" />
+    <Content Include="Uploads\2017823233120177243172class2.jpg" />
+    <Content Include="Views\Complex\Uploads\20177231942316145549_1211799138906412_1577592306_o.jpg" />
+    <Content Include="Views\Complex\Uploads\2017724133011trainer1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772414159blog_img5.jpg" />
+    <Content Include="Views\Complex\Uploads\2017724171257trainer1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772417135add_bg.png" />
+    <Content Include="Views\Complex\Uploads\2017724172640activity4.jpg" />
+    <Content Include="Views\Complex\Uploads\20177241752class6.jpg" />
+    <Content Include="Views\Complex\Uploads\201772431546class1.jpg" />
+    <Content Include="Views\Complex\Uploads\20177243172class2.jpg" />
+    <Content Include="Views\Complex\Uploads\201772431743class3.jpg" />
+    <Content Include="Views\Complex\Uploads\201772431840class4.jpg" />
+    <Content Include="Views\Complex\Uploads\201772431938author-hexa-bg.png" />
+    <Content Include="Views\Complex\Uploads\201772504021br6.jpg" />
+    <Content Include="Views\Complex\Uploads\201772504223br6.jpg" />
+    <Content Include="Views\Complex\Uploads\20177250422br6.jpg" />
+    <Content Include="Views\Complex\Uploads\201772504235br6.jpg" />
+    <Content Include="Views\Complex\Uploads\201772504248br6.jpg" />
+    <Content Include="Views\Complex\Uploads\201772504259br6.jpg" />
+    <Content Include="Views\Complex\Uploads\201772504424dn1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772504445dn1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772504520dn1.jpg" />
+    <Content Include="Views\Complex\Uploads\20177250456dn1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772504719dn1.jpg" />
+    <Content Include="Views\Complex\Uploads\20177250471dn1.jpg" />
+    <Content Include="Views\Complex\Uploads\2017725142954trainer1.jpg" />
+    <Content Include="Views\Complex\Uploads\2017725143322trainer2.jpg" />
+    <Content Include="Views\Complex\Uploads\2017725143343trainer3.jpg" />
+    <Content Include="Views\Complex\Uploads\201772514349trainer4.jpg" />
+    <Content Include="Views\Complex\Uploads\2017725145848team1.jpg" />
+    <Content Include="Views\Complex\Uploads\2017725145952team2.jpg" />
+    <Content Include="Views\Complex\Uploads\201772515037team3.jpg" />
+    <Content Include="Views\Complex\Uploads\201772515118team4.jpg" />
+    <Content Include="Views\Complex\Uploads\20177251687mashabear.jpg" />
+    <Content Include="Views\Complex\Uploads\201772522015br1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772522037br2.jpg" />
+    <Content Include="Views\Complex\Uploads\201772522643br1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772522710br1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772522731br1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772522744br1.jpg" />
+    <Content Include="Views\Complex\Uploads\20177252281br1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772523323dr1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772523334dr1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772523347dr1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772523359dr1.jpg" />
+    <Content Include="Views\Complex\Uploads\20177252335dr1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772523410dr1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772605923image1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772611030image4.jpg" />
+    <Content Include="Views\Complex\Uploads\201772611111image5.jpg" />
+    <Content Include="Views\Complex\Uploads\20177261158image2.jpg" />
+    <Content Include="Views\Complex\Uploads\2017726152028e.png" />
+    <Content Include="Views\Complex\Uploads\2017726163040download.jpg" />
+    <Content Include="Views\Complex\Uploads\2017726191516download.jpg" />
+    <Content Include="Views\Complex\Uploads\20177261920181600x1000.png" />
+    <Content Include="Views\Complex\Uploads\20177261948image3.jpg" />
+    <Content Include="Views\Complex\Uploads\201772622133blog_img1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772622333class4.jpg" />
+    <Content Include="Views\Complex\Uploads\201772622532activity3.jpg" />
+    <Content Include="Views\Complex\Uploads\201772622552blog_img3.jpg" />
+    <Content Include="Views\Complex\Uploads\201772625230image5.jpg" />
+    <Content Include="Views\Complex\Uploads\20177262530image1.jpg" />
+    <Content Include="Views\Complex\Uploads\201772625311image3.jpg" />
+    <Content Include="Views\Complex\Uploads\201772625412portfolio_detail1.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1231,7 +1366,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Uploads\Thumbs.db" />
+    <Content Include="Views\Complex\Uploads\Thumbs.db" />
     <Content Include="Views\Cartoon\Index.cshtml" />
     <Content Include="Views\cartoon_blog\Index.cshtml" />
     <Content Include="Views\Education\Index.cshtml" />
@@ -1252,11 +1387,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\gym_blog\Index.cshtml" />
     <Content Include="Views\gymblog\Index.cshtml" />
+    <Content Include="Views\Dr_Profile\Index.cshtml" />
+    <Content Include="Views\Complex\Index.cshtml" />
+    <Content Include="Uploads\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admins\Models\" />
-    <Folder Include="Controllers\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

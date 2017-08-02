@@ -1,0 +1,98 @@
+﻿@using asc_general.Models
+@model dynamic
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section complexCss {
+
+    <link rel="stylesheet" href="~/Public/css/food.css">
+<link rel="stylesheet" href="~/Public/css/complex.css">
+
+}
+<div id="warpper-blog clearfix" class="warpper-blog section">
+    <div class="container">
+        <div class="row">
+            <!-- Strat Left Blog sidber -->
+            <div class="col-sm-12 col-md-8">
+                <div class="blog-warpper margin-bottom-30">
+                    <article class="inner-blog">
+                        <figure class="margin-bottom-30 image">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img class="img-responsive" src="~/Uploads/@Model.complexId.photo" alt="Blog Image">
+                                </div> 
+                                <div class="col-md-6">
+                                    <h2 class="post-title color-flamingo"><a href="#">@Model.complexId.complex_name</a></h2>
+                                    <h4>Phone:@Model.complexId.phone</h4>
+                                    <h4>Address:@Model.complexId.address</h4>
+                                    <ul>
+
+                                        <li>
+                                            <a href="@Model.complexId.facebook"> <i class="fa fa-facebook" aria-hidden="true"> </i> </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Model.complexId.instagram"> <i class="fa fa-instagram" aria-hidden="true"> </i> </a>
+                                        </li>
+                                    </ul>
+                                </div>   
+                               
+                            </div>
+                        </figure>
+                   
+                        <div class="lower-part">
+                            <div class="post-text">
+                                <p> @Model.complexId.text</p>
+                            </div>
+                            <iframe src="@Model.complexId.map_url" width="800" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                       @*   <iframe src="https://www.google.com/maps/embed?pb@Model.complexId.map_url" width="400" height="300" frameborder="0" style="border:0" allowfullscreen> </iframe>*@
+                        </div>
+                        
+                    </article>
+                    <div class="text-center prevnext">
+                        @if (Model.prev != null)
+                        {
+                            
+                            <a href="@Url.Action("index","complex",new { id = Model.prev.id })"><i class="fa fa-angle-double-left" aria-hidden="true"></i>Öncə</a>
+                        }
+                        @if (Model.next != null)
+                        {
+                         
+                            <a href="@Url.Action("index","complex",new { id = Model.next.id })">Sonra <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        }
+                    </div>
+                </div>
+            </div><!-- End Left Left Sidber -->
+
+   
+            <!--  Strat Blog Right Sidber -->
+            <div class="col-sm-12 col-md-4">
+                <div class="blog-sidber">
+                    <div class="clearfix"></div>
+                    <!-- End Search Form-->
+                    <div class="recent-post">
+                        <div class="sections">
+                            <h2>Kateqoriyalar</h2>
+                        </div>
+                        <ul class="recent-post-list list-inline">
+                            @foreach (region reg in Model.regions)
+                            {
+                                <li>
+                                    <a href="#"><h3>@reg.region1</h3> <p> (@reg.our_complex.Count) </p> </a>
+                                </li>
+                            }
+                        </ul>
+                
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- End Recent Post -->
+
+
+                </div>
+            </div><!-- End Left Left Sidber -->
+        </div><!-- End Row -->
+    </div>
+</div>
+
