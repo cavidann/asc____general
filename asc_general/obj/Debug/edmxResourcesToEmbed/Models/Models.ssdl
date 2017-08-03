@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ascModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adminname" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="image" Type="varchar(max)" />
+  </EntityType>
   <EntityType Name="blog">
     <Key>
       <PropertyRef Name="id" />
@@ -111,6 +120,16 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="region" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="image" Type="varchar(max)" />
+  </EntityType>
   <Association Name="FK_blog_blog_category">
     <End Role="blog_category" Type="Self.blog_category" Multiplicity="0..1" />
     <End Role="blog" Type="Self.blog" Multiplicity="*" />
@@ -160,6 +179,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="ascModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="blog" EntityType="Self.blog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="blog_category" EntityType="Self.blog_category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="cartoon" EntityType="Self.cartoon" Schema="dbo" store:Type="Tables" />
@@ -171,6 +191,7 @@
     <EntitySet Name="names" EntityType="Self.names" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="our_complex" EntityType="Self.our_complex" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="regions" EntityType="Self.regions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_blog_blog_category" Association="Self.FK_blog_blog_category">
       <End Role="blog_category" EntitySet="blog_category" />
       <End Role="blog" EntitySet="blog" />

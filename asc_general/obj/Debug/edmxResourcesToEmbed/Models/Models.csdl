@@ -57,6 +57,8 @@
       <End Role="our_complex" EntitySet="our_complex" />
     </AssociationSet>
     <EntitySet Name="health_staff" EntityType="ascModel.health_staff" />
+    <EntitySet Name="admins" EntityType="ascModel.admin" />
+    <EntitySet Name="users" EntityType="ascModel.user" />
   </EntityContainer>
   <EntityType Name="food_categories">
     <Key>
@@ -195,5 +197,24 @@
     <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adminname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

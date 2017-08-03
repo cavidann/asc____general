@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_userlayout.cshtml";
+}
+@using asc_general.Models;
+@{
+    var user = Session["user"] as user;
+}
+<div class="col-md-12">
+    <h2>Username=@user.username</h2>
+    <h2>Password=@user.password</h2>
+    <a href="@Url.Action("Logout", "user")"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a>
+    <h2>Email=@user.email</h2>
+    <h2>Image=@user.image</h2>
+    
+</div>
+

@@ -54,6 +54,10 @@ public partial class DbAscEntities : DbContext
 
     public virtual DbSet<health_staff> health_staff { get; set; }
 
+    public virtual DbSet<admin> admins { get; set; }
+
+    public virtual DbSet<user> users { get; set; }
+
 }
 
 }
