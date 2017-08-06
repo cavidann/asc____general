@@ -15,6 +15,8 @@ Layout = "";
     <link rel="stylesheet" href="~/Public/css/mob.css">
     <link rel="stylesheet" href="~/Public/css/bootstrap.css">
     <link rel="stylesheet" href="~/Public/css/materialize.css">
+    <link rel="stylesheet" href="~/Public/css/login.css">
+
     <!-- Bootstrap 3.3.7 -->
     <!--<link rel="stylesheet" href="~/Areas/Admins/Public/bower_components/bootstrap/dist/css/bootstrap.min.css">-->
     <!-- Font Awesome -->
@@ -35,60 +37,72 @@ Layout = "";
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body>
-    <div class="blog-login">
-        
-        <!-- /.login-logo -->
-        <div class="blog-login-in">
-            <h1>User</h1>
-            <form action="@Url.Action("Login","user")" method="post">
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input type="text" id="first_name1" class="validate" name="username" >
-                        <label for="first_name1">User Name</label>
-                        <span class="glyphicon form-control-feedback"><i class="fa fa-user-o" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input type="password" id="last_name" class="validate" name="password">
-                        <label for="last_name">Password</label>
-                        <span class="glyphicon form-control-feedback"><i class="fa fa-key" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <button type="submit" class="waves-effect waves-light btn-large btn-log-in">Sign In</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-
-
-                    @if (Session["error_message"] != null)
-                    {
-                    <div class="alert alert-danger">
-                        <p>@Session["error_message"]</p>
-                    </div>
-                    {
-                    Session.Clear();
-                    }
-                    }
-
-                    @if (Session["error_input"] != null)
-                    {
-                    <div class="alert alert-danger">
-                        <p>@Session["error_input"]</p>
-                    </div>
-                    {
-                    Session.Clear();
-                    }
-                    }
-</form>
+    <div class="signup__container">
+        <div class="container__child signup__thumbnail">
+            <div class="thumbnail__links">
+                <ul class="list-inline m-b-0 text-center">
+                    <li><a href="http://alexdevero.com/" target="_blank"><i class="fa fa-globe"></i></a></li>
+                    <li><a href="https://www.behance.net/alexdevero" target="_blank"><fa class="fa fa-behance"></fa></a></li>
+                    <li><a href="https://github.com/alexdevero" target="_blank"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://twitter.com/alexdevero" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+            <div class="signup__overlay"></div>
         </div>
-        <!-- /.login-box-body -->
+        <div class="container__child signup__form">
+            @*<div class="blog-login">
+                <div class="blog-login-in">*@
+                    <h1>User</h1>
+                    <form action="@Url.Action("Login","user")" method="post">
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" id="first_name1" class="validate" name="username">
+                                <label for="first_name1">User Name</label>
+                                <span class="glyphicon form-control-feedback"><i class="fa fa-user-o" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="password" id="last_name" class="validate" name="password">
+                                <label for="last_name">Password</label>
+                                <span class="glyphicon form-control-feedback"><i class="fa fa-key" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button type="submit" class="waves-effect waves-light btn btn--form btn-log-in">Sign In</button>
+                            </div>
+
+                        </div>
+
+
+                        @if (Session["error_message"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                <p>@Session["error_message"]</p>
+                            </div>
+                            {
+                                Session.Clear();
+                            }
+                        }
+
+                        @if (Session["error_input"] != null)
+                        {
+                            <div class="alert alert-danger">
+                                <p>@Session["error_input"]</p>
+                            </div>
+                            {
+                                Session.Clear();
+                            }
+                        }
+                    </form>
+                @*</div>
+            </div>*@
+        </div>
     </div>
     <!-- /.login-box -->
     <script src="~/Public/js/jquery.min.js"></script>
@@ -102,13 +116,13 @@ Layout = "";
     <!-- iCheck -->
     <script src="~/Public/plugins/iCheck/icheck.min.js"></script>
     <script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+        });
     </script>
 </body>
 </html>

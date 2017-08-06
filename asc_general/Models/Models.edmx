@@ -47,8 +47,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="sira" Type="int" Nullable="false" />
-          <Property Name="category_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="sira" Type="int" />
+          <Property Name="category_name" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="foods">
           <Key>
@@ -79,7 +79,7 @@
           <Property Name="name" Type="varchar" MaxLength="255" />
           <Property Name="profession" Type="varchar" MaxLength="255" />
           <Property Name="photo" Type="varchar(max)" />
-          <Property Name="text_about" Type="text" />
+          <Property Name="text_about" Type="varchar" MaxLength="255" />
           <Property Name="instagram" Type="varchar" MaxLength="255" />
           <Property Name="facebook" Type="varchar" MaxLength="255" />
           <Property Name="phone" Type="varchar" MaxLength="255" />
@@ -115,7 +115,7 @@
           <Property Name="instagram" Type="varchar(max)" />
           <Property Name="edu_or_gym" Type="bit" />
           <Property Name="photo" Type="varchar(max)" />
-          <Property Name="text" Type="varchar(max)" />
+          <Property Name="text" Type="varchar" MaxLength="255" />
           <Property Name="map_url" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="regions">
@@ -125,6 +125,16 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="region" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="id" />
@@ -133,6 +143,7 @@
           <Property Name="username" Type="varchar" MaxLength="50" />
           <Property Name="password" Type="varchar" MaxLength="50" />
           <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="password1" Type="varchar" MaxLength="255" />
           <Property Name="image" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK_blog_blog_category">
@@ -171,7 +182,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_our_complex_regions">
+        <Association Name="FK_our_complex_region">
           <End Role="regions" Type="Self.regions" Multiplicity="0..1" />
           <End Role="our_complex" Type="Self.our_complex" Multiplicity="*" />
           <ReferentialConstraint>
@@ -196,6 +207,7 @@
           <EntitySet Name="names" EntityType="Self.names" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="our_complex" EntityType="Self.our_complex" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="regions" EntityType="Self.regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_blog_blog_category" Association="Self.FK_blog_blog_category">
             <End Role="blog_category" EntitySet="blog_category" />
@@ -209,7 +221,7 @@
             <End Role="lettrs" EntitySet="lettrs" />
             <End Role="names" EntitySet="names" />
           </AssociationSet>
-          <AssociationSet Name="FK_our_complex_regions" Association="Self.FK_our_complex_regions">
+          <AssociationSet Name="FK_our_complex_region" Association="Self.FK_our_complex_region">
             <End Role="regions" EntitySet="regions" />
             <End Role="our_complex" EntitySet="our_complex" />
           </AssociationSet>
@@ -268,14 +280,15 @@
             <End Role="blog_category" EntitySet="blog_category" />
             <End Role="blog" EntitySet="blogs" />
           </AssociationSet>
+          <EntitySet Name="admins" EntityType="ascModel.admin" />
           <EntitySet Name="our_complex" EntityType="ascModel.our_complex" />
           <EntitySet Name="regions" EntityType="ascModel.region" />
-          <AssociationSet Name="FK_our_complex_region_categories" Association="ascModel.FK_our_complex_region_categories">
+          <EntitySet Name="sysdiagrams" EntityType="ascModel.sysdiagram" />
+          <AssociationSet Name="FK_our_complex_region" Association="ascModel.FK_our_complex_region">
             <End Role="region" EntitySet="regions" />
             <End Role="our_complex" EntitySet="our_complex" />
           </AssociationSet>
           <EntitySet Name="health_staff" EntityType="ascModel.health_staff" />
-          <EntitySet Name="admins" EntityType="ascModel.admin" />
           <EntitySet Name="users" EntityType="ascModel.user" />
         </EntityContainer>
         <EntityType Name="food_categories">
@@ -283,8 +296,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="sira" Type="Int32" Nullable="false" />
-          <Property Name="category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sira" Type="Int32" />
+          <Property Name="category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="foods" Relationship="ascModel.FK_foods_food_categories" FromRole="food_categories" ToRole="food" />
         </EntityType>
         <EntityType Name="food">
@@ -365,6 +378,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="our_complex">
           <Key>
             <PropertyRef Name="id" />
@@ -378,9 +400,9 @@
           <Property Name="instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="edu_or_gym" Type="Boolean" />
           <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="text" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="map_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="region" Relationship="ascModel.FK_our_complex_region_categories" FromRole="our_complex" ToRole="region" />
+          <NavigationProperty Name="region" Relationship="ascModel.FK_our_complex_region" FromRole="our_complex" ToRole="region" />
         </EntityType>
         <EntityType Name="region">
           <Key>
@@ -388,9 +410,19 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="region1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="our_complex" Relationship="ascModel.FK_our_complex_region_categories" FromRole="region" ToRole="our_complex" />
+          <NavigationProperty Name="our_complex" Relationship="ascModel.FK_our_complex_region" FromRole="region" ToRole="our_complex" />
         </EntityType>
-        <Association Name="FK_our_complex_region_categories">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_our_complex_region">
           <End Type="ascModel.region" Role="region" Multiplicity="0..1" />
           <End Type="ascModel.our_complex" Role="our_complex" Multiplicity="*" />
           <ReferentialConstraint>
@@ -410,20 +442,11 @@
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="profession" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="text_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="text_about" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="instagram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="admin">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="adminname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -433,6 +456,7 @@
           <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
@@ -523,6 +547,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="ascModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="adminname" ColumnName="adminname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="our_complex">
             <EntityTypeMapping TypeName="ascModel.our_complex">
               <MappingFragment StoreEntitySet="our_complex">
@@ -548,6 +582,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ascModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="health_staff">
             <EntityTypeMapping TypeName="ascModel.health_staff">
               <MappingFragment StoreEntitySet="health_staff">
@@ -563,20 +608,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="admins">
-            <EntityTypeMapping TypeName="ascModel.admin">
-              <MappingFragment StoreEntitySet="admin">
-                <ScalarProperty Name="image" ColumnName="image" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="adminname" ColumnName="adminname" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="ascModel.user">
               <MappingFragment StoreEntitySet="user">
                 <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="password1" ColumnName="password1" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="username" ColumnName="username" />

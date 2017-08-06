@@ -50,14 +50,15 @@
       <End Role="blog_category" EntitySet="blog_category" />
       <End Role="blog" EntitySet="blogs" />
     </AssociationSet>
+    <EntitySet Name="admins" EntityType="ascModel.admin" />
     <EntitySet Name="our_complex" EntityType="ascModel.our_complex" />
     <EntitySet Name="regions" EntityType="ascModel.region" />
-    <AssociationSet Name="FK_our_complex_region_categories" Association="ascModel.FK_our_complex_region_categories">
+    <EntitySet Name="sysdiagrams" EntityType="ascModel.sysdiagram" />
+    <AssociationSet Name="FK_our_complex_region" Association="ascModel.FK_our_complex_region">
       <End Role="region" EntitySet="regions" />
       <End Role="our_complex" EntitySet="our_complex" />
     </AssociationSet>
     <EntitySet Name="health_staff" EntityType="ascModel.health_staff" />
-    <EntitySet Name="admins" EntityType="ascModel.admin" />
     <EntitySet Name="users" EntityType="ascModel.user" />
   </EntityContainer>
   <EntityType Name="food_categories">
@@ -65,8 +66,8 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="sira" Type="Int32" Nullable="false" />
-    <Property Name="category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sira" Type="Int32" />
+    <Property Name="category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="foods" Relationship="ascModel.FK_foods_food_categories" FromRole="food_categories" ToRole="food" />
   </EntityType>
   <EntityType Name="food">
@@ -147,6 +148,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adminname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="our_complex">
     <Key>
       <PropertyRef Name="id" />
@@ -160,9 +170,9 @@
     <Property Name="instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="edu_or_gym" Type="Boolean" />
     <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="text" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="map_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="region" Relationship="ascModel.FK_our_complex_region_categories" FromRole="our_complex" ToRole="region" />
+    <NavigationProperty Name="region" Relationship="ascModel.FK_our_complex_region" FromRole="our_complex" ToRole="region" />
   </EntityType>
   <EntityType Name="region">
     <Key>
@@ -170,9 +180,19 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="region1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="our_complex" Relationship="ascModel.FK_our_complex_region_categories" FromRole="region" ToRole="our_complex" />
+    <NavigationProperty Name="our_complex" Relationship="ascModel.FK_our_complex_region" FromRole="region" ToRole="our_complex" />
   </EntityType>
-  <Association Name="FK_our_complex_region_categories">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_our_complex_region">
     <End Type="ascModel.region" Role="region" Multiplicity="0..1" />
     <End Type="ascModel.our_complex" Role="our_complex" Multiplicity="*" />
     <ReferentialConstraint>
@@ -192,20 +212,11 @@
     <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="profession" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="text_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="text_about" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="instagram" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="admin">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="adminname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -215,6 +226,7 @@
     <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="password1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>
